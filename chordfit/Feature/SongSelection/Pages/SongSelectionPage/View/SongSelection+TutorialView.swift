@@ -13,7 +13,13 @@ class SongSelection_TutorialView: UIView {
     
     @IBOutlet weak var songSelectionTableView: UITableView!
     
-    var songs: [Song]?
+    var songs: [Song]? {
+        didSet {
+            print(songs)
+            setup()
+        }
+    }
+    
     
     func setup() {
        

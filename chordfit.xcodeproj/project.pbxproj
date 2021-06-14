@@ -23,9 +23,10 @@
 		BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */; };
 		BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */; };
 		BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */; };
-		BF7EC73326746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */; };
+		BF7EC73326746E31004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73226746E31004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */; };
 		BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */; };
-		BF7EC73926748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
+		BF7EC73926748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73826748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
+		BF7EC73B26779BF3004E4849 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73A26779BF3004E4849 /* HeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,9 +48,10 @@
 		BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialView.swift"; sourceTree = "<group>"; };
 		BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController.swift"; sourceTree = "<group>"; };
 		BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SongSelection+Tutorial.storyboard"; sourceTree = "<group>"; };
-		BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; sourceTree = "<group>"; };
+		BF7EC73226746E31004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; sourceTree = "<group>"; };
 		BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
+		BF7EC73826748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
+		BF7EC73A26779BF3004E4849 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				BF7EC719267396FE004E4849 /* SongSelectionTableViewCell.swift */,
 				BF7EC71A267396FE004E4849 /* SongSelectionTableViewCell.xib */,
 				BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */,
+				BF7EC73A26779BF3004E4849 /* HeaderTableViewCell.swift */,
 			);
 			path = SongSelectionCell;
 			sourceTree = "<group>";
@@ -234,8 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */,
-				BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */,
-				BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */,
+				BF7EC73226746E31004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */,
+				BF7EC73826748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -331,11 +334,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
+				BF7EC73B26779BF3004E4849 /* HeaderTableViewCell.swift in Sources */,
 				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
 				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
 				BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */,
-				BF7EC73326746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
-				BF7EC73926748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
+				BF7EC73326746E31004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
+				BF7EC73926748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
 				BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */,
 				BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,

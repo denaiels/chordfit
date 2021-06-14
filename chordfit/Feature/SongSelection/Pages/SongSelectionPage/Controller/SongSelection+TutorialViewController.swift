@@ -15,6 +15,7 @@ class SongSelection_TutorialViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        songs = SongRepository.shared.getSongs()
         
         songSelection_TutorialView.songSelectionTableView.dataSource = self
         songSelection_TutorialView.songSelectionTableView.delegate = self
@@ -22,6 +23,4 @@ class SongSelection_TutorialViewController: UIViewController {
         songSelection_TutorialView.songSelectionTableView.registerCell(type: SongSelectionTableViewCell.self, identifier: "songSelectionCell")
        
     }
-
-
 }

@@ -15,10 +15,10 @@ struct SongStaticDataStore {
     func createSong() -> [Song] {
         var arrSongs = [Song]()
         
-        let countingStars = Song(title: "Counting Stars", genre: "Pop", artist: "OneRepublic", image: "image", beat: 122, chords: ["cobain"])
-        let radioactive = Song(title: "Radioactive", genre: "Alternative Rock", artist: "Imagine Dragons", image: "image", beat: 68, chords: ["cobain"])
-        let beautifulInWhite = Song(title: "Beautiful in White", genre: "Pop", artist: "Shane Filan", image: "image", beat: 78, chords: ["cobain"])
-        let memories = Song(title: "Memories", genre: "Pop", artist: "Maroon 5", image: "image", beat: 91, chords: ["cobain"])
+        let countingStars = Song(title: "Counting Stars", genre: "Pop", artist: "OneRepublic", image: "Counting Stars", beat: 122, chords: ["cobain"])
+        let radioactive = Song(title: "Radioactive", genre: "Alternative Rock", artist: "Imagine Dragons", image: "Radioactive", beat: 68, chords: ["cobain"])
+        let beautifulInWhite = Song(title: "Beautiful in White", genre: "Pop", artist: "Shane Filan", image: "Beautiful in White", beat: 78, chords: ["cobain"])
+        let memories = Song(title: "Memories", genre: "Pop", artist: "Maroon 5", image: "Memories", beat: 91, chords: ["cobain"])
         
         arrSongs.append(countingStars)
         arrSongs.append(radioactive)
