@@ -78,12 +78,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpR-Gc-APz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BpR-Gc-APz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3lE-6Q-ZWH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BpR-Gc-APz" secondAttribute="bottom" id="G61-qK-gCE"/>
                             <constraint firstItem="nJI-f1-lXb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200" id="ILa-9a-CLf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nJI-f1-lXb" secondAttribute="bottom" id="Pcs-Ty-hXC"/>
+                            <constraint firstItem="BpR-Gc-APz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="VfV-Tl-Jz7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BpR-Gc-APz" secondAttribute="trailing" id="t8v-KU-Kmx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nJI-f1-lXb" secondAttribute="trailing" id="wPJ-2J-0lP"/>
                             <constraint firstItem="nJI-f1-lXb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="xTq-aQ-yIL"/>
                         </constraints>
@@ -92,12 +100,24 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="overlayView" destination="BpR-Gc-APz" id="GkN-zP-jMw"/>
                         <outlet property="songSelection_TutorialView" destination="5EZ-qb-Rvc" id="Hkl-OJ-rLy"/>
+                        <segue destination="ZJP-X1-2Rh" kind="presentation" identifier="chooseBasekeyPopupSegue" modalPresentationStyle="fullScreen" id="9MV-pA-Dai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="103" y="54"/>
+        </scene>
+        <!--ChooseBaseKeyPopup-->
+        <scene sceneID="y02-uj-DGT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChooseBaseKeyPopup" id="ZJP-X1-2Rh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="P5G-Sx-YCa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27z-L1-koP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="54"/>
         </scene>
     </scenes>
     <resources>

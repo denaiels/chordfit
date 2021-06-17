@@ -13,6 +13,10 @@
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
 		5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD956E2671FADB005207C3 /* Assets.xcassets */; };
 		5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */; };
+		BF1558C92679964600FED7D9 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1558C82679964600FED7D9 /* PopupViewController.swift */; };
+		BF1558CF2679FF5F00FED7D9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1558CE2679FF5F00FED7D9 /* UIViewExtension.swift */; };
+		BF1558D3267A18A900FED7D9 /* ChooseBaseKeyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1558D2267A18A900FED7D9 /* ChooseBaseKeyPopup.storyboard */; };
+		BF53899C267B4560008FA3BB /* ChooseBaseKeyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53899B267B4560008FA3BB /* ChooseBaseKeyPopupViewController.swift */; };
 		BF7EC70D267383D6004E4849 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC70C267383D6004E4849 /* Song.swift */; };
 		BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC711267388C5004E4849 /* SongStaticDataStore.swift */; };
 		BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC71426738E79004E4849 /* SongRepository.swift */; };
@@ -27,6 +31,8 @@
 		BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */; };
 		BF7EC73926748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73826748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
 		BF7EC73B26779BF3004E4849 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73A26779BF3004E4849 /* HeaderTableViewCell.swift */; };
+		BF7EC7462677AD74004E4849 /* GamePausedPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7EC7452677AD74004E4849 /* GamePausedPopupView.xib */; };
+		BF7EC7482677AD8B004E4849 /* GamePausedPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC7472677AD8B004E4849 /* GamePausedPopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,10 @@
 		5FFD956E2671FADB005207C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FFD95712671FADB005207C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FFD95732671FADB005207C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF1558C82679964600FED7D9 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		BF1558CE2679FF5F00FED7D9 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		BF1558D2267A18A900FED7D9 /* ChooseBaseKeyPopup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseBaseKeyPopup.storyboard; sourceTree = "<group>"; };
+		BF53899B267B4560008FA3BB /* ChooseBaseKeyPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBaseKeyPopupViewController.swift; sourceTree = "<group>"; };
 		BF7EC70C267383D6004E4849 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		BF7EC711267388C5004E4849 /* SongStaticDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongStaticDataStore.swift; sourceTree = "<group>"; };
 		BF7EC71426738E79004E4849 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
@@ -52,6 +62,8 @@
 		BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		BF7EC73826748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
 		BF7EC73A26779BF3004E4849 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BF7EC7452677AD74004E4849 /* GamePausedPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamePausedPopupView.xib; sourceTree = "<group>"; };
+		BF7EC7472677AD8B004E4849 /* GamePausedPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePausedPopupView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7EC72326745D0A004E4849 /* UINib+Loader.swift */,
+				BF1558CE2679FF5F00FED7D9 /* UIViewExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -147,6 +160,7 @@
 		BF7EC707267380F9004E4849 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BF7EC73C2677A99E004E4849 /* Popup */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -261,6 +275,34 @@
 			path = SongSelectionTableView;
 			sourceTree = "<group>";
 		};
+		BF7EC73C2677A99E004E4849 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				BF7EC7422677ABCE004E4849 /* View */,
+				BF7EC7412677ABC5004E4849 /* Controller */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		BF7EC7412677ABC5004E4849 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF7EC7422677ABCE004E4849 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF1558D2267A18A900FED7D9 /* ChooseBaseKeyPopup.storyboard */,
+				BF7EC7452677AD74004E4849 /* GamePausedPopupView.xib */,
+				BF53899B267B4560008FA3BB /* ChooseBaseKeyPopupViewController.swift */,
+				BF7EC7472677AD8B004E4849 /* GamePausedPopupView.swift */,
+				BF1558C82679964600FED7D9 /* PopupViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,7 +362,9 @@
 			files = (
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
+				BF7EC7462677AD74004E4849 /* GamePausedPopupView.xib in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
+				BF1558D3267A18A900FED7D9 /* ChooseBaseKeyPopup.storyboard in Resources */,
 				5FFD956A2671FADA005207C3 /* Main.storyboard in Resources */,
 				BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */,
 			);
@@ -334,7 +378,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
+				BF53899C267B4560008FA3BB /* ChooseBaseKeyPopupViewController.swift in Sources */,
 				BF7EC73B26779BF3004E4849 /* HeaderTableViewCell.swift in Sources */,
+				BF1558C92679964600FED7D9 /* PopupViewController.swift in Sources */,
 				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
 				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
 				BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */,
@@ -344,7 +390,9 @@
 				BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
 				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
+				BF1558CF2679FF5F00FED7D9 /* UIViewExtension.swift in Sources */,
 				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
+				BF7EC7482677AD8B004E4849 /* GamePausedPopupView.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
 				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
 				BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */,
