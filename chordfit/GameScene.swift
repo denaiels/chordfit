@@ -839,6 +839,7 @@ class GameScene: SKScene {
                 countdownLabel.fontColor = SKColor.white
                 countdownLabel.position = CGPoint(x: frame.midX  , y: frame.midY - 50)
                 addChild(countdownLabel)
+                print(counter)
                 var arrayofChords : [SKAction] = []
                 for n in 0...chords.count - 1  {
                     let a1 = SKAction.run {
