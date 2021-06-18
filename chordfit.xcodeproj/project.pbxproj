@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935E267B44BC0010887B /* Base Key C.mlmodel */; };
+		5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935F267B44BC0010887B /* Base Key F.mlmodel */; };
+		5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9360267B44BD0010887B /* Base Key G.mlmodel */; };
+		5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */; };
+		5F0C9369267B96EC0010887B /* GenderClassifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9368267B96EC0010887B /* GenderClassifierDelegate.swift */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956A2671FADA005207C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95682671FADA005207C3 /* Main.storyboard */; };
@@ -29,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F0C935E267B44BC0010887B /* Base Key C.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key C.mlmodel"; sourceTree = "<group>"; };
+		5F0C935F267B44BC0010887B /* Base Key F.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key F.mlmodel"; sourceTree = "<group>"; };
+		5F0C9360267B44BD0010887B /* Base Key G.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key G.mlmodel"; sourceTree = "<group>"; };
+		5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierViewController.swift; sourceTree = "<group>"; };
+		5F0C9368267B96EC0010887B /* GenderClassifierDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderClassifierDelegate.swift; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +73,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F0C935C267B44A10010887B /* ChordClassifierAI */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C935D267B44AF0010887B /* Model */,
+				5F0C9364267B4AF70010887B /* Controller */,
+				5F0C9367267B96D90010887B /* Protocol */,
+			);
+			path = ChordClassifierAI;
+			sourceTree = "<group>";
+		};
+		5F0C935D267B44AF0010887B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C935E267B44BC0010887B /* Base Key C.mlmodel */,
+				5F0C935F267B44BC0010887B /* Base Key F.mlmodel */,
+				5F0C9360267B44BD0010887B /* Base Key G.mlmodel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F0C9364267B4AF70010887B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F0C9367267B96D90010887B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C9368267B96EC0010887B /* GenderClassifierDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		5FFD95562671FADA005207C3 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +182,7 @@
 		BF7EC706267380CC004E4849 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5F0C935C267B44A10010887B /* ChordClassifierAI */,
 				BF7EC70B2673813C004E4849 /* AVFoundation */,
 				BF7EC70A26738131004E4849 /* CoreData */,
 			);
@@ -332,17 +379,22 @@
 			files = (
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
 				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
+				5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */,
 				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
 				BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */,
+				5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */,
 				BF7EC73326746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
 				BF7EC73926748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
 				BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */,
 				BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */,
+				5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
 				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
+				5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */,
 				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
 				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
+				5F0C9369267B96EC0010887B /* GenderClassifierDelegate.swift in Sources */,
 				BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
