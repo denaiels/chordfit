@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2E5B622679DD11000B01F1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B612679DD11000B01F1 /* GameScene.swift */; };
+		0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */; };
+		0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
+		0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956A2671FADA005207C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95682671FADA005207C3 /* Main.storyboard */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F2E5B612679DD11000B01F1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
+		0F2E5B692679DE1D000B01F1 /* movingCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movingCP.swift; sourceTree = "<group>"; };
+		0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,11 +96,16 @@
 				BF7EC70226738064004E4849 /* Feature */,
 				5FFD95622671FADA005207C3 /* AppDelegate.swift */,
 				5FFD95642671FADA005207C3 /* SceneDelegate.swift */,
+				5FFD95662671FADA005207C3 /* ViewController.swift */,
+				0F2E5B612679DD11000B01F1 /* GameScene.swift */,
+				0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */,
 				5FFD95682671FADA005207C3 /* Main.storyboard */,
 				5FFD956E2671FADB005207C3 /* Assets.xcassets */,
 				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
 				5FFD95732671FADB005207C3 /* Info.plist */,
 				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
+				0F2E5B692679DE1D000B01F1 /* movingCP.swift */,
+				0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */,
 			);
 			path = chordfit;
 			sourceTree = "<group>";
@@ -315,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
@@ -330,6 +344,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F2E5B622679DD11000B01F1 /* GameScene.swift in Sources */,
+				0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */,
+				0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */,
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
 				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
 				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
@@ -493,6 +510,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLG9RS7DU4;
 				INFOPLIST_FILE = chordfit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,6 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLG9RS7DU4;
 				INFOPLIST_FILE = chordfit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
