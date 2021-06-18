@@ -7,6 +7,8 @@
 
 import Foundation
 
-protocol GenderClassifierDelegate {
+protocol ChordClassifierDelegate {
     func displayPredictionResult(identifier: String, confidence: Double)
+    func addToIdentifiedChords(identifier: String)
+    func checkIdentifiedAndRealChord(identifier: String)
 }
