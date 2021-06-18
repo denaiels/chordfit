@@ -17,8 +17,8 @@ class SongSelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var CStar: UIImageView!
     @IBOutlet weak var FStar: UIImageView!
     @IBOutlet weak var GStar: UIImageView!
+    @IBOutlet weak var cellView: UIView!
     var beat: String!
-    
     
     var delegate: SongSelectionTableViewCellDelegate!
     var song: Song? {
@@ -30,8 +30,9 @@ class SongSelectionTableViewCell: UITableViewCell {
     private func setupView() {
         titleLabel.text = song?.title
         artistLabel.text = song?.artist
-        beatLabel.text = "\(song?.beat) bpm"
+        beatLabel.text = "\(song?.beat ?? 122) bpm"
         genreLabel.text = song?.genre
+        songImage.image = UIImage(named: song?.image ?? "Counting Stars")
     }
     
 }
