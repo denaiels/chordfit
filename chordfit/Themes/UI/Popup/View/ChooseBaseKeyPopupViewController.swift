@@ -19,13 +19,14 @@ class ChooseBaseKeyPopupViewController: UIViewController {
     @IBOutlet weak var basekeySegmentedControl: UISegmentedControl!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var overlayView: UIView!
     
     var baseKey: String = "C"
     var songToPlay: Song?
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         let gradientLayer = CAGradientLayer()
         gradientLayer.type = .radial
         
@@ -36,22 +37,33 @@ class ChooseBaseKeyPopupViewController: UIViewController {
             ChordFitColors.init().lightPurple?.cgColor,
             ChordFitColors.init().purple?.cgColor
         ]
-        gradientLayer.cornerRadius = 36
+        gradientLayer.cornerRadius = 50
         
         gradientLayer.frame = popupContentView.bounds
         popupContentView.layer.insertSublayer(gradientLayer, at: 0)
+        popupContentView.layer.cornerRadius = 50
+        popupContentView.roundCorners(corners: [.topLeft, .topRight], radius: 50)
+        
+        
+//        let colorSelected = [NSAttributedString.Key.foregroundColor: UI]
+//        basekeySegmentedControl.layer.borderWidth = 0.4
+//        basekeySegmentedControl.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        basekeySegmentedControl.setTitleTextAttributes(colorSelected, for: .normal)
+
+        
+//
 //        popupContentView.isUserInteractionEnabled = false
 
         outerView.layer.cornerRadius = 50
-        outerView.layer.borderWidth = 3
-        outerView.layer.borderColor = ChordFitColors.init().white?.cgColor
+        popupContentView.layer.borderWidth = 3
+        popupContentView.layer.borderColor = ChordFitColors.init().white?.cgColor
         
         playButton.layer.cornerRadius = 25
         playButton.layer.borderWidth = 2
         playButton.layer.borderColor = ChordFitColors.init().white?.cgColor
         playButton.isUserInteractionEnabled = true
         
-        popupContentView.layer.cornerRadius = 50
+        
         
         titleLabel.text = songToPlay?.title
         artistLabel.text = songToPlay?.artist

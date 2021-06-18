@@ -36,6 +36,7 @@ extension SongSelection_TutorialViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        overlayView.isHidden = false
         song = songs?[indexPath.row]
+        self.songSelection_TutorialView.songSelectionTableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "chooseBasekeyPopupSegue", sender: self)
 
     }

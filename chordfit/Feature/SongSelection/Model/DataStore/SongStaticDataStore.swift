@@ -16,7 +16,7 @@ struct SongStaticDataStore {
         var arrSongs = [Song]()
         
         let countingStars = Song(title: "I'm Yours", genre: "Pop", artist: "Jason Mraz", image: "Im Yours", beat: 151, chords: ["cobain"])
-        let radioactive = Song(title: "Radioactive", genre: "Alternative Rock", artist: "Imagine Dragons", image: "Radioactive", beat: 68, chords: ["cobain"])
+        let radioactive = Song(title: "Demons", genre: "Alternative Rock", artist: "Imagine Dragons", image: "Demons", beat: 88, chords: ["cobain"])
         let beautifulInWhite = Song(title: "Beautiful in White", genre: "Pop", artist: "Shane Filan", image: "Beautiful in White", beat: 78, chords: ["cobain"])
         let memories = Song(title: "Memories", genre: "Pop", artist: "Maroon 5", image: "Memories", beat: 91, chords: ["cobain"])
         
