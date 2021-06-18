@@ -126,6 +126,7 @@
                                                         <connections>
                                                             <action selector="playSong:" destination="Y6W-OH-hqX" eventType="touchDragInside" id="ilN-mT-f6C"/>
                                                             <action selector="playSong:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yRD-p0-rNv"/>
+                                                            <segue destination="T8C-9c-sJ0" kind="presentation" identifier="chooseBaseKeyPopupToGamePlaySegue" modalPresentationStyle="fullScreen" id="HBb-2t-B2n"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -200,6 +201,14 @@
                 <exit id="Hz4-Bx-bpD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="83.705357142857139"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="GgJ-2M-oVX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="T8C-9c-sJ0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SOG-SR-QZt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="85"/>
         </scene>
     </scenes>
     <resources>
