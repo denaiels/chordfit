@@ -10,8 +10,6 @@ import CoreData
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var normalLbl: UILabel!
-    @IBOutlet weak var hardLbl: UILabel!
     @IBOutlet weak var normalCollectionView: UICollectionView!
     @IBOutlet weak var playBtn: UIButton!
     
@@ -20,6 +18,10 @@ class HomeViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var chords: [Songs]!
+    
+    var progressBarA:Float = 0.0
+    var progressBarB:Float = 0.0
+   
     
     let categoryHeader = "HeaderCollectionView"
     
@@ -58,34 +60,52 @@ class HomeViewController: UIViewController {
     
     func fetchData(){
         do {
-            
-            let request = Songs.fetchRequest() as NSFetchRequest<Songs>
-            self.chords = try context.fetch(request)
 //
-//            let dt = self.chords
+//            let request = Songs.fetchRequest() as NSFetchRequest<Songs>
+            self.chords = try context.fetch(Songs.fetchRequest())
             
             for dt in self.chords {
 
-                if dt.category == "Normal" {
-                    let pred = NSPredicate(format: "category CONTAINS %@", "Normal")
-                    request.predicate = pred}
+                if dt.category == SongProgression.Normal.rawValue {
+                    let valueA = itungPoin(dataLagu: dt)
+                    progressBarA += valueA
                     
-//                } else if dt.category == "Hard"{
-//                    let pred = NSPredicate(format: "category CONTAINS %@", "Hard")
-//                    request.predicate = pred
-//                }
+                    
+                } else if dt.category == SongProgression.Hard.rawValue {
+                    let valueB = itungPoin(dataLagu: dt)
+                    progressBarB += valueB
+                }
             }
             
-//            DispatchQueue.main.async {
-//                self.normalCollectionView.reloadData()
-//            }
+            DispatchQueue.main.async {
+                self.normalCollectionView.reloadData()
+            }
             
-            normalCollectionView.reloadData()
-            
-        } catch {
+        }
+        
+        catch {
             print("Error: \(error)")
         }
-}
+    }
+    
+    func itungPoin(dataLagu: Songs) -> Float{
+        var data:Float = 0.0
+        
+        if (dataLagu.playedC) {
+            data += 0.2
+        }
+        
+        if (dataLagu.playedF) {
+            data += 0.2
+        }
+        
+        if (dataLagu.playedG) {
+            data += 0.2
+        }
+        
+        return data
+        
+    }
 }
 
 
@@ -96,20 +116,30 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgression", for: indexPath) as! ChordProgressionCollectionViewCell
         
-        setupCollectionViewCellLayout(cell: cell)
+        var cell: ChordProgressionCollectionViewCell?
         
-        cell.chordPLabel?.text = "\(String(describing: self.chords![indexPath.row].progression))"
+        if (chords[indexPath.row].category == SongProgression.Normal.rawValue) {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgression", for: indexPath) as! ChordProgressionCollectionViewCell
+            
+            cell!.chordPLabel.text = self.chords![indexPath.row].progression
+            cell!.songTLabel.text = self.chords![indexPath.row].title
+            cell!.chordBar.progress = progressBarA
+            
+        }else if (chords[indexPath.row].category == SongProgression.Normal.rawValue){
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgression2", for: indexPath) as! ChordProgressionCollectionViewCellB
+            
+            cell.chordPLabel?.text = self.chords![indexPath.row].progression
+            cell.songTLabel?.text = self.chords![indexPath.row].title
+            cell.chordBar.progress = progressBarA
+        }
         
-        cell.songTLabel?.text = "\(String(describing: self.chords![indexPath.row].title))"
+        setupCollectionViewCellLayout(cell: cell!)
         
-
-//        cell.chordPLabel?.text = self.chords![indexPath.row].progression
-//        cell.songTLabel?.text = self.chords![indexPath.row].title
-    
         
-        return cell
+        return cell!
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
