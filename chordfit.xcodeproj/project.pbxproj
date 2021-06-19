@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */; };
-		5FFCA6BA267E4725001F70A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCA6B9267E4725001F70A7 /* Main.storyboard */; };
 		5FFCA6BC267E4847001F70A7 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCA6BB267E4847001F70A7 /* info.plist */; };
+		5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935E267B44BC0010887B /* Base Key C.mlmodel */; };
+		5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935F267B44BC0010887B /* Base Key F.mlmodel */; };
+		5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9360267B44BD0010887B /* Base Key G.mlmodel */; };
+		5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */; };
+		5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */; };
+		5F7E4097267CF27A00D101EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7E4096267CF27A00D101EE /* Main.storyboard */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
@@ -30,8 +35,13 @@
 		0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
 		0F2E5B692679DE1D000B01F1 /* movingCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movingCP.swift; sourceTree = "<group>"; };
 		0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		5FFCA6B9267E4725001F70A7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5FFCA6BB267E4847001F70A7 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		5F0C935E267B44BC0010887B /* Base Key C.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key C.mlmodel"; sourceTree = "<group>"; };
+		5F0C935F267B44BC0010887B /* Base Key F.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key F.mlmodel"; sourceTree = "<group>"; };
+		5F0C9360267B44BD0010887B /* Base Key G.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key G.mlmodel"; sourceTree = "<group>"; };
+		5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierViewController.swift; sourceTree = "<group>"; };
+		5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierDelegate.swift; sourceTree = "<group>"; };
+		5F7E4096267CF27A00D101EE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +69,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F0C935C267B44A10010887B /* ChordClassifierAI */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C935D267B44AF0010887B /* Model */,
+				5F0C9364267B4AF70010887B /* Controller */,
+				5F0C9367267B96D90010887B /* Protocol */,
+			);
+			path = ChordClassifierAI;
+			sourceTree = "<group>";
+		};
+		5F0C935D267B44AF0010887B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C935E267B44BC0010887B /* Base Key C.mlmodel */,
+				5F0C935F267B44BC0010887B /* Base Key F.mlmodel */,
+				5F0C9360267B44BD0010887B /* Base Key G.mlmodel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F0C9364267B4AF70010887B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F0C9367267B96D90010887B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		5F7E4098267CF3C600D101EE /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				0F2E5B612679DD11000B01F1 /* GameScene.swift */,
+				0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
 		5FFD95562671FADA005207C3 = {
 			isa = PBXGroup;
 			children = (
@@ -81,10 +136,8 @@
 				FCFC4CEE2672C39600E248B8 /* Home */,
 				5FFD95622671FADA005207C3 /* AppDelegate.swift */,
 				5FFD95642671FADA005207C3 /* SceneDelegate.swift */,
-				0F2E5B612679DD11000B01F1 /* GameScene.swift */,
-				0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */,
+				5F7E4096267CF27A00D101EE /* Main.storyboard */,
 				5FFD956E2671FADB005207C3 /* Assets.xcassets */,
-				5FFCA6B9267E4725001F70A7 /* Main.storyboard */,
 				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
 				5FFCA6BB267E4847001F70A7 /* info.plist */,
 				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
@@ -99,6 +152,8 @@
 			children = (
 				FC0F9DAF267A9D1800FF7326 /* Songs+CoreDataClass.swift */,
 				FC0F9DB0267A9D1800FF7326 /* Songs+CoreDataProperties.swift */,
+				5F7E4098267CF3C600D101EE /* GameScene */,
+				BF7EC70326738096004E4849 /* SongSelection */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -110,7 +165,80 @@
 				FCFC4CF32672C3F800E248B8 /* HomeStoryboard.storyboard */,
 				FC0F9DCC267C478D00FF7326 /* HeaderCollectionView.swift */,
 			);
-			path = View;
+			path = SongSelection;
+			sourceTree = "<group>";
+		};
+		BF7EC704267380C0004E4849 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				BF7EC70926738110004E4849 /* Colors */,
+				BF7EC708267380FF004E4849 /* Fonts */,
+				BF7EC707267380F9004E4849 /* UI */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		BF7EC705267380C3004E4849 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BF7EC72326745D0A004E4849 /* UINib+Loader.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BF7EC706267380CC004E4849 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5F0C935C267B44A10010887B /* ChordClassifierAI */,
+				BF7EC70B2673813C004E4849 /* AVFoundation */,
+				BF7EC70A26738131004E4849 /* CoreData */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BF7EC707267380F9004E4849 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BF7EC708267380FF004E4849 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BF7EC70926738110004E4849 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				BF7EC71626739487004E4849 /* ChordFitColors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		BF7EC70A26738131004E4849 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BF7EC70E267387A7004E4849 /* Model */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		BF7EC70B2673813C004E4849 /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		BF7EC70E267387A7004E4849 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF7EC70C267383D6004E4849 /* Song.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FCF7AF462676B30B00C7EFA5 /* Model */ = {
@@ -199,11 +327,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
-				5FFCA6BA267E4725001F70A7 /* Main.storyboard in Resources */,
 				5FFCA6BC267E4847001F70A7 /* info.plist in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
 				FCFC4CF42672C3F800E248B8 /* HomeStoryboard.storyboard in Resources */,
+				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
+				5F7E4097267CF27A00D101EE /* Main.storyboard in Resources */,
+				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
+				BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +355,24 @@
 				FC0F9DBF267ABBEA00FF7326 /* DataHelper.swift in Sources */,
 				FC0F9DB1267A9D1800FF7326 /* Songs+CoreDataClass.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
+				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
+				5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */,
+				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
+				BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */,
+				5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */,
+				BF7EC73326746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
+				BF7EC73926748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
+				BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */,
+				BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */,
+				5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */,
+				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
+				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
+				5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */,
+				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
+				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
+				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
+				5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */,
+				BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
