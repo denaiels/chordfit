@@ -40,6 +40,8 @@ var SongTime = 30
 
 class GameScene: SKScene {
     
+    var isBeginCollision: Bool = false
+    
     let pauseLayer = SKNode()
     let worldNode = SKNode()
     let congratsLayer = SKNode()
@@ -48,6 +50,9 @@ class GameScene: SKScene {
     let notCategory : UInt32 = 0x1 << 0
     let pagarCategory : UInt32 = 0x1 << 1
     let endCategory : UInt32 = 0x1 << 2
+    let chordLine1Category: UInt32 = 0x1 << 3
+    let chordLine2Category: UInt32 = 0x1 << 4
+    let chordLine3Category: UInt32 = 0x1 << 5
     var flagpause : Bool = false
     var flagconfirm : Bool = false
     var score = 0 as Int
@@ -640,6 +645,9 @@ class GameScene: SKScene {
         gambar.name = "Not"
         gambar.run(moveBottomLeft, withKey: "gerakKiri")
         gambar.physicsBody?.affectedByGravity = false
+        
+        
+        // Begin and End Line
         let progressionLine = SKSpriteNode(imageNamed: "chordline")
         progressionLine.position = CGPoint(x: 0, y: -5.5)
         progressionLine.zPosition = -1
@@ -660,6 +668,37 @@ class GameScene: SKScene {
         endLine.physicsBody?.contactTestBitMask = pagarCategory
         endLine.physicsBody?.collisionBitMask = .zero
         endLine.physicsBody?.affectedByGravity = false
+        
+        // Garis setiap kali detect chord
+        let chordLine1 = createLine(x: -(gambar.size.width - 125) / 4,
+                                    y: 0,
+                                    z: 2,
+                                    width: endLine.size.width,
+                                    height: frame.size.height/5.6,
+                                    circleOfRadius: progressionLine.size.width / 2,
+                                    name: "chordLine1",
+                                    categoryBitMask: chordLine1Category,
+                                    contactTestBitMask: pagarCategory)
+        chordLine1.physicsBody?.categoryBitMask = chordLine1Category
+        let chordLine2 = createLine(x: 0,
+                                    y: 0,
+                                    z: 2,
+                                    width: endLine.size.width,
+                                    height: frame.size.height/5.6,
+                                    circleOfRadius: progressionLine.size.width / 2,
+                                    name: "chordLine2",
+                                    categoryBitMask: chordLine2Category,
+                                    contactTestBitMask: pagarCategory)
+        let chordLine3 = createLine(x: (gambar.size.width - 125) / 4,
+                                    y: 0,
+                                    z: 2,
+                                    width: endLine.size.width,
+                                    height: frame.size.height/5.6,
+                                    circleOfRadius: progressionLine.size.width / 2,
+                                    name: "chordLine3",
+                                    categoryBitMask: chordLine3Category,
+                                    contactTestBitMask: pagarCategory)
+        
         let progressionDetail = SKLabelNode(fontNamed: "arial")
         progressionDetail.fontSize = 60
         progressionDetail.zPosition = 2
@@ -682,9 +721,28 @@ class GameScene: SKScene {
         gambar.addChild(movingProg)
         gambar.addChild(chordDetail)
         gambar.addChild(endLine)
+        gambar.addChild(chordLine1)
+        gambar.addChild(chordLine2)
+        gambar.addChild(chordLine3)
         movingProg.addChild(progressionDetail)
         movingProg.addChild(progressionLine)
         addChild(gambar)
+    }
+    
+    func createLine(x: CGFloat, y: CGFloat, z: CGFloat, width: CGFloat, height: CGFloat, circleOfRadius: CGFloat, name: String, categoryBitMask: UInt32, contactTestBitMask: UInt32) -> SKSpriteNode {
+        
+        let line = SKSpriteNode(imageNamed: "chordline")
+        line.position = CGPoint(x: x, y: y)
+        line.zPosition = z
+        line.size = CGSize(width: width, height: height)
+        line.physicsBody = SKPhysicsBody (circleOfRadius: circleOfRadius)
+        line.name = name
+        line.physicsBody?.categoryBitMask = categoryBitMask
+        line.physicsBody?.contactTestBitMask = contactTestBitMask
+        line.physicsBody?.collisionBitMask = .zero
+        line.physicsBody?.affectedByGravity = false
+        
+        return line
     }
     
     func createBG(){
@@ -742,13 +800,14 @@ extension GameScene : SKPhysicsContactDelegate{
 //        let a4 = SKAction.sequence(arrayofChords)
         if collision == notCategory | pagarCategory{
 //            run(a4)
+            self.isBeginCollision = true
             self.correctChord.isHidden = true
             print("Collision Occured")
-            
+
             // Update Current Beat
             currentBar += 1
             print("Bar: \(currentBar)")
-            
+
             // Update Current Chord
             currentRomawi = songChords[currentBar-1][0]
             currentChord = chordSet[baseKey]?[currentRomawi] ?? "X"
@@ -757,11 +816,10 @@ extension GameScene : SKPhysicsContactDelegate{
 //            self.chordClassifierViewController.realChord = { currentChord in
 //                return currentChord
 //            }
-            
+
             // Start Audio Engine and Recording
             self.chordClassifierViewController.startAudioEngine()
-            
-            
+
             if score < 10 {
                 score += 1
                 scoreNode.text = "\(score) / 10"
@@ -772,16 +830,39 @@ extension GameScene : SKPhysicsContactDelegate{
 //                congratsLayer.isHidden = false
                 self.chordClassifierViewController.stopAudioEngine()
                 print(self.chordClassifierViewController.identified)
-                self.chordClassifierViewController.identified.removeAll()
             }
         }
-        if collision == endCategory | pagarCategory{
-            print("KENA KAUUU")
-//            self.correctChord.isHidden = true
+        
+        if collision == chordLine1Category | pagarCategory {
+            print("1ST CHORD LINE")
             
+            if self.chordClassifierViewController.isCorrectChord == true {
+                print("BENER DI 1")
+                self.correctChord.isHidden = false
+            }
+        }else if collision == chordLine2Category | pagarCategory {
+            print("2ND CHORD LINE")
+            
+            if self.chordClassifierViewController.isCorrectChord == true {
+                print("BENER DI 2")
+                self.correctChord.isHidden = false
+            }
+        } else if collision == chordLine3Category | pagarCategory {
+            print("3RD CHORD LINE")
+            
+            if self.chordClassifierViewController.isCorrectChord == true {
+                print("BENER DI 3")
+                self.correctChord.isHidden = false
+            }
+        }
+        
+        if collision == endCategory | pagarCategory {
+            print("KENA KAUUU")
+            self.isBeginCollision = false
+            
+            self.correctChord.isHidden = true
             self.chordClassifierViewController.stopAudioEngine()
             print(self.chordClassifierViewController.identified)
-            self.chordClassifierViewController.identified.removeAll()
             
             if self.chordClassifierViewController.isCorrectChord == true {
                 self.correctChord.isHidden = false
@@ -790,6 +871,14 @@ extension GameScene : SKPhysicsContactDelegate{
             }
             
         }
+        
+//        if isBeginCollision == true {
+////            print("BELOM SELESAI WOI")
+//            if self.chordClassifierViewController.isCorrectChord == true {
+//                print("MANTAB UDAH BENER, chordnya: \(currentChord)")
+//                self.correctChord.isHidden = false
+//            }
+//        }
         
     }
 
