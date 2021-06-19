@@ -36,11 +36,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-<<<<<<< HEAD
 					<string>HomeStoryboard</string>
-=======
-					<string>SongSelection+Tutorial</string>
->>>>>>> 5fa44e07964dd2a8cf30a6538ca492d75fdc4805
 				</dict>
 			</array>
 		</dict>

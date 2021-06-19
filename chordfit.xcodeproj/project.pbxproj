@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F2E5B622679DD11000B01F1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B612679DD11000B01F1 /* GameScene.swift */; };
-		0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */; };
-		0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
 		0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */; };
+		5FFCA6BA267E4725001F70A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCA6B9267E4725001F70A7 /* Main.storyboard */; };
+		5FFCA6BC267E4847001F70A7 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCA6BB267E4847001F70A7 /* info.plist */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
-		5FFD956A2671FADA005207C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95682671FADA005207C3 /* Main.storyboard */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
 		5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD956E2671FADB005207C3 /* Assets.xcassets */; };
 		5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */; };
@@ -32,14 +30,14 @@
 		0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
 		0F2E5B692679DE1D000B01F1 /* movingCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movingCP.swift; sourceTree = "<group>"; };
 		0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		5FFCA6B9267E4725001F70A7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5FFCA6BB267E4847001F70A7 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FFD95692671FADA005207C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FFD956C2671FADA005207C3 /* chordfit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chordfit.xcdatamodel; sourceTree = "<group>"; };
 		5FFD956E2671FADB005207C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FFD95712671FADB005207C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5FFD95732671FADB005207C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC0F9DAF267A9D1800FF7326 /* Songs+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC0F9DB0267A9D1800FF7326 /* Songs+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FC0F9DBE267ABBEA00FF7326 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
@@ -83,13 +81,12 @@
 				FCFC4CEE2672C39600E248B8 /* Home */,
 				5FFD95622671FADA005207C3 /* AppDelegate.swift */,
 				5FFD95642671FADA005207C3 /* SceneDelegate.swift */,
-				5FFD95662671FADA005207C3 /* ViewController.swift */,
 				0F2E5B612679DD11000B01F1 /* GameScene.swift */,
 				0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */,
-				5FFD95682671FADA005207C3 /* Main.storyboard */,
 				5FFD956E2671FADB005207C3 /* Assets.xcassets */,
+				5FFCA6B9267E4725001F70A7 /* Main.storyboard */,
 				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
-				5FFD95732671FADB005207C3 /* Info.plist */,
+				5FFCA6BB267E4847001F70A7 /* info.plist */,
 				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
 				0F2E5B692679DE1D000B01F1 /* movingCP.swift */,
 				0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */,
@@ -202,13 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
+				5FFCA6BA267E4725001F70A7 /* Main.storyboard in Resources */,
+				5FFCA6BC267E4847001F70A7 /* info.plist in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
-				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
-				BF7EC7462677AD74004E4849 /* GamePausedPopupView.xib in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
 				FCFC4CF42672C3F800E248B8 /* HomeStoryboard.storyboard in Resources */,
-				5FFD956A2671FADA005207C3 /* Main.storyboard in Resources */,
-				BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,38 +218,18 @@
 				FC0F9DCD267C478D00FF7326 /* HeaderCollectionView.swift in Sources */,
 				FCFC4CFB26750BC100E248B8 /* ChordProgressionCollectionViewCell.swift in Sources */,
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
-				BF53899C267B4560008FA3BB /* ChooseBaseKeyPopupViewController.swift in Sources */,
-				BF7EC73B26779BF3004E4849 /* HeaderTableViewCell.swift in Sources */,
-				BF1558C92679964600FED7D9 /* PopupViewController.swift in Sources */,
-				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
-				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
-				BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */,
-				BF7EC73326746E31004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
-				BF7EC73926748664004E4849 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
-				BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */,
-				BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
 				FCFC4CFE26756F5D00E248B8 /* ChordProgression.swift in Sources */,
 				FC0F9DB2267A9D1800FF7326 /* Songs+CoreDataProperties.swift in Sources */,
 				FC0F9DBF267ABBEA00FF7326 /* DataHelper.swift in Sources */,
 				FC0F9DB1267A9D1800FF7326 /* Songs+CoreDataClass.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
-				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
-				BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5FFD95682671FADA005207C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5FFD95692671FADA005207C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
