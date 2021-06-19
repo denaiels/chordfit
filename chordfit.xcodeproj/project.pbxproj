@@ -16,6 +16,7 @@
 		5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9360267B44BD0010887B /* Base Key G.mlmodel */; };
 		5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */; };
 		5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */; };
+		5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B5F267E51E500EB5E23 /* Main.storyboard */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 		5F0C9360267B44BD0010887B /* Base Key G.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key G.mlmodel"; sourceTree = "<group>"; };
 		5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierViewController.swift; sourceTree = "<group>"; };
 		5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierDelegate.swift; sourceTree = "<group>"; };
+		5F6B3B5F267E51E500EB5E23 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				5FFD95622671FADA005207C3 /* AppDelegate.swift */,
 				5FFD95642671FADA005207C3 /* SceneDelegate.swift */,
 				5FFD956E2671FADB005207C3 /* Assets.xcassets */,
+				5F6B3B5F267E51E500EB5E23 /* Main.storyboard */,
 				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
 				5FFD95732671FADB005207C3 /* Info.plist */,
 				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
@@ -407,6 +410,7 @@
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
+				5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
 				BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */,
 			);
