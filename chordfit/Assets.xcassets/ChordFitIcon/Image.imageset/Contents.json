@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "counting stars@1x.png",
+      "filename" : "BaseKey1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "counting stars@2x.png",
+      "filename" : "BaseKey2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "counting stars@3x.png",
+      "filename" : "BaseKey3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
