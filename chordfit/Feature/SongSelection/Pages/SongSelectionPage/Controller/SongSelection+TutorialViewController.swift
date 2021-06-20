@@ -10,12 +10,15 @@ import UIKit
 class SongSelection_TutorialViewController: UIViewController {
 
     @IBOutlet weak var songSelection_TutorialView: SongSelection_TutorialView!
+//    @IBOutlet weak var overlayView: UIView!
     
     var songs: [Song]?
     var song: Song?
   
     override func viewDidLoad() {
         super.viewDidLoad()
+//        overlayView.isHidden = true
+        songs = SongRepository.shared.getSongs()
         
         songSelection_TutorialView.songSelectionTableView.dataSource = self
         songSelection_TutorialView.songSelectionTableView.delegate = self
@@ -23,14 +26,8 @@ class SongSelection_TutorialViewController: UIViewController {
         songSelection_TutorialView.songSelectionTableView.registerCell(type: SongSelectionTableViewCell.self, identifier: "songSelectionCell")
        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        
     }
-    */
 }

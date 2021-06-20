@@ -37,6 +37,7 @@ let chordSet = [
 
 class GameScene: SKScene {
     
+    var viewController: UIViewController?
     let pauseLayer = SKNode()
     let worldNode = SKNode()
     let congratsLayer = SKNode()
@@ -74,8 +75,8 @@ class GameScene: SKScene {
     var minutes: Int = 0
     
     var baseKey: String = ""
-    var songToPlay: Song?
     var chords: [movingCP] = []
+    var song: Song?
     let songChords: [[String]] = [
         ["I", "2.6"],
         ["V", "2.6"],
@@ -376,7 +377,7 @@ class GameScene: SKScene {
         goodplayBtn.size = CGSize(width: frame.size.width/2, height: frame.size.height/16)
         goodplayBtn.position = CGPoint(x: 0, y: -200)
         goodplayBtn.zPosition = 11
-        goodplayBtn.name = "restartBtn"
+        goodplayBtn.name = "yesBtn"
         congratsMenu.addChild(goodplayBtn)
         congratsLayer.isHidden = true
         
@@ -698,13 +699,15 @@ class GameScene: SKScene {
     }
     
     func gameFinish(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "endstory")
+        let storyboard = UIStoryboard(name: "SongSelection+Tutorial", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SongSelectionStoryboard")
         vc.view.frame = (self.view?.frame)!
         UIView.transition(with: self.view!, duration: 0.1, options: .curveEaseOut, animations:
             {
                 self.view?.window?.rootViewController = vc
             }, completion: { completed in })
+
+//        self.view?.window?.rootViewController?.performSegue(withIdentifier: "backtoSelectionPage", sender: self)
     }
     
 }
@@ -832,13 +835,11 @@ extension GameScene : SKPhysicsContactDelegate{
                 view?.presentScene(gameScene)
             }
             
-            if nodeUserTapped.name == "quitBtn" {
+            if nodeUserTapped.name == "yesBtn" {
                 self.removeAllChildren()
                 self.removeAllActions()
                 self.scene?.removeFromParent()
-                let gameScene = GameScene(size: self.size)
-                gameScene.scaleMode = .aspectFill
-                view?.presentScene(gameScene)
+                gameFinish()
             }
         }
     }

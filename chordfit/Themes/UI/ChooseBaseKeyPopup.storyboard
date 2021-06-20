@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -124,9 +124,7 @@
                                                             <color key="titleColor" name="white"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="playSong:" destination="Y6W-OH-hqX" eventType="touchDragInside" id="ilN-mT-f6C"/>
-                                                            <action selector="playSong:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yRD-p0-rNv"/>
-                                                            <segue destination="T8C-9c-sJ0" kind="presentation" identifier="chooseBaseKeyPopupToGamePlaySegue" modalPresentationStyle="fullScreen" id="HBb-2t-B2n"/>
+                                                            <action selector="playSong:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KaB-ws-bfb"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -195,20 +193,21 @@
                         <outlet property="popupContentView" destination="bnf-uN-Wy9" id="Ytm-iX-C3x"/>
                         <outlet property="titleLabel" destination="4eW-2G-LJe" id="j32-Ow-7Fn"/>
                         <segue destination="Hz4-Bx-bpD" kind="unwind" identifier="unwindToSongSelection" unwindAction="unwind:" id="cog-gL-gjp"/>
+                        <segue destination="BgE-YF-PWW" kind="presentation" identifier="chooseBaseKeyPopupToGamePlaySegue" modalPresentationStyle="fullScreen" id="K3j-mt-T7e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Hz4-Bx-bpD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="11.594202898550726" y="83.705357142857139"/>
+            <point key="canvasLocation" x="59" y="54"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="GgJ-2M-oVX">
+        <!--GameScene-->
+        <scene sceneID="OWy-Or-omh">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="T8C-9c-sJ0" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SOG-SR-QZt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="gameScene" storyboardName="GameScene" id="BgE-YF-PWW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yc9-6z-qdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="85"/>
+            <point key="canvasLocation" x="713" y="62"/>
         </scene>
     </scenes>
     <resources>

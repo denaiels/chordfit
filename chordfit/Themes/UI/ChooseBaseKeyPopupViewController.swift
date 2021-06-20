@@ -78,7 +78,7 @@ class ChooseBaseKeyPopupViewController: UIViewController {
   
     @IBAction func playSong(_ sender: UIButton) {
         //perform segue ke halaman adit
-        performSegue(withIdentifier: "chooseBaseKeyPopupToGamePlaySegue", sender: self)
+        performSegue(withIdentifier: "chooseBaseKeyPopupToGamePlaySegue", sender: sender)
         print("hehe")
     }
     
@@ -103,17 +103,16 @@ class ChooseBaseKeyPopupViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //prepare ke adit
-        if segue.identifier == "chooseBaseKeyPopupToGamePlaySegue" {
-            if let viewController = segue.destination as? GameSceneViewController {
-                viewController.songToPlay = songToPlay
-                viewController.baseKey = baseKey
-                print(viewController.songToPlay)
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        //prepare ke adit
+//        if segue.identifier == "chooseBasekeyPopupSegue" {
+//                    if let viewController = segue.destination as? ChooseBaseKeyPopupViewController {
+//                    }
+//                }
+//    }
+}
+
     
 
 
-}
+
