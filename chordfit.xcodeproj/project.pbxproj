@@ -19,13 +19,21 @@
 		5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */; };
 		5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */; };
 		5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B5F267E51E500EB5E23 /* Main.storyboard */; };
+		5F7B9207267FB8390063EEA0 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B91FA267FB8390063EEA0 /* DataHelper.swift */; };
+		5F7B9208267FB8390063EEA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B91FC267FB8390063EEA0 /* HomeViewController.swift */; };
+		5F7B9209267FB8390063EEA0 /* ChordProgressionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B91FE267FB8390063EEA0 /* ChordProgressionRepository.swift */; };
+		5F7B920A267FB8390063EEA0 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B91FF267FB8390063EEA0 /* ChordProgression.swift */; };
+		5F7B920B267FB8390063EEA0 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B9201267FB8390063EEA0 /* HomeStoryboard.storyboard */; };
+		5F7B920C267FB8390063EEA0 /* ChordProgressionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B9202267FB8390063EEA0 /* ChordProgressionCollectionViewCell.swift */; };
+		5F7B920D267FB8390063EEA0 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B9203267FB8390063EEA0 /* HeaderCollectionView.swift */; };
+		5F7B920E267FB8390063EEA0 /* Songs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B9205267FB8390063EEA0 /* Songs+CoreDataProperties.swift */; };
+		5F7B920F267FB8390063EEA0 /* Songs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B9206267FB8390063EEA0 /* Songs+CoreDataClass.swift */; };
 		5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA472F267F48C200AA8994 /* AudioPlayerController.swift */; };
 		5FAA4734267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FAA4733267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 */; };
 		5FB884B5267F6BC800ECB401 /* GameScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB884B4267F6BC800ECB401 /* GameScene.storyboard */; };
 		5FB884B7267F6C4C00ECB401 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB884B6267F6C4C00ECB401 /* ViewController.swift */; };
 		5FB884BC267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB884BA267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift */; };
 		5FB884BD267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB884BB267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard */; };
-		5FB884BF267F829B00ECB401 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB884BE267F829B00ECB401 /* HeaderTableViewCell.swift */; };
 		5FB884C1267F830800ECB401 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB884C0267F830800ECB401 /* SongSelection+Tutorial.storyboard */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
@@ -42,7 +50,6 @@
 		BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72326745D0A004E4849 /* UINib+Loader.swift */; };
 		BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */; };
 		BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */; };
-		BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */; };
 		BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +66,15 @@
 		5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierViewController.swift; sourceTree = "<group>"; };
 		5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierDelegate.swift; sourceTree = "<group>"; };
 		5F6B3B5F267E51E500EB5E23 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5F7B91FA267FB8390063EEA0 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		5F7B91FC267FB8390063EEA0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5F7B91FE267FB8390063EEA0 /* ChordProgressionRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgressionRepository.swift; sourceTree = "<group>"; };
+		5F7B91FF267FB8390063EEA0 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
+		5F7B9201267FB8390063EEA0 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
+		5F7B9202267FB8390063EEA0 /* ChordProgressionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCell.swift; sourceTree = "<group>"; };
+		5F7B9203267FB8390063EEA0 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
+		5F7B9205267FB8390063EEA0 /* Songs+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5F7B9206267FB8390063EEA0 /* Songs+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5FAA472F267F48C200AA8994 /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 		5FAA4733267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons Audio.mp3"; sourceTree = "<group>"; };
 		5FB884B4267F6BC800ECB401 /* GameScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScene.storyboard; sourceTree = "<group>"; };
@@ -84,7 +100,6 @@
 		BF7EC72326745D0A004E4849 /* UINib+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Loader.swift"; sourceTree = "<group>"; };
 		BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialView.swift"; sourceTree = "<group>"; };
 		BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController.swift"; sourceTree = "<group>"; };
-		BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SongSelection+Tutorial.storyboard"; sourceTree = "<group>"; };
 		BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +174,54 @@
 				5FB884B4267F6BC800ECB401 /* GameScene.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5F7B91F9267FB8390063EEA0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B91FA267FB8390063EEA0 /* DataHelper.swift */,
+				5F7B91FB267FB8390063EEA0 /* Controller */,
+				5F7B91FD267FB8390063EEA0 /* Model */,
+				5F7B9200267FB8390063EEA0 /* View */,
+				5F7B9204267FB8390063EEA0 /* Data */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5F7B91FB267FB8390063EEA0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B91FC267FB8390063EEA0 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F7B91FD267FB8390063EEA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B91FE267FB8390063EEA0 /* ChordProgressionRepository.swift */,
+				5F7B91FF267FB8390063EEA0 /* ChordProgression.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F7B9200267FB8390063EEA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B9201267FB8390063EEA0 /* HomeStoryboard.storyboard */,
+				5F7B9202267FB8390063EEA0 /* ChordProgressionCollectionViewCell.swift */,
+				5F7B9203267FB8390063EEA0 /* HeaderCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F7B9204267FB8390063EEA0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B9205267FB8390063EEA0 /* Songs+CoreDataProperties.swift */,
+				5F7B9206267FB8390063EEA0 /* Songs+CoreDataClass.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		5F7E4098267CF3C600D101EE /* GameScene */ = {
@@ -251,6 +314,7 @@
 		BF7EC70226738064004E4849 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				5F7B91F9267FB8390063EEA0 /* Home */,
 				BF7EC70326738096004E4849 /* SongSelection */,
 				5F7E4098267CF3C600D101EE /* GameScene */,
 			);
@@ -453,6 +517,7 @@
 				5FB884BD267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				5FAA4734267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 in Resources */,
+				5F7B920B267FB8390063EEA0 /* HomeStoryboard.storyboard in Resources */,
 				5FB884C1267F830800ECB401 /* SongSelection+Tutorial.storyboard in Resources */,
 				5FB884B5267F6BC800ECB401 /* GameScene.storyboard in Resources */,
 				5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */,
@@ -468,12 +533,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F7B9207267FB8390063EEA0 /* DataHelper.swift in Sources */,
 				0F2E5B622679DD11000B01F1 /* GameScene.swift in Sources */,
 				0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */,
 				0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */,
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
+				5F7B920D267FB8390063EEA0 /* HeaderCollectionView.swift in Sources */,
 				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
 				5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */,
+				5F7B920E267FB8390063EEA0 /* Songs+CoreDataProperties.swift in Sources */,
 				5FB884B7267F6C4C00ECB401 /* ViewController.swift in Sources */,
 				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
 				0F2E5BEF267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
@@ -486,12 +554,17 @@
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
 				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
 				5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */,
+				5F7B9208267FB8390063EEA0 /* HomeViewController.swift in Sources */,
+				5F7B920F267FB8390063EEA0 /* Songs+CoreDataClass.swift in Sources */,
+				5F7B920C267FB8390063EEA0 /* ChordProgressionCollectionViewCell.swift in Sources */,
 				5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */,
 				BF6D6E64267F8DF700DB2FCA /* HeaderTableViewCell.swift in Sources */,
+				5F7B920A267FB8390063EEA0 /* ChordProgression.swift in Sources */,
 				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
 				0F2E5BEE267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
 				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
+				5F7B9209267FB8390063EEA0 /* ChordProgressionRepository.swift in Sources */,
 				5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */,
 				BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */,
 			);
