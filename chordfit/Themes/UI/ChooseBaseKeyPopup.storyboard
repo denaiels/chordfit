@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="83.705357142857139"/>
         </scene>
-        <!--Main-->
+        <!--GameScene-->
         <scene sceneID="GgJ-2M-oVX">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="T8C-9c-sJ0" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="GameScene" id="T8C-9c-sJ0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOG-SR-QZt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="85"/>
