@@ -23,6 +23,8 @@
 		5FB884B7267F6C4C00ECB401 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB884B6267F6C4C00ECB401 /* ViewController.swift */; };
 		5FB884BC267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB884BA267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift */; };
 		5FB884BD267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB884BB267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard */; };
+		5FB884BF267F829B00ECB401 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB884BE267F829B00ECB401 /* HeaderTableViewCell.swift */; };
+		5FB884C1267F830800ECB401 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB884C0267F830800ECB401 /* SongSelection+Tutorial.storyboard */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
@@ -37,7 +39,6 @@
 		BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72326745D0A004E4849 /* UINib+Loader.swift */; };
 		BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */; };
 		BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */; };
-		BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */; };
 		BF7EC73326746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */; };
 		BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */; };
 		BF7EC73926748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
@@ -60,6 +61,8 @@
 		5FB884B6267F6C4C00ECB401 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5FB884BA267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBaseKeyPopupViewController.swift; sourceTree = "<group>"; };
 		5FB884BB267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseBaseKeyPopup.storyboard; sourceTree = "<group>"; };
+		5FB884BE267F829B00ECB401 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		5FB884C0267F830800ECB401 /* SongSelection+Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "SongSelection+Tutorial.storyboard"; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		BF7EC72326745D0A004E4849 /* UINib+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Loader.swift"; sourceTree = "<group>"; };
 		BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialView.swift"; sourceTree = "<group>"; };
 		BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController.swift"; sourceTree = "<group>"; };
-		BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SongSelection+Tutorial.storyboard"; sourceTree = "<group>"; };
 		BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; sourceTree = "<group>"; };
 		BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				BF7EC719267396FE004E4849 /* SongSelectionTableViewCell.swift */,
 				BF7EC71A267396FE004E4849 /* SongSelectionTableViewCell.xib */,
 				BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */,
+				5FB884BE267F829B00ECB401 /* HeaderTableViewCell.swift */,
 			);
 			path = SongSelectionCell;
 			sourceTree = "<group>";
@@ -370,7 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */,
-				BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */,
+				5FB884C0267F830800ECB401 /* SongSelection+Tutorial.storyboard */,
 				BF7EC7252674623B004E4849 /* SongSelectionTableView */,
 			);
 			path = View;
@@ -445,8 +448,8 @@
 				5FB884BD267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				5FAA4734267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 in Resources */,
+				5FB884C1267F830800ECB401 /* SongSelection+Tutorial.storyboard in Resources */,
 				5FB884B5267F6BC800ECB401 /* GameScene.storyboard in Resources */,
-				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
 				5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
 				BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */,
@@ -480,6 +483,7 @@
 				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
 				5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */,
 				5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */,
+				5FB884BF267F829B00ECB401 /* HeaderTableViewCell.swift in Sources */,
 				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
 				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
