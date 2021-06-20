@@ -75,42 +75,43 @@ class GameScene: SKScene {
     
     var baseKey: String = ""
     var chords: [movingCP] = []
-    let songChords: [[String]] = [
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-                
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-                
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-                
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-        
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-        
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-        
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"]
-    ]
+    let song: Song?
+//    let songChords: [[String]] = [
+//        ["I", "2.6"],
+//        ["V", "2.6"],
+//        ["vi", "2.6"],
+//        ["IV", "2.6"],
+//
+//        ["I", "2.6"],
+//        ["V", "2.6"],
+//        ["vi", "2.6"],
+//        ["IV", "2.6"],
+//
+//        ["I", "2.6"],
+//        ["V", "2.6"],
+//        ["vi", "2.6"],
+//        ["IV", "2.6"],
+//
+//        ["I", "2.6"],
+//        ["V", "2.6"],
+//        ["vi", "2.6"],
+//        ["IV", "2.6"],
+//
+//        ["I", "2.6"],
+//        ["V", "2.6"],
+//        ["vi", "2.6"],
+//        ["IV", "2.6"],
+//
+//        ["I", "2.6"],
+//        ["V", "2.6"],
+//        ["vi", "2.6"],
+//        ["IV", "2.6"],
+//
+//        ["I", "2.6"],
+//        ["V", "2.6"],
+//        ["vi", "2.6"],
+//        ["IV", "2.6"]
+//    ]
     
     // PUNYA AI CHORD CLASSIFIER
     var chordClassifierViewController = ChordClassifierViewController()
@@ -696,7 +697,15 @@ class GameScene: SKScene {
         audioPlayerController.player?.play()
     }
     
-   
+    func gameFinish(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "endstory")
+        vc.view.frame = (self.view?.frame)!
+        UIView.transition(with: self.view!, duration: 0.1, options: .curveEaseOut, animations:
+            {
+                self.view?.window?.rootViewController = vc
+            }, completion: { completed in })
+    }
     
 }
 
@@ -797,7 +806,7 @@ extension GameScene : SKPhysicsContactDelegate{
                 }
             }
             
-            if nodeUserTapped.name == "resumeBtn"{
+            if nodeUserTapped.name == "resumeBtn" {
                 counter = counterstartValue
                 countdownLabel.text = "\(counter)"
                 countdownLabel.isHidden = false
@@ -805,16 +814,25 @@ extension GameScene : SKPhysicsContactDelegate{
                 isNotBegin = true
             }
             
-            if nodeUserTapped.name == "quitBtn"{
+            if nodeUserTapped.name == "quitBtn" {
                 confirmationquitLayer.isHidden = false
                 flagconfirm = true
             }
             
-            if nodeUserTapped.name == "cancelBtn"{
+            if nodeUserTapped.name == "cancelBtn" {
                 confirmationquitLayer.isHidden = true
             }
             
-            if nodeUserTapped.name == "restartBtn"{
+            if nodeUserTapped.name == "restartBtn" {
+                self.removeAllChildren()
+                self.removeAllActions()
+                self.scene?.removeFromParent()
+                let gameScene = GameScene(size: self.size)
+                gameScene.scaleMode = .aspectFill
+                view?.presentScene(gameScene)
+            }
+            
+            if nodeUserTapped.name == "quitBtn" {
                 self.removeAllChildren()
                 self.removeAllActions()
                 self.scene?.removeFromParent()
@@ -823,7 +841,6 @@ extension GameScene : SKPhysicsContactDelegate{
                 view?.presentScene(gameScene)
             }
         }
-        
     }
 }
 

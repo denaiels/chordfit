@@ -30,4 +30,13 @@ extension SongSelection_TutorialViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cobain aja lah ini tapped ga")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chooseBasekeyPopupSegue" {
+            if let viewController = segue.destination as? ChooseBaseKeyPopupViewController {
+                viewController.songToPlay = song
+                print(song?.title)
+            }
+        }
+    }
 }
