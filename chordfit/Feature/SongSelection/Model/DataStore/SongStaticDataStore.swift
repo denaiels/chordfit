@@ -21,7 +21,6 @@ struct SongStaticDataStore {
         let demonsChords = [["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4]]
         let demons = Song(title: "Demons", genre: "Alternative Rock", artist: "Imagine Dragons", image: "Demons", beat: 88, chords: demonsChords)
         
-        
         let beautifulInWhiteChords = [["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["IV", 2], ["I", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["IV", 2], ["I", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["IV", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 4]]
         let beautifulInWhite = Song(title: "Beautiful in White", genre: "Pop", artist: "Shane Filan", image: "Beautiful in White", beat: 78, chords: beautifulInWhiteChords)
         

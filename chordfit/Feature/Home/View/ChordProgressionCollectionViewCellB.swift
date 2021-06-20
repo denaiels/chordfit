@@ -12,7 +12,7 @@ class ChordProgressionCollectionViewCellB: UICollectionViewCell {
     @IBOutlet weak var chordPLabelB: UILabel!
     @IBOutlet weak var songTLabelB: UILabel!
     @IBOutlet weak var chordBarB: ProgressView!
-    
+    @IBOutlet weak var songTLabelB2: UILabel!
     
 }
 

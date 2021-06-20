@@ -10,6 +10,9 @@ import CoreData
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var songTitleDC: UILabel!
+    @IBOutlet weak var artistDC: UILabel!
+    
     @IBOutlet weak var normalCollectionView: UICollectionView!
     @IBOutlet weak var playBtn: UIButton!
     
@@ -20,10 +23,12 @@ class HomeViewController: UIViewController {
     
     var chords: [Songs]!
     
+    var chordsNormal = [Songs]()
+    var chordsHard = [Songs]()
+    
     var progressBarA:Float = 0.0
     var progressBarB:Float = 0.0
    
-    
     let categoryHeader = "HeaderCollectionView"
     
 //    var chordProgression: [ChordProgression] =
@@ -59,6 +64,9 @@ class HomeViewController: UIViewController {
         hardCollectionView.setCollectionViewLayout(layout, animated: true)
         
         fetchData()
+        
+        songTitleDC.text = chords[0].title
+        artistDC.text = chords[0].artist
     }
     
     func playButton(){
@@ -73,22 +81,23 @@ class HomeViewController: UIViewController {
             self.chords = try context.fetch(Songs.fetchRequest())
             
             for dt in self.chords {
-
+                
                 if dt.category == SongProgressionCategory.Normal.rawValue {
                     let valueA = itungPoin(dataLagu: dt)
                     progressBarA += valueA
+                    chordsNormal.append(dt)
                     
                     
                 } else if dt.category == SongProgressionCategory.Hard.rawValue {
                     let valueB = itungPoin(dataLagu: dt)
                     progressBarB += valueB
+                    chordsHard.append(dt)
                 }
             }
             
             DispatchQueue.main.async {
                 self.normalCollectionView.reloadData()
             }
-            
         }
         
         catch {
@@ -119,50 +128,64 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.chords?.count ?? 0
-        
+
+        return 1
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = normalCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionNormal", for: indexPath) as! ChordProgressionCollectionViewCellA
         
-        cell.chordPLabel?.text = self.chords![indexPath.row].progression
-        cell.songTLabel?.text = self.chords![indexPath.row].title
+        cell.chordPLabel?.text = chordsNormal[indexPath.row].progression
+        cell.songTLabel?.text = chordsNormal[indexPath.row].title
+        cell.songTLabel2?.text = chordsNormal[1].title
         cell.chordBar?.progress = progressBarA
-        
+
         if (collectionView == hardCollectionView) {
             let cellB = hardCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionHard", for: indexPath) as! ChordProgressionCollectionViewCellB
             
-            cellB.chordPLabelB?.text = self.chords![indexPath.row].progression
-            cellB.songTLabelB?.text = self.chords![indexPath.row].title
+            cellB.chordPLabelB?.text = chordsHard[indexPath.row].progression
+            cellB.songTLabelB?.text = chordsHard[indexPath.row].title
+            cellB.songTLabelB2?.text = chordsHard[1].title
             cellB.chordBarB?.progress = progressBarB
-
+            setupCollectionViewCellLayout(cell: cellB)
             return cellB
         }
         
-//        var cell: ChordProgressionCollectionViewCell?
-//
-//        if (chords[indexPath.row].category == SongProgression.Normal.rawValue) {
-//            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionNormal", for: indexPath) as! ChordProgressionCollectionViewCell
-//
-//            cell!.chordPLabel.text = self.chords![indexPath.row].progression
-//            cell!.songTLabel.text = self.chords![indexPath.row].title
-//            cell!.chordBar.progress = progressBarA
-//
-//        }else if (chords[indexPath.row].category == SongProgression.Normal.rawValue){
-//            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionHard", for: indexPath) as! ChordProgressionCollectionViewCellB
-//
-//            cell!.chordPLabelB.text = self.chords![indexPath.row].progression
-//            cell!.songTLabelB.text = self.chords![indexPath.row].title
-//            cell!.chordBarB.progress = progressBarB
-//        }
-        
         setupCollectionViewCellLayout(cell: cell)
-        
         return cell
-        
     }
+        
+//        print(self.chords[indexPath.row].title)
+//        var cellA: ChordProgressionCollectionViewCellA?
+//
+//        var cellB: ChordProgressionCollectionViewCellB?
+//
+//        if (chords[indexPath.row].category == SongProgressionCategory.Normal.rawValue) {
+//            cellA = normalCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionNormal", for: indexPath) as! ChordProgressionCollectionViewCellA
+//
+//            cellA!.chordPLabel.text = self.chords![indexPath.row].progression
+//            cellA!.songTLabel.text = self.chords![indexPath.row].title
+//            cellA!.chordBar.progress = progressBarA
+//            setupCollectionViewCellLayout(cell: cellA!)
+//
+//            return cellA!
+//
+//        }else if (chords[indexPath.row].category == SongProgressionCategory.Hard.rawValue){
+//            cellB = hardCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionHard", for: indexPath) as! ChordProgressionCollectionViewCellB
+//
+//            cellB!.chordPLabelB.text = self.chords![indexPath.row].progression
+//            cellB!.songTLabelB.text = self.chords![indexPath.row].title
+//            cellB!.chordBarB.progress = progressBarB
+//        }
+//
+//
+//        setupCollectionViewCellLayout(cell: cellB!)
+//
+//        return cellB!
+        
+//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 170, height: 170)
@@ -172,11 +195,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         return UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(chordProgression[indexPath.row].chordProgressiontitle)
-//    }
-
-
     func setupCollectionViewCellLayout(cell: UICollectionViewCell)
     {
         
