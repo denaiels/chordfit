@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChordProgressionCollectionViewCell: UICollectionViewCell {
+class ChordProgressionCollectionViewCellA: UICollectionViewCell {
     @IBOutlet weak var chordPLabel: UILabel!
     @IBOutlet weak var songTLabel: UILabel!
     @IBOutlet weak var chordBar: UIProgressView!

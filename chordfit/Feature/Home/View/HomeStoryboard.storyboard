@@ -66,7 +66,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChordProgression" id="kyZ-YS-peD" customClass="ChordProgressionCollectionViewCell" customModule="chordfit" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChordProgressionNormal" id="kyZ-YS-peD" customClass="ChordProgressionCollectionViewCellA" customModule="chordfit" customModuleProvider="target">
                                         <rect key="frame" x="89.666666666666671" y="0.0" width="170" height="157"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Cgz-WJ-Tdf">
@@ -149,7 +149,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChordProgression" id="XYY-ap-TdN" customClass="ChordProgressionCollectionViewCell" customModule="chordfit" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChordProgressionHard" id="XYY-ap-TdN" customClass="ChordProgressionCollectionViewCellB" customModule="chordfit" customModuleProvider="target">
                                         <rect key="frame" x="89.666666666666671" y="0.0" width="170" height="157"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="66E-nk-B0d">
@@ -162,7 +162,7 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <color key="highlightedColor" systemColor="labelColor"/>
                                                 </label>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="6bs-0f-tdH" customClass="ProgressView" customModule="chordfit" customModuleProvider="target">
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="6bs-0f-tdH" customClass="ProgressViewB" customModule="chordfit" customModuleProvider="target">
                                                     <rect key="frame" x="14" y="121" width="142" height="10"/>
                                                     <color key="tintColor" red="0.30256545540000002" green="0.63603585959999998" blue="0.55292969940000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
@@ -200,9 +200,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="170" height="157"/>
                                         <connections>
-                                            <outlet property="chordBar" destination="6bs-0f-tdH" id="Atg-y4-C8f"/>
-                                            <outlet property="chordPLabel" destination="8e8-Md-fS2" id="aDF-iJ-57n"/>
-                                            <outlet property="songTLabel" destination="CYH-HW-8ju" id="EIA-ac-O3Q"/>
+                                            <outlet property="chordBarB" destination="6bs-0f-tdH" id="dWZ-dw-vBS"/>
+                                            <outlet property="chordPLabelB" destination="8e8-Md-fS2" id="wBV-Sw-KWN"/>
+                                            <outlet property="songTLabelB" destination="CYH-HW-8ju" id="nFs-xY-4cG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -245,6 +245,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="hardCollectionView" destination="dBm-RD-9lB" id="0Pv-fU-kA4"/>
                         <outlet property="hardLbl" destination="Yfb-u7-A41" id="fCd-yb-Zah"/>
                         <outlet property="normalCollectionView" destination="J31-AY-S7P" id="QEX-9D-xP5"/>
                         <outlet property="normalLbl" destination="QSf-ze-ZX1" id="pOR-hh-epj"/>
