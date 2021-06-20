@@ -17,6 +17,8 @@
 		5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */; };
 		5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */; };
 		5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B5F267E51E500EB5E23 /* Main.storyboard */; };
+		5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA472F267F48C200AA8994 /* AudioPlayerController.swift */; };
+		5FAA4734267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FAA4733267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
@@ -48,6 +50,8 @@
 		5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierViewController.swift; sourceTree = "<group>"; };
 		5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierDelegate.swift; sourceTree = "<group>"; };
 		5F6B3B5F267E51E500EB5E23 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5FAA472F267F48C200AA8994 /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
+		5FAA4733267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons Audio.mp3"; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,31 @@
 			path = GameScene;
 			sourceTree = "<group>";
 		};
+		5FAA472C267F470F00AA8994 /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				5FAA4731267F490100AA8994 /* Audio Assets */,
+				5FAA4732267F491600AA8994 /* Controller */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		5FAA4731267F490100AA8994 /* Audio Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5FAA4733267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 */,
+			);
+			path = "Audio Assets";
+			sourceTree = "<group>";
+		};
+		5FAA4732267F491600AA8994 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5FAA472F267F48C200AA8994 /* AudioPlayerController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		5FFD95562671FADA005207C3 = {
 			isa = PBXGroup;
 			children = (
@@ -190,8 +219,8 @@
 		BF7EC70226738064004E4849 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				5F7E4098267CF3C600D101EE /* GameScene */,
 				BF7EC70326738096004E4849 /* SongSelection */,
+				5F7E4098267CF3C600D101EE /* GameScene */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -227,8 +256,8 @@
 		BF7EC706267380CC004E4849 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5FAA472C267F470F00AA8994 /* AVFoundation */,
 				5F0C935C267B44A10010887B /* ChordClassifierAI */,
-				BF7EC70B2673813C004E4849 /* AVFoundation */,
 				BF7EC70A26738131004E4849 /* CoreData */,
 			);
 			path = Utilities;
@@ -262,13 +291,6 @@
 				BF7EC70E267387A7004E4849 /* Model */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		BF7EC70B2673813C004E4849 /* AVFoundation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AVFoundation;
 			sourceTree = "<group>";
 		};
 		BF7EC70E267387A7004E4849 /* Model */ = {
@@ -409,6 +431,7 @@
 			files = (
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
+				5FAA4734267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 in Resources */,
 				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
 				5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
@@ -439,6 +462,7 @@
 				5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
 				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
+				5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */,
 				5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */,
 				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
