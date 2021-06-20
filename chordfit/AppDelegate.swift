@@ -17,11 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        clearDatabase()
         
         let dataHelper = DataHelper(context: self.persistentContainer.viewContext)
-        
+
         let isFirstVisit = UserDefaults.standard
-        
-        if (isFirstVisit.object(forKey: "isFirstInstalled") as? String != nil) {
+
+        if (isFirstVisit.object(forKey: "isFirstInstalled") as? String == nil) {
             isFirstVisit.setValue("NO", forKey: "isFirstInstalled")
+            print("a")
             dataHelper.seedDataStore()
         }
 
@@ -34,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }else{
 //           print("gagaga")
 //        }
-        
+//
 //        dataHelper.seedDataStore()
 //        dataHelper.printAllSongs()
         return true

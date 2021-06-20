@@ -11,8 +11,8 @@ class ChordProgressionCollectionViewCellA: UICollectionViewCell {
     @IBOutlet weak var chordPLabel: UILabel!
     @IBOutlet weak var songTLabel: UILabel!
     @IBOutlet weak var chordBar: UIProgressView!
-    
-//    func setup(with chordProgression: ChordProgression) {
+    @IBOutlet weak var songTLabel2: UILabel!
+    //    func setup(with chordProgression: ChordProgression) {
 //        chordPLabel.text = chordProgression.chordProgressiontitle
 //        songTLabel.text = chordProgression.songTitle
 //        chordBar.progress = 0.5

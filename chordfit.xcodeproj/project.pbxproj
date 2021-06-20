@@ -43,7 +43,6 @@
 		5F6B3B5B267E500000EB5E23 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B52267E500000EB5E23 /* ChordProgression.swift */; };
 		5F6B3B5C267E500000EB5E23 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B54267E500000EB5E23 /* HomeViewController.swift */; };
 		5F6B3B5E267E516F00EB5E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B5D267E516F00EB5E23 /* Main.storyboard */; };
-		5FFCA6BC267E4847001F70A7 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCA6BB267E4847001F70A7 /* info.plist */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
@@ -91,13 +90,13 @@
 		5F6B3B52267E500000EB5E23 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
 		5F6B3B54267E500000EB5E23 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5F6B3B5D267E516F00EB5E23 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5FFCA6BB267E4847001F70A7 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5FFD956C2671FADA005207C3 /* chordfit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chordfit.xcdatamodel; sourceTree = "<group>"; };
 		5FFD956E2671FADB005207C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FFD95712671FADB005207C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC124E7B267F4745004279B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCellB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -392,7 +391,7 @@
 				5FFD956E2671FADB005207C3 /* Assets.xcassets */,
 				5F6B3B5D267E516F00EB5E23 /* Main.storyboard */,
 				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
-				5FFCA6BB267E4847001F70A7 /* info.plist */,
+				FC124E7B267F4745004279B1 /* Info.plist */,
 				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
 			);
 			path = chordfit;
@@ -426,9 +425,9 @@
 		FCFC4CEE2672C39600E248B8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5F6B3B49267E500000EB5E23 /* DataHelper.swift */,
 				5F6B3B53267E500000EB5E23 /* Controller */,
 				5F6B3B4E267E500000EB5E23 /* Data */,
-				5F6B3B49267E500000EB5E23 /* DataHelper.swift */,
 				5F6B3B51267E500000EB5E23 /* Model */,
 				5F6B3B4A267E500000EB5E23 /* View */,
 			);
@@ -494,7 +493,6 @@
 			files = (
 				5F6B3B56267E500000EB5E23 /* HomeStoryboard.storyboard in Resources */,
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
-				5FFCA6BC267E4847001F70A7 /* info.plist in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
 				5F6B3B5E267E516F00EB5E23 /* Main.storyboard in Resources */,
