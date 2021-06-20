@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var normalCollectionView: UICollectionView!
     @IBOutlet weak var playBtn: UIButton!
     
+    @IBOutlet weak var hardCollectionView: UICollectionView!
     
     //managed object context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -47,7 +48,15 @@ class HomeViewController: UIViewController {
         layout.scrollDirection = .horizontal
         normalCollectionView.setCollectionViewLayout(layout, animated: true)
         
-        normalCollectionView.register(HeaderCollectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: categoryHeader)
+        hardCollectionView.delegate = self
+        hardCollectionView.dataSource = self
+        hardCollectionView.collectionViewLayout = UICollectionViewLayout()
+        
+        let layoutHard = UICollectionViewFlowLayout()
+        layoutHard.minimumLineSpacing = 15
+        layoutHard.minimumInteritemSpacing = 15
+        layoutHard.scrollDirection = .horizontal
+        hardCollectionView.setCollectionViewLayout(layout, animated: true)
         
         fetchData()
     }
@@ -60,18 +69,17 @@ class HomeViewController: UIViewController {
     
     func fetchData(){
         do {
-//
 //            let request = Songs.fetchRequest() as NSFetchRequest<Songs>
             self.chords = try context.fetch(Songs.fetchRequest())
             
             for dt in self.chords {
 
-                if dt.category == SongProgression.Normal.rawValue {
+                if dt.category == SongProgressionCategory.Normal.rawValue {
                     let valueA = itungPoin(dataLagu: dt)
                     progressBarA += valueA
                     
                     
-                } else if dt.category == SongProgression.Hard.rawValue {
+                } else if dt.category == SongProgressionCategory.Hard.rawValue {
                     let valueB = itungPoin(dataLagu: dt)
                     progressBarB += valueB
                 }
@@ -117,39 +125,48 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cell: ChordProgressionCollectionViewCell?
+        let cell = normalCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionNormal", for: indexPath) as! ChordProgressionCollectionViewCellA
         
-        if (chords[indexPath.row].category == SongProgression.Normal.rawValue) {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgression", for: indexPath) as! ChordProgressionCollectionViewCell
+        cell.chordPLabel?.text = self.chords![indexPath.row].progression
+        cell.songTLabel?.text = self.chords![indexPath.row].title
+        cell.chordBar?.progress = progressBarA
+        
+        if (collectionView == hardCollectionView) {
+            let cellB = hardCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionHard", for: indexPath) as! ChordProgressionCollectionViewCellB
             
-            cell!.chordPLabel.text = self.chords![indexPath.row].progression
-            cell!.songTLabel.text = self.chords![indexPath.row].title
-            cell!.chordBar.progress = progressBarA
-            
-        }else if (chords[indexPath.row].category == SongProgression.Normal.rawValue){
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgression2", for: indexPath) as! ChordProgressionCollectionViewCellB
-            
-            cell.chordPLabel?.text = self.chords![indexPath.row].progression
-            cell.songTLabel?.text = self.chords![indexPath.row].title
-            cell.chordBar.progress = progressBarA
+            cellB.chordPLabelB?.text = self.chords![indexPath.row].progression
+            cellB.songTLabelB?.text = self.chords![indexPath.row].title
+            cellB.chordBarB?.progress = progressBarB
+
+            return cellB
         }
         
-        setupCollectionViewCellLayout(cell: cell!)
+//        var cell: ChordProgressionCollectionViewCell?
+//
+//        if (chords[indexPath.row].category == SongProgression.Normal.rawValue) {
+//            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionNormal", for: indexPath) as! ChordProgressionCollectionViewCell
+//
+//            cell!.chordPLabel.text = self.chords![indexPath.row].progression
+//            cell!.songTLabel.text = self.chords![indexPath.row].title
+//            cell!.chordBar.progress = progressBarA
+//
+//        }else if (chords[indexPath.row].category == SongProgression.Normal.rawValue){
+//            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionHard", for: indexPath) as! ChordProgressionCollectionViewCellB
+//
+//            cell!.chordPLabelB.text = self.chords![indexPath.row].progression
+//            cell!.songTLabelB.text = self.chords![indexPath.row].title
+//            cell!.chordBarB.progress = progressBarB
+//        }
         
+        setupCollectionViewCellLayout(cell: cell)
         
-        return cell!
-        
+        return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 170, height: 170)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//            return CGSize(width: 50, height: 30)
-//    }
-//    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
@@ -158,86 +175,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        print(chordProgression[indexPath.row].chordProgressiontitle)
 //    }
-    
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//        switch kind {
-//
-//        case UICollectionView.elementKindSectionHeader:
-//                let headerView = normalCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: categoryHeader, for: indexPath) as! HeaderCollectionView
-//
-//            headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 30)
-//
-//            headerView.categoryHeaderTitle?.text = "tutut"
-//
-//            return headerView
-//
-//            default:
-//                assert(false, "Unexpected element kind")
-//            }
-//
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: categoryHeader, for: indexPath) as? HeaderCollectionView{
-//            sectionHeader.categoryHeaderTitle?.text = "TEST"
-//            return sectionHeader
-//        }
-//        return UICollectionReusableView()
-    
 
-//        let categoryHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderCollectionView", for: indexPath) as? HeaderCollectionView
-        
-        //cara-1
-//        var reusableView : UICollectionReusableView? = nil
-//
-//        if (kind == UICollectionView.elementKindSectionHeader) {
-//                // Create Header
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderCollectionView", for: indexPath) as! HeaderCollectionView
-//
-//            headerView.frame = CGRect(x:0, y:0, width: view.frame.width, height: 200)
-//            headerView.categoryHeaderTitle.text = self.chords![indexPath.row].category
-//
-//                reusableView = headerView
-//            }
-//            return reusableView!
 
-            
-//        let category = self.chords![indexPath.section].category
-
-//        return UICollectionReusableView()
-//    }
-//    
-   
-    //cara-2
-//    func collectionView(_ collectionView: UICollectionView,
-//                                 viewForSupplementaryElementOfKind kind: String,
-//                                 at indexPath: IndexPath) -> UICollectionReusableView {
-//      // 1
-//      switch kind {
-//      // 2
-//      case UICollectionView.elementKindSectionHeader:
-//        // 3
-//        guard
-//          let headerView = normalCollectionView.dequeueReusableSupplementaryView(
-//            ofKind: kind,
-//            withReuseIdentifier: "\(HeaderCollectionView.self)",
-//            for: indexPath) as? HeaderCollectionView
-//          else {
-//            fatalError("Invalid view type")
-//        }
-//
-//        headerView.categoryHeaderTitle?.text = self.chords![indexPath.row].category
-//
-//        return headerView
-//
-//      default:
-//        // 4
-//        assert(false, "Invalid element type")
-//      }
-//    }
-    
-    
-  
     func setupCollectionViewCellLayout(cell: UICollectionViewCell)
     {
         

@@ -15,7 +15,7 @@ import UIKit
 //}
 
 //new
-enum SongProgression: String, CaseIterable {
+enum SongProgressionCategory: String, CaseIterable {
     case Normal
     case Hard
     

@@ -14,10 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        clearDatabase()
+//        clearDatabase()
         
         let dataHelper = DataHelper(context: self.persistentContainer.viewContext)
-//
+        
+        let isFirstVisit = UserDefaults.standard
+        
+        if (isFirstVisit.object(forKey: "isFirstInstalled") as? String != nil) {
+            isFirstVisit.setValue("NO", forKey: "isFirstInstalled")
+            dataHelper.seedDataStore()
+        }
+
 //        UserDefaults.standard.set("YES", forKey: "isFirstInstalled")
 //        let isFirstVisit = UserDefaults.standard.string(forKey: "isFirstInstalled")
 //
@@ -28,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //           print("gagaga")
 //        }
         
-        dataHelper.seedDataStore()
-        dataHelper.printAllSongs()
+//        dataHelper.seedDataStore()
+//        dataHelper.printAllSongs()
         return true
     }
     

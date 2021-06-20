@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */; };
-		5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935E267B44BC0010887B /* Base Key C.mlmodel */; };
-		5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935F267B44BC0010887B /* Base Key F.mlmodel */; };
-		5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9360267B44BD0010887B /* Base Key G.mlmodel */; };
-		5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */; };
-		5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */; };
 		5F6B3B2E267E4DFA00EB5E23 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3AFC267E4DFA00EB5E23 /* UIViewExtension.swift */; };
 		5F6B3B2F267E4DFA00EB5E23 /* UINib+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3AFD267E4DFA00EB5E23 /* UINib+Loader.swift */; };
 		5F6B3B30267E4DFA00EB5E23 /* GamePausedPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B02267E4DFA00EB5E23 /* GamePausedPopupView.swift */; };
@@ -42,8 +37,7 @@
 		5F6B3B48267E4DFA00EB5E23 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B2D267E4DFA00EB5E23 /* Song.swift */; };
 		5F6B3B55267E500000EB5E23 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B49267E500000EB5E23 /* DataHelper.swift */; };
 		5F6B3B56267E500000EB5E23 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4B267E500000EB5E23 /* HomeStoryboard.storyboard */; };
-		5F6B3B57267E500000EB5E23 /* ChordProgressionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCell.swift */; };
-		5F6B3B58267E500000EB5E23 /* HeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4D267E500000EB5E23 /* HeaderCollectionView.swift */; };
+		5F6B3B57267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift */; };
 		5F6B3B59267E500000EB5E23 /* Songs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4F267E500000EB5E23 /* Songs+CoreDataProperties.swift */; };
 		5F6B3B5A267E500000EB5E23 /* Songs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B50267E500000EB5E23 /* Songs+CoreDataClass.swift */; };
 		5F6B3B5B267E500000EB5E23 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B52267E500000EB5E23 /* ChordProgression.swift */; };
@@ -55,16 +49,13 @@
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
 		5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD956E2671FADB005207C3 /* Assets.xcassets */; };
 		5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */; };
+		FC142447267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */; };
+		FC89F0FE267F39C600F68DFC /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F2E5B692679DE1D000B01F1 /* movingCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movingCP.swift; sourceTree = "<group>"; };
 		0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		5F0C935E267B44BC0010887B /* Base Key C.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key C.mlmodel"; sourceTree = "<group>"; };
-		5F0C935F267B44BC0010887B /* Base Key F.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key F.mlmodel"; sourceTree = "<group>"; };
-		5F0C9360267B44BD0010887B /* Base Key G.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key G.mlmodel"; sourceTree = "<group>"; };
-		5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierViewController.swift; sourceTree = "<group>"; };
-		5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifierDelegate.swift; sourceTree = "<group>"; };
 		5F6B3AFC267E4DFA00EB5E23 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		5F6B3AFD267E4DFA00EB5E23 /* UINib+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINib+Loader.swift"; sourceTree = "<group>"; };
 		5F6B3B02267E4DFA00EB5E23 /* GamePausedPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePausedPopupView.swift; sourceTree = "<group>"; };
@@ -94,8 +85,7 @@
 		5F6B3B2D267E4DFA00EB5E23 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		5F6B3B49267E500000EB5E23 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		5F6B3B4B267E500000EB5E23 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
-		5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCell.swift; sourceTree = "<group>"; };
-		5F6B3B4D267E500000EB5E23 /* HeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionView.swift; sourceTree = "<group>"; };
+		5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCellA.swift; sourceTree = "<group>"; };
 		5F6B3B4F267E500000EB5E23 /* Songs+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F6B3B50267E500000EB5E23 /* Songs+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5F6B3B52267E500000EB5E23 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
@@ -108,6 +98,7 @@
 		5FFD956C2671FADA005207C3 /* chordfit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chordfit.xcdatamodel; sourceTree = "<group>"; };
 		5FFD956E2671FADB005207C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FFD95712671FADB005207C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCellB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,18 +112,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F6B3AB4267E4D2000EB5E23 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */,
-				5F0C935F267B44BC0010887B /* Base Key F.mlmodel */,
-				5F0C935E267B44BC0010887B /* Base Key C.mlmodel */,
-				5F0C9360267B44BD0010887B /* Base Key G.mlmodel */,
-				5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		5F6B3AFB267E4DFA00EB5E23 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,8 +261,9 @@
 		5F6B3B1E267E4DFA00EB5E23 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
-				5F6B3B1F267E4DFA00EB5E23 /* GameSceneViewController.swift */,
-				5F6B3B20267E4DFA00EB5E23 /* GameScene.swift */,
+				FC89F100267F3AA800F68DFC /* Model */,
+				FC89F101267F3AAF00F68DFC /* View */,
+				FC89F102267F3AB600F68DFC /* Controller */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -353,8 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				5F6B3B4B267E500000EB5E23 /* HomeStoryboard.storyboard */,
-				5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCell.swift */,
-				5F6B3B4D267E500000EB5E23 /* HeaderCollectionView.swift */,
+				5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift */,
+				FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,7 +369,6 @@
 			children = (
 				5FFD95612671FADA005207C3 /* chordfit */,
 				5FFD95602671FADA005207C3 /* Products */,
-				5F6B3AB4267E4D2000EB5E23 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -415,10 +394,33 @@
 				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
 				5FFCA6BB267E4847001F70A7 /* info.plist */,
 				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
-				0F2E5B692679DE1D000B01F1 /* movingCP.swift */,
-				0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */,
 			);
 			path = chordfit;
+			sourceTree = "<group>";
+		};
+		FC89F100267F3AA800F68DFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F2E5B692679DE1D000B01F1 /* movingCP.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC89F101267F3AAF00F68DFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC89F102267F3AB600F68DFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B1F267E4DFA00EB5E23 /* GameSceneViewController.swift */,
+				5F6B3B20267E4DFA00EB5E23 /* GameScene.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		FCFC4CEE2672C39600E248B8 /* Home */ = {
@@ -512,7 +514,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F6B3B40267E4DFA00EB5E23 /* HeaderTableViewCell.swift in Sources */,
-				5F6B3B58267E500000EB5E23 /* HeaderCollectionView.swift in Sources */,
 				5F6B3B44267E4DFA00EB5E23 /* ChordClassifierViewController.swift in Sources */,
 				5F6B3B59267E500000EB5E23 /* Songs+CoreDataProperties.swift in Sources */,
 				5F6B3B39267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
@@ -530,26 +531,23 @@
 				5F6B3B46267E4DFA00EB5E23 /* Base Key F.mlmodel in Sources */,
 				5F6B3B37267E4DFA00EB5E23 /* SongStaticDataStore.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
-				5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */,
 				5F6B3B45267E4DFA00EB5E23 /* Base Key G.mlmodel in Sources */,
 				5F6B3B2F267E4DFA00EB5E23 /* UINib+Loader.swift in Sources */,
 				5F6B3B36267E4DFA00EB5E23 /* SongRepository.swift in Sources */,
-				5F6B3B57267E500000EB5E23 /* ChordProgressionCollectionViewCell.swift in Sources */,
-				5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */,
+				5F6B3B57267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift in Sources */,
 				5F6B3B3F267E4DFA00EB5E23 /* SongSelectionTableViewCell.swift in Sources */,
-				5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */,
 				5F6B3B35267E4DFA00EB5E23 /* ChordFitColors.swift in Sources */,
+				FC89F0FE267F39C600F68DFC /* movingCP.swift in Sources */,
 				5F6B3B41267E4DFA00EB5E23 /* GameSceneViewController.swift in Sources */,
 				5F6B3B30267E4DFA00EB5E23 /* GamePausedPopupView.swift in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
 				5F6B3B43267E4DFA00EB5E23 /* ChordClassifierDelegate.swift in Sources */,
 				5F6B3B42267E4DFA00EB5E23 /* GameScene.swift in Sources */,
-				5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */,
 				5F6B3B55267E500000EB5E23 /* DataHelper.swift in Sources */,
+				FC142447267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift in Sources */,
 				5F6B3B5C267E500000EB5E23 /* HomeViewController.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
 				5F6B3B3B267E4DFA00EB5E23 /* SongSelection+TutorialView.swift in Sources */,
-				5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */,
 				5F6B3B33267E4DFA00EB5E23 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
