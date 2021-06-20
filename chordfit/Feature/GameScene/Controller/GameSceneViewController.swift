@@ -10,9 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameSceneViewController: UIViewController {
-    
-    var baseKey: String = "C"
-    var songToPlay: Song?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

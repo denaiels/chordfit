@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ChordFitColors {
+struct ChordFitColor {
     let black = UIColor(named: "black")
     let lightGrey = UIColor(named: "lightGrey")
     let purple = UIColor(named: "purple")
@@ -17,5 +17,4 @@ struct ChordFitColors {
     let darkGrey = UIColor(named: "darkGrey")
     let mediumGrey = UIColor(named: "mediumGrey")
     let white = UIColor(named: "white")
-    let lightPurple = UIColor(named: "lightPurple")
 }
