@@ -11,11 +11,46 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        clearDatabase()
+        
+        let dataHelper = DataHelper(context: self.persistentContainer.viewContext)
+        
+        let isFirstVisit = UserDefaults.standard
+        
+        if (isFirstVisit.object(forKey: "isFirstInstalled") as? String != nil) {
+            isFirstVisit.setValue("NO", forKey: "isFirstInstalled")
+            dataHelper.seedDataStore()
+        }
+
+//        UserDefaults.standard.set("YES", forKey: "isFirstInstalled")
+//        let isFirstVisit = UserDefaults.standard.string(forKey: "isFirstInstalled")
+//
+//        if isFirstVisit == "YES" {
+//            dataHelper.seedDataStore()
+//            UserDefaults.standard.set("NO", forKey: "isFirstInstalled")
+//        }else{
+//           print("gagaga")
+//        }
+        
+//        dataHelper.seedDataStore()
+//        dataHelper.printAllSongs()
         return true
+    }
+    
+    public func clearDatabase() {
+        guard let url = persistentContainer.persistentStoreDescriptions.first?.url else { return }
+        
+        let persistentStoreCoordinator = persistentContainer.persistentStoreCoordinator
+
+         do {
+             try persistentStoreCoordinator.destroyPersistentStore(at:url, ofType: NSSQLiteStoreType, options: nil)
+             try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+         } catch {
+             print("Attempted to clear persistent store: " + error.localizedDescription)
+         }
     }
 
     // MARK: UISceneSession Lifecycle

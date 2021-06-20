@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F2E5B622679DD11000B01F1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B612679DD11000B01F1 /* GameScene.swift */; };
-		0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */; };
-		0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
 		0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */; };
 		5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935E267B44BC0010887B /* Base Key C.mlmodel */; };
 		5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935F267B44BC0010887B /* Base Key F.mlmodel */; };
@@ -19,29 +16,46 @@
 		5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B5F267E51E500EB5E23 /* Main.storyboard */; };
 		5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA472F267F48C200AA8994 /* AudioPlayerController.swift */; };
 		5FAA4734267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FAA4733267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 */; };
+		5F6B3B2E267E4DFA00EB5E23 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3AFC267E4DFA00EB5E23 /* UIViewExtension.swift */; };
+		5F6B3B2F267E4DFA00EB5E23 /* UINib+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3AFD267E4DFA00EB5E23 /* UINib+Loader.swift */; };
+		5F6B3B30267E4DFA00EB5E23 /* GamePausedPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B02267E4DFA00EB5E23 /* GamePausedPopupView.swift */; };
+		5F6B3B31267E4DFA00EB5E23 /* ChooseBaseKeyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B03267E4DFA00EB5E23 /* ChooseBaseKeyPopup.storyboard */; };
+		5F6B3B32267E4DFA00EB5E23 /* GamePausedPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B04267E4DFA00EB5E23 /* GamePausedPopupView.xib */; };
+		5F6B3B33267E4DFA00EB5E23 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B05267E4DFA00EB5E23 /* PopupViewController.swift */; };
+		5F6B3B34267E4DFA00EB5E23 /* ChooseBaseKeyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B06267E4DFA00EB5E23 /* ChooseBaseKeyPopupViewController.swift */; };
+		5F6B3B35267E4DFA00EB5E23 /* ChordFitColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B08267E4DFA00EB5E23 /* ChordFitColors.swift */; };
+		5F6B3B36267E4DFA00EB5E23 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B0B267E4DFA00EB5E23 /* SongRepository.swift */; };
+		5F6B3B37267E4DFA00EB5E23 /* SongStaticDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B0E267E4DFA00EB5E23 /* SongStaticDataStore.swift */; };
+		5F6B3B38267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B12267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */; };
+		5F6B3B39267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B13267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
+		5F6B3B3A267E4DFA00EB5E23 /* SongSelection+TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B14267E4DFA00EB5E23 /* SongSelection+TutorialViewController.swift */; };
+		5F6B3B3B267E4DFA00EB5E23 /* SongSelection+TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B16267E4DFA00EB5E23 /* SongSelection+TutorialView.swift */; };
+		5F6B3B3C267E4DFA00EB5E23 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B17267E4DFA00EB5E23 /* SongSelection+Tutorial.storyboard */; };
+		5F6B3B3D267E4DFA00EB5E23 /* SongSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B1A267E4DFA00EB5E23 /* SongSelectionTableViewCell.xib */; };
+		5F6B3B3E267E4DFA00EB5E23 /* SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B1B267E4DFA00EB5E23 /* SongSelectionTableViewCellDelegate.swift */; };
+		5F6B3B3F267E4DFA00EB5E23 /* SongSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B1C267E4DFA00EB5E23 /* SongSelectionTableViewCell.swift */; };
+		5F6B3B40267E4DFA00EB5E23 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B1D267E4DFA00EB5E23 /* HeaderTableViewCell.swift */; };
+		5F6B3B41267E4DFA00EB5E23 /* GameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B1F267E4DFA00EB5E23 /* GameSceneViewController.swift */; };
+		5F6B3B42267E4DFA00EB5E23 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B20267E4DFA00EB5E23 /* GameScene.swift */; };
+		5F6B3B48267E4DFA00EB5E23 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B2D267E4DFA00EB5E23 /* Song.swift */; };
+		5F6B3B55267E500000EB5E23 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B49267E500000EB5E23 /* DataHelper.swift */; };
+		5F6B3B56267E500000EB5E23 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4B267E500000EB5E23 /* HomeStoryboard.storyboard */; };
+		5F6B3B57267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift */; };
+		5F6B3B59267E500000EB5E23 /* Songs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B4F267E500000EB5E23 /* Songs+CoreDataProperties.swift */; };
+		5F6B3B5A267E500000EB5E23 /* Songs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B50267E500000EB5E23 /* Songs+CoreDataClass.swift */; };
+		5F6B3B5B267E500000EB5E23 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B52267E500000EB5E23 /* ChordProgression.swift */; };
+		5F6B3B5C267E500000EB5E23 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B54267E500000EB5E23 /* HomeViewController.swift */; };
+		5FFCA6BC267E4847001F70A7 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FFCA6BB267E4847001F70A7 /* info.plist */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
 		5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD956E2671FADB005207C3 /* Assets.xcassets */; };
 		5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */; };
-		BF7EC70D267383D6004E4849 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC70C267383D6004E4849 /* Song.swift */; };
-		BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC711267388C5004E4849 /* SongStaticDataStore.swift */; };
-		BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC71426738E79004E4849 /* SongRepository.swift */; };
-		BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC71626739487004E4849 /* ChordFitColors.swift */; };
-		BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC719267396FE004E4849 /* SongSelectionTableViewCell.swift */; };
-		BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7EC71A267396FE004E4849 /* SongSelectionTableViewCell.xib */; };
-		BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72326745D0A004E4849 /* UINib+Loader.swift */; };
-		BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */; };
-		BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */; };
-		BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */; };
-		BF7EC73326746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */; };
-		BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */; };
-		BF7EC73926748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
+		FC142447267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */; };
+		FC89F0FE267F39C600F68DFC /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F2E5B612679DD11000B01F1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
 		0F2E5B692679DE1D000B01F1 /* movingCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movingCP.swift; sourceTree = "<group>"; };
 		0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		5F0C935E267B44BC0010887B /* Base Key C.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key C.mlmodel"; sourceTree = "<group>"; };
@@ -52,26 +66,43 @@
 		5F6B3B5F267E51E500EB5E23 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5FAA472F267F48C200AA8994 /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 		5FAA4733267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons Audio.mp3"; sourceTree = "<group>"; };
+		5F6B3AFC267E4DFA00EB5E23 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		5F6B3AFD267E4DFA00EB5E23 /* UINib+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINib+Loader.swift"; sourceTree = "<group>"; };
+		5F6B3B02267E4DFA00EB5E23 /* GamePausedPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePausedPopupView.swift; sourceTree = "<group>"; };
+		5F6B3B03267E4DFA00EB5E23 /* ChooseBaseKeyPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseBaseKeyPopup.storyboard; sourceTree = "<group>"; };
+		5F6B3B04267E4DFA00EB5E23 /* GamePausedPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamePausedPopupView.xib; sourceTree = "<group>"; };
+		5F6B3B05267E4DFA00EB5E23 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		5F6B3B06267E4DFA00EB5E23 /* ChooseBaseKeyPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBaseKeyPopupViewController.swift; sourceTree = "<group>"; };
+		5F6B3B08267E4DFA00EB5E23 /* ChordFitColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordFitColors.swift; sourceTree = "<group>"; };
+		5F6B3B0B267E4DFA00EB5E23 /* SongRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
+		5F6B3B0E267E4DFA00EB5E23 /* SongStaticDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongStaticDataStore.swift; sourceTree = "<group>"; };
+		5F6B3B12267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; sourceTree = "<group>"; };
+		5F6B3B13267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
+		5F6B3B14267E4DFA00EB5E23 /* SongSelection+TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController.swift"; sourceTree = "<group>"; };
+		5F6B3B16267E4DFA00EB5E23 /* SongSelection+TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialView.swift"; sourceTree = "<group>"; };
+		5F6B3B17267E4DFA00EB5E23 /* SongSelection+Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "SongSelection+Tutorial.storyboard"; sourceTree = "<group>"; };
+		5F6B3B1A267E4DFA00EB5E23 /* SongSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		5F6B3B1B267E4DFA00EB5E23 /* SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		5F6B3B1C267E4DFA00EB5E23 /* SongSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		5F6B3B1D267E4DFA00EB5E23 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		5F6B3B1F267E4DFA00EB5E23 /* GameSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
+		5F6B3B20267E4DFA00EB5E23 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		5F6B3B2D267E4DFA00EB5E23 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		5F6B3B49267E500000EB5E23 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		5F6B3B4B267E500000EB5E23 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
+		5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCellA.swift; sourceTree = "<group>"; };
+		5F6B3B4F267E500000EB5E23 /* Songs+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5F6B3B50267E500000EB5E23 /* Songs+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Songs+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F6B3B52267E500000EB5E23 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
+		5F6B3B54267E500000EB5E23 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5FFCA6BB267E4847001F70A7 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5FFD956C2671FADA005207C3 /* chordfit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chordfit.xcdatamodel; sourceTree = "<group>"; };
 		5FFD956E2671FADB005207C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FFD95712671FADB005207C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5FFD95732671FADB005207C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF7EC70C267383D6004E4849 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		BF7EC711267388C5004E4849 /* SongStaticDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongStaticDataStore.swift; sourceTree = "<group>"; };
-		BF7EC71426738E79004E4849 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
-		BF7EC71626739487004E4849 /* ChordFitColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordFitColors.swift; sourceTree = "<group>"; };
-		BF7EC719267396FE004E4849 /* SongSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCell.swift; sourceTree = "<group>"; };
-		BF7EC71A267396FE004E4849 /* SongSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongSelectionTableViewCell.xib; sourceTree = "<group>"; };
-		BF7EC72326745D0A004E4849 /* UINib+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Loader.swift"; sourceTree = "<group>"; };
-		BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialView.swift"; sourceTree = "<group>"; };
-		BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController.swift"; sourceTree = "<group>"; };
-		BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "SongSelection+Tutorial.storyboard"; sourceTree = "<group>"; };
-		BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; sourceTree = "<group>"; };
-		BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
+		FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCellB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,40 +116,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F0C935C267B44A10010887B /* ChordClassifierAI */ = {
+		5F6B3AFB267E4DFA00EB5E23 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				5F0C935D267B44AF0010887B /* Model */,
-				5F0C9364267B4AF70010887B /* Controller */,
-				5F0C9367267B96D90010887B /* Protocol */,
+				5F6B3AFC267E4DFA00EB5E23 /* UIViewExtension.swift */,
+				5F6B3AFD267E4DFA00EB5E23 /* UINib+Loader.swift */,
 			);
-			path = ChordClassifierAI;
+			path = Helper;
 			sourceTree = "<group>";
 		};
-		5F0C935D267B44AF0010887B /* Model */ = {
+		5F6B3AFE267E4DFA00EB5E23 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				5F0C935E267B44BC0010887B /* Base Key C.mlmodel */,
-				5F0C935F267B44BC0010887B /* Base Key F.mlmodel */,
-				5F0C9360267B44BD0010887B /* Base Key G.mlmodel */,
+				5F6B3AFF267E4DFA00EB5E23 /* UI */,
+				5F6B3B07267E4DFA00EB5E23 /* Colors */,
 			);
-			path = Model;
+			path = Themes;
 			sourceTree = "<group>";
 		};
-		5F0C9364267B4AF70010887B /* Controller */ = {
+		5F6B3AFF267E4DFA00EB5E23 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5F0C9365267B4B740010887B /* ChordClassifierViewController.swift */,
+				5F6B3B00267E4DFA00EB5E23 /* Popup */,
 			);
-			path = Controller;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		5F0C9367267B96D90010887B /* Protocol */ = {
+		5F6B3B00267E4DFA00EB5E23 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				5F0C9368267B96EC0010887B /* ChordClassifierDelegate.swift */,
+				5F6B3B01267E4DFA00EB5E23 /* View */,
 			);
-			path = Protocol;
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		5F6B3AB0267E4C7400EB5E23 /* Model */ = {
@@ -132,8 +161,11 @@
 		5F6B3AB1267E4C7A00EB5E23 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0F2E5B612679DD11000B01F1 /* GameScene.swift */,
-				0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */,
+				5F6B3B02267E4DFA00EB5E23 /* GamePausedPopupView.swift */,
+				5F6B3B03267E4DFA00EB5E23 /* ChooseBaseKeyPopup.storyboard */,
+				5F6B3B04267E4DFA00EB5E23 /* GamePausedPopupView.xib */,
+				5F6B3B05267E4DFA00EB5E23 /* PopupViewController.swift */,
+				5F6B3B06267E4DFA00EB5E23 /* ChooseBaseKeyPopupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,75 +217,122 @@
 			isa = PBXGroup;
 			children = (
 				5FFD95612671FADA005207C3 /* chordfit */,
-			);
+			path = View;
 			sourceTree = "<group>";
 		};
-		5FFD95602671FADA005207C3 /* Products */ = {
+		5F6B3B07267E4DFA00EB5E23 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				5FFD955F2671FADA005207C3 /* chordfit.app */,
+				5F6B3B08267E4DFA00EB5E23 /* ChordFitColors.swift */,
 			);
-			name = Products;
-			path = ..;
+			path = Colors;
 			sourceTree = "<group>";
 		};
-		5FFD95612671FADA005207C3 /* chordfit */ = {
+		5F6B3B09267E4DFA00EB5E23 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC706267380CC004E4849 /* Utilities */,
-				BF7EC705267380C3004E4849 /* Helper */,
-				BF7EC704267380C0004E4849 /* Themes */,
-				BF7EC70226738064004E4849 /* Feature */,
-				5FFD95622671FADA005207C3 /* AppDelegate.swift */,
-				5FFD95642671FADA005207C3 /* SceneDelegate.swift */,
-				5FFD956E2671FADB005207C3 /* Assets.xcassets */,
-				5F6B3B5F267E51E500EB5E23 /* Main.storyboard */,
-				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
-				5FFD95732671FADB005207C3 /* Info.plist */,
-				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
-				5FFD95602671FADA005207C3 /* Products */,
-			);
-			path = chordfit;
-			sourceTree = "<group>";
-		};
-		BF7EC70226738064004E4849 /* Feature */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC70326738096004E4849 /* SongSelection */,
-				5F7E4098267CF3C600D101EE /* GameScene */,
+				FCFC4CEE2672C39600E248B8 /* Home */,
+				5F6B3B0A267E4DFA00EB5E23 /* SongSelection */,
+				5F6B3B1E267E4DFA00EB5E23 /* GameScene */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
 		};
-		BF7EC70326738096004E4849 /* SongSelection */ = {
+		5F6B3B0A267E4DFA00EB5E23 /* SongSelection */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC71D26745995004E4849 /* Pages */,
-				BF7EC70F26738815004E4849 /* Model */,
-				BF7EC71426738E79004E4849 /* SongRepository.swift */,
+				5F6B3B0B267E4DFA00EB5E23 /* SongRepository.swift */,
+				5F6B3B0C267E4DFA00EB5E23 /* Model */,
+				5F6B3B0F267E4DFA00EB5E23 /* Pages */,
 			);
 			path = SongSelection;
 			sourceTree = "<group>";
 		};
-		BF7EC704267380C0004E4849 /* Themes */ = {
+		5F6B3B0C267E4DFA00EB5E23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC70926738110004E4849 /* Colors */,
-				BF7EC708267380FF004E4849 /* Fonts */,
-				BF7EC707267380F9004E4849 /* UI */,
+				BF7EC70326738096004E4849 /* SongSelection */,
+				5F7E4098267CF3C600D101EE /* GameScene */,
+				5F6B3B0D267E4DFA00EB5E23 /* DataStore */,
 			);
-			path = Themes;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		BF7EC705267380C3004E4849 /* Helper */ = {
+		5F6B3B0D267E4DFA00EB5E23 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC72326745D0A004E4849 /* UINib+Loader.swift */,
+				5F6B3B0E267E4DFA00EB5E23 /* SongStaticDataStore.swift */,
 			);
-			path = Helper;
+			path = DataStore;
 			sourceTree = "<group>";
 		};
-		BF7EC706267380CC004E4849 /* Utilities */ = {
+		5F6B3B0F267E4DFA00EB5E23 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B10267E4DFA00EB5E23 /* SongSelectionPage */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		5F6B3B10267E4DFA00EB5E23 /* SongSelectionPage */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B11267E4DFA00EB5E23 /* Controller */,
+				5F6B3B15267E4DFA00EB5E23 /* View */,
+			);
+			path = SongSelectionPage;
+			sourceTree = "<group>";
+		};
+		5F6B3B11267E4DFA00EB5E23 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B12267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */,
+				5F6B3B13267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */,
+				5F6B3B14267E4DFA00EB5E23 /* SongSelection+TutorialViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F6B3B15267E4DFA00EB5E23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B16267E4DFA00EB5E23 /* SongSelection+TutorialView.swift */,
+				5F6B3B17267E4DFA00EB5E23 /* SongSelection+Tutorial.storyboard */,
+				5F6B3B18267E4DFA00EB5E23 /* SongSelectionTableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F6B3B18267E4DFA00EB5E23 /* SongSelectionTableView */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B19267E4DFA00EB5E23 /* SongSelectionCell */,
+			);
+			path = SongSelectionTableView;
+			sourceTree = "<group>";
+		};
+		5F6B3B19267E4DFA00EB5E23 /* SongSelectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B1A267E4DFA00EB5E23 /* SongSelectionTableViewCell.xib */,
+				5F6B3B1B267E4DFA00EB5E23 /* SongSelectionTableViewCellDelegate.swift */,
+				5F6B3B1C267E4DFA00EB5E23 /* SongSelectionTableViewCell.swift */,
+				5F6B3B1D267E4DFA00EB5E23 /* HeaderTableViewCell.swift */,
+			);
+			path = SongSelectionCell;
+			sourceTree = "<group>";
+		};
+		5F6B3B1E267E4DFA00EB5E23 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				FC89F100267F3AA800F68DFC /* Model */,
+				FC89F101267F3AAF00F68DFC /* View */,
+				FC89F102267F3AB600F68DFC /* Controller */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		5F6B3B21267E4DFA00EB5E23 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				5FAA472C267F470F00AA8994 /* AVFoundation */,
@@ -263,113 +342,162 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		BF7EC707267380F9004E4849 /* UI */ = {
+		5F6B3B22267E4DFA00EB5E23 /* ChordClassifierAI */ = {
 			isa = PBXGroup;
 			children = (
+				5F6B3B23267E4DFA00EB5E23 /* Protocol */,
+				5F6B3B25267E4DFA00EB5E23 /* Controller */,
+				5F6B3B27267E4DFA00EB5E23 /* Model */,
 			);
-			path = UI;
+			path = ChordClassifierAI;
 			sourceTree = "<group>";
 		};
-		BF7EC708267380FF004E4849 /* Fonts */ = {
+		5F6B3B23267E4DFA00EB5E23 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				5F6B3B24267E4DFA00EB5E23 /* ChordClassifierDelegate.swift */,
 			);
-			path = Fonts;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
-		BF7EC70926738110004E4849 /* Colors */ = {
+		5F6B3B25267E4DFA00EB5E23 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC71626739487004E4849 /* ChordFitColors.swift */,
-			);
-			path = Colors;
-			sourceTree = "<group>";
-		};
-		BF7EC70A26738131004E4849 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC70E267387A7004E4849 /* Model */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		BF7EC70E267387A7004E4849 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC70C267383D6004E4849 /* Song.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BF7EC70F26738815004E4849 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC7102673881D004E4849 /* DataStore */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BF7EC7102673881D004E4849 /* DataStore */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC711267388C5004E4849 /* SongStaticDataStore.swift */,
-			);
-			path = DataStore;
-			sourceTree = "<group>";
-		};
-		BF7EC718267396DE004E4849 /* SongSelectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC719267396FE004E4849 /* SongSelectionTableViewCell.swift */,
-				BF7EC71A267396FE004E4849 /* SongSelectionTableViewCell.xib */,
-				BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */,
-			);
-			path = SongSelectionCell;
-			sourceTree = "<group>";
-		};
-		BF7EC71D26745995004E4849 /* Pages */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC71E2674599E004E4849 /* SongSelectionPage */,
-			);
-			path = Pages;
-			sourceTree = "<group>";
-		};
-		BF7EC71E2674599E004E4849 /* SongSelectionPage */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC720267459B7004E4849 /* View */,
-				BF7EC71F267459B0004E4849 /* Controller */,
-			);
-			path = SongSelectionPage;
-			sourceTree = "<group>";
-		};
-		BF7EC71F267459B0004E4849 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */,
-				BF7EC73226746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */,
-				BF7EC73826748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift */,
+				5F6B3B26267E4DFA00EB5E23 /* ChordClassifierViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		BF7EC720267459B7004E4849 /* View */ = {
+		5F6B3B27267E4DFA00EB5E23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */,
-				BF7EC73026746CF4004E4849 /* SongSelection+Tutorial.storyboard */,
-				BF7EC7252674623B004E4849 /* SongSelectionTableView */,
+				5F6B3B28267E4DFA00EB5E23 /* Base Key G.mlmodel */,
+				5F6B3B29267E4DFA00EB5E23 /* Base Key F.mlmodel */,
+				5F6B3B2A267E4DFA00EB5E23 /* Base Key C.mlmodel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F6B3B2B267E4DFA00EB5E23 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B2C267E4DFA00EB5E23 /* Model */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		5F6B3B2C267E4DFA00EB5E23 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B2D267E4DFA00EB5E23 /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F6B3B4A267E500000EB5E23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B4B267E500000EB5E23 /* HomeStoryboard.storyboard */,
+				5F6B3B4C267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift */,
+				FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		BF7EC7252674623B004E4849 /* SongSelectionTableView */ = {
+		5F6B3B4E267E500000EB5E23 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC718267396DE004E4849 /* SongSelectionCell */,
+				5F6B3B4F267E500000EB5E23 /* Songs+CoreDataProperties.swift */,
+				5F6B3B50267E500000EB5E23 /* Songs+CoreDataClass.swift */,
 			);
-			path = SongSelectionTableView;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5F6B3B51267E500000EB5E23 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B52267E500000EB5E23 /* ChordProgression.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F6B3B53267E500000EB5E23 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B54267E500000EB5E23 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5FFD95562671FADA005207C3 = {
+			isa = PBXGroup;
+			children = (
+				5FFD95612671FADA005207C3 /* chordfit */,
+				5FFD95602671FADA005207C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5FFD95602671FADA005207C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FFD955F2671FADA005207C3 /* chordfit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FFD95612671FADA005207C3 /* chordfit */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B21267E4DFA00EB5E23 /* Utilities */,
+				5F6B3AFB267E4DFA00EB5E23 /* Helper */,
+				5F6B3AFE267E4DFA00EB5E23 /* Themes */,
+				5F6B3B09267E4DFA00EB5E23 /* Feature */,
+				5FFD95622671FADA005207C3 /* AppDelegate.swift */,
+				5FFD95642671FADA005207C3 /* SceneDelegate.swift */,
+				5FFD956E2671FADB005207C3 /* Assets.xcassets */,
+				5F6B3B5D267E516F00EB5E23 /* Main.storyboard */,
+				5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */,
+				5FFCA6BB267E4847001F70A7 /* info.plist */,
+				5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */,
+			);
+			path = chordfit;
+			sourceTree = "<group>";
+		};
+		FC89F100267F3AA800F68DFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F2E5B692679DE1D000B01F1 /* movingCP.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC89F101267F3AAF00F68DFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC89F102267F3AB600F68DFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B1F267E4DFA00EB5E23 /* GameSceneViewController.swift */,
+				5F6B3B20267E4DFA00EB5E23 /* GameScene.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FCFC4CEE2672C39600E248B8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5F6B3B53267E500000EB5E23 /* Controller */,
+				5F6B3B4E267E500000EB5E23 /* Data */,
+				5F6B3B49267E500000EB5E23 /* DataHelper.swift */,
+				5F6B3B51267E500000EB5E23 /* Model */,
+				5F6B3B4A267E500000EB5E23 /* View */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,13 +557,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6B3B56267E500000EB5E23 /* HomeStoryboard.storyboard in Resources */,
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
+				5FFCA6BC267E4847001F70A7 /* info.plist in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				5FAA4734267F492700AA8994 /* Imagine Dragons - Demons Audio.mp3 in Resources */,
 				BF7EC73126746CF4004E4849 /* SongSelection+Tutorial.storyboard in Resources */,
 				5F6B3B60267E51E500EB5E23 /* Main.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
-				BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */,
+				5F6B3B32267E4DFA00EB5E23 /* GamePausedPopupView.xib in Resources */,
+				5F6B3B3C267E4DFA00EB5E23 /* SongSelection+Tutorial.storyboard in Resources */,
+				5F6B3B31267E4DFA00EB5E23 /* ChooseBaseKeyPopup.storyboard in Resources */,
+				5F6B3B3D267E4DFA00EB5E23 /* SongSelectionTableViewCell.xib in Resources */,
+				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,29 +580,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F2E5B622679DD11000B01F1 /* GameScene.swift in Sources */,
-				0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */,
-				0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */,
+				5F6B3B40267E4DFA00EB5E23 /* HeaderTableViewCell.swift in Sources */,
+				5F6B3B44267E4DFA00EB5E23 /* ChordClassifierViewController.swift in Sources */,
+				5F6B3B59267E500000EB5E23 /* Songs+CoreDataProperties.swift in Sources */,
+				5F6B3B39267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
+				5F6B3B48267E4DFA00EB5E23 /* Song.swift in Sources */,
+				5F6B3B5A267E500000EB5E23 /* Songs+CoreDataClass.swift in Sources */,
+				5F6B3B5B267E500000EB5E23 /* ChordProgression.swift in Sources */,
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
-				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
-				5F0C9366267B4B740010887B /* ChordClassifierViewController.swift in Sources */,
-				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
-				BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */,
-				5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */,
-				BF7EC73326746E31004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
-				BF7EC73926748664004E4849 /* SongSelection_TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
-				BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */,
-				BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */,
-				5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
-				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
 				5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */,
 				5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */,
-				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
+				5F6B3B34267E4DFA00EB5E23 /* ChooseBaseKeyPopupViewController.swift in Sources */,
+				5F6B3B3A267E4DFA00EB5E23 /* SongSelection+TutorialViewController.swift in Sources */,
+				5F6B3B47267E4DFA00EB5E23 /* Base Key C.mlmodel in Sources */,
+				5F6B3B2E267E4DFA00EB5E23 /* UIViewExtension.swift in Sources */,
+				5F6B3B3E267E4DFA00EB5E23 /* SongSelectionTableViewCellDelegate.swift in Sources */,
+				5F6B3B38267E4DFA00EB5E23 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
+				5F6B3B46267E4DFA00EB5E23 /* Base Key F.mlmodel in Sources */,
+				5F6B3B37267E4DFA00EB5E23 /* SongStaticDataStore.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
-				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
-				5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */,
-				BF7EC71526738E79004E4849 /* SongRepository.swift in Sources */,
+				5F6B3B2F267E4DFA00EB5E23 /* UINib+Loader.swift in Sources */,
+				5F6B3B36267E4DFA00EB5E23 /* SongRepository.swift in Sources */,
+				5F6B3B57267E500000EB5E23 /* ChordProgressionCollectionViewCellA.swift in Sources */,
+				5F6B3B3F267E4DFA00EB5E23 /* SongSelectionTableViewCell.swift in Sources */,
+				5F6B3B35267E4DFA00EB5E23 /* ChordFitColors.swift in Sources */,
+				FC89F0FE267F39C600F68DFC /* movingCP.swift in Sources */,
+				5F6B3B41267E4DFA00EB5E23 /* GameSceneViewController.swift in Sources */,
+				5F6B3B30267E4DFA00EB5E23 /* GamePausedPopupView.swift in Sources */,
+				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
+				5F6B3B43267E4DFA00EB5E23 /* ChordClassifierDelegate.swift in Sources */,
+				5F6B3B42267E4DFA00EB5E23 /* GameScene.swift in Sources */,
+				5F6B3B55267E500000EB5E23 /* DataHelper.swift in Sources */,
+				FC142447267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift in Sources */,
+				5F6B3B5C267E500000EB5E23 /* HomeViewController.swift in Sources */,
+				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
+				5F6B3B3B267E4DFA00EB5E23 /* SongSelection+TutorialView.swift in Sources */,
+				5F6B3B33267E4DFA00EB5E23 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
