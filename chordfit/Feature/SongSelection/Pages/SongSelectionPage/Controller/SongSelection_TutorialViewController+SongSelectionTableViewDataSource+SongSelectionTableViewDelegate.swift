@@ -21,7 +21,8 @@ extension SongSelection_TutorialViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Songs"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderTableViewCell
+        return cell.contentView
     }
   
 }

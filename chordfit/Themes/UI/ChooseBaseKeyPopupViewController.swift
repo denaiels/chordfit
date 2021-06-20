@@ -107,9 +107,9 @@ class ChooseBaseKeyPopupViewController: UIViewController {
         //prepare ke adit
         if segue.identifier == "chooseBaseKeyPopupToGamePlaySegue" {
             if let viewController = segue.destination as? GameSceneViewController {
-                viewController.songToPlay = songToPlay
-                viewController.baseKey = baseKey
-                print(viewController.songToPlay)
+//                viewController.songToPlay = songToPlay
+//                viewController.baseKey = baseKey
+//                print(viewController.songToPlay)
             }
         }
     }
