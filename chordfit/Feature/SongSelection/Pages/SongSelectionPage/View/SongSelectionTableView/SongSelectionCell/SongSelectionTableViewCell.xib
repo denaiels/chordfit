@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qW3-fo-MWd">
                         <rect key="frame" x="20" y="20" width="323" height="48"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Counting Stars" translatesAutoresizingMaskIntoConstraints="NO" id="4a3-Q4-9EJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4a3-Q4-9EJ">
                                 <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -145,7 +145,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Counting Stars" width="73.333335876464844" height="73.333335876464844"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="darkGrey">
