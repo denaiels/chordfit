@@ -22,7 +22,7 @@ class ChooseBaseKeyPopupViewController: UIViewController {
     @IBOutlet weak var overlayView: UIView!
     
     var baseKey: String = "C"
-    var songToPlay: Song?
+    var songToPlay: Songs?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class ChooseBaseKeyPopupViewController: UIViewController {
         titleLabel.text = songToPlay?.title
         artistLabel.text = songToPlay?.artist
         genreLabel.text = songToPlay?.genre
-        bpmLabel.text = "\(songToPlay?.beat ?? 122) bpm"
+        bpmLabel.text = "\(songToPlay?.bpm ?? 122) bpm"
     }
     
     
@@ -105,7 +105,7 @@ class ChooseBaseKeyPopupViewController: UIViewController {
         //prepare ke adit
         if segue.identifier == "chooseBaseKeyPopupToGamePlaySegue" {
             if let viewController = segue.destination as? GameSceneViewController {
-                viewController.songToPlay = songToPlay
+//                viewController.songToPlay = songToPlay
                 viewController.baseKey = baseKey
                 print(viewController.songToPlay)
             }

@@ -9,6 +9,7 @@ import UIKit
 
 extension SongSelection_TutorialViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(songs?.count)
         return songs?.count ?? 0
     }
     

@@ -14,13 +14,13 @@ public class DataHelper {
 	
 	fileprivate func seedSongs() {
 		let songsNormal = [
-            (title: "Demons", artist: "Imagine Dragons", bpm: 90, category: "Normal", imageName: "tralala" , playedC: false, playedF: false, playedG: false, progression: "I - V- vi - IV", poin: 0 ),
-            (title: "I'm Yours", artist: "Jason Mraz", bpm: 74, category: "Normal", imageName: "tralala" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - IV", poin: 0 )
+            (title: "Demons", artist: "Imagine Dragons", bpm: 90, category: "Normal", imageName: "Demons" , playedC: false, playedF: false, playedG: false, progression: "I - V- vi - IV", poin: 0, genre: "Alternative Rock"),
+            (title: "I'm Yours", artist: "Jason Mraz", bpm: 74, category: "Normal", imageName: "Im Yours" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - IV", poin: 0, genre: "Pop")
         ]
         
         let songsHard = [
-            (title: "Beautiful in White", artist: "Westlife", bpm: 76, category: "Hard", imageName: "tralala" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0 ),
-            (title: "Memories", artist: "Maroon 5", bpm: 90, category: "Hard", imageName: "tralala" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0 )
+            (title: "Beautiful in White", artist: "Westlife", bpm: 76, category: "Hard", imageName: "Beautiful in White" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0, genre: "Pop"),
+            (title: "Memories", artist: "Maroon 5", bpm: 90, category: "Hard", imageName: "Memories" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0, genre: "Pop")
         ]
 		
 		for song in songsNormal {
@@ -35,6 +35,7 @@ public class DataHelper {
             newSongsNormal.playedF = song.playedF
             newSongsNormal.progression = song.progression
             newSongsNormal.poin = Int64(song.poin)
+            newSongsNormal.genre = song.genre
 		}
         
         for song in songsHard {
@@ -49,6 +50,7 @@ public class DataHelper {
             newSongsHard.playedF = song.playedF
             newSongsHard.progression = song.progression
             newSongsHard.poin = Int64(song.poin)
+            newSongsHard.genre = song.genre
         }
 		
 		do {

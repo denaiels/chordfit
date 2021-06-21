@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
         
         playButton()
         
+        self.navigationController?.isNavigationBarHidden = true
         normalCollectionView.dataSource = self
         normalCollectionView.delegate = self
         normalCollectionView.collectionViewLayout = UICollectionViewLayout()
@@ -164,6 +165,33 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         setupCollectionViewCellLayout(cell: cell)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == hardCollectionView {
+            self.performSegue(withIdentifier: "hardToSongSelectionSegue", sender: self)
+        }
+        else{
+            self.performSegue(withIdentifier: "normalToSongSelectionSegue", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "normalToSongSelectionSegue" {
+            if let destination = segue.destination as?
+                    SongSelection_TutorialViewController, let index =
+                    normalCollectionView.indexPathsForSelectedItems?.first {
+                destination.chordProgression = chordsNormal[index.row].progression
+            }
+
+        }
+        if segue.identifier == "hardToSongSelectionSegue" {
+            if let destination = segue.destination as?
+                    SongSelection_TutorialViewController, let index =
+                    hardCollectionView.indexPathsForSelectedItems?.first {
+                destination.chordProgression = chordsHard[index.row].progression
+            }
+        }
     }
         
 //        print(self.chords[indexPath.row].title)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N3C-l0-Lvi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VY9-K3-QkX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -28,13 +28,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OneRepublic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHr-XX-Ftc">
-                                <rect key="frame" x="20" y="180" width="102" height="20.333333333333343"/>
+                                <rect key="frame" x="20" y="224" width="102" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJp-vA-K2B">
-                                <rect key="frame" x="20" y="219" width="349" height="45"/>
+                                <rect key="frame" x="20" y="263" width="349" height="45"/>
                                 <color key="backgroundColor" red="0.30256545540000002" green="0.63603585959999998" blue="0.55292969940000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="eWE-hf-OQD"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday Morning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C90-Jx-sbT">
-                                <rect key="frame" x="20" y="138" width="229" height="36"/>
+                                <rect key="frame" x="20" y="182" width="229" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -136,12 +136,13 @@
                                             <outlet property="chordPLabel" destination="jlo-J9-PKu" id="sxt-ES-kEU"/>
                                             <outlet property="songTLabel" destination="CDg-L5-gJy" id="H53-a4-BNw"/>
                                             <outlet property="songTLabel2" destination="osE-hE-mtm" id="pC2-Pp-CqX"/>
+                                            <segue destination="onf-4m-W1T" kind="presentation" identifier="normalToSongSelectionSegue" modalPresentationStyle="fullScreen" id="jua-on-yKV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAILY CHALLENGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKi-OV-5dj">
-                                <rect key="frame" x="20" y="104" width="151.66666666666666" height="20"/>
+                                <rect key="frame" x="20" y="148" width="151.66666666666666" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -229,6 +230,7 @@
                                             <outlet property="chordPLabelB" destination="8e8-Md-fS2" id="wBV-Sw-KWN"/>
                                             <outlet property="songTLabelB" destination="CYH-HW-8ju" id="nFs-xY-4cG"/>
                                             <outlet property="songTLabelB2" destination="0wN-4H-rvr" id="KDw-Wo-xPv"/>
+                                            <segue destination="Xln-Bj-ur7" kind="presentation" identifier="hardToSongSelectionSegue" modalPresentationStyle="fullScreen" id="huU-im-SaI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -241,7 +243,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wfC-fV-1g5">
-                                <rect key="frame" x="180.66666666666666" y="102" width="14.333333333333343" height="22"/>
+                                <rect key="frame" x="180.66666666666666" y="146" width="14.333333333333343" height="21.999999999999986"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
@@ -278,6 +280,7 @@
                             <constraint firstItem="izQ-FB-TzM" firstAttribute="trailing" secondItem="Yfb-u7-A41" secondAttribute="trailing" constant="331" id="yGd-Od-0Wv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="MtA-KG-jHV"/>
                     <connections>
                         <outlet property="artistDC" destination="bHr-XX-Ftc" id="fM2-ES-Zz7"/>
                         <outlet property="hardCollectionView" destination="dBm-RD-9lB" id="0Pv-fU-kA4"/>
@@ -289,17 +292,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfd-vK-eQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5349.2307692307686" y="-538.15165876777246"/>
+            <point key="canvasLocation" x="-4420" y="-538.15165876777246"/>
         </scene>
-        <!--SongSelection+Tutorial-->
+        <!--Main-->
         <scene sceneID="f6e-8j-eK3">
             <objects>
-                <viewControllerPlaceholder storyboardName="SongSelection+Tutorial" id="cVX-oU-MW8" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Main" id="cVX-oU-MW8" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="xmZ-KR-Ac5"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nZ-IV-rkY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4655" y="-698"/>
+            <point key="canvasLocation" x="-3226.9230769230767" y="-702.36966824644549"/>
+        </scene>
+        <!--SongSelection+Tutorial-->
+        <scene sceneID="F7p-ha-A7L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SongSelection+Tutorial" id="onf-4m-W1T" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="clu-GA-psJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0T-f1-OPn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3169.2307692307691" y="-512.55924170616106"/>
+        </scene>
+        <!--SongSelection+Tutorial-->
+        <scene sceneID="Ng6-Zl-rhT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SongSelection+Tutorial" id="Xln-Bj-ur7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cij-eG-mu0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RrV-z5-Lcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3086.1538461538462" y="-395.26066350710897"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Lb-xT-R2w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VY9-K3-QkX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O3H-Ya-044">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="N3C-l0-Lvi" kind="relationship" relationship="rootViewController" id="dhX-1d-c2j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aoQ-aX-67f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5349.2307692307686" y="-538.15165876777246"/>
         </scene>
     </scenes>
     <resources>

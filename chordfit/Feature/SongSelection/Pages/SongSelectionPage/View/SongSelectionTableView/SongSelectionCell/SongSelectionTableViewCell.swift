@@ -21,7 +21,7 @@ class SongSelectionTableViewCell: UITableViewCell {
     var beat: String!
     
     var delegate: SongSelectionTableViewCellDelegate!
-    var song: Song? {
+    var song: Songs? {
         didSet {
             setupView()
         }
@@ -30,9 +30,24 @@ class SongSelectionTableViewCell: UITableViewCell {
     private func setupView() {
         titleLabel.text = song?.title
         artistLabel.text = song?.artist
-        beatLabel.text = "\(song?.beat ?? 122) bpm"
+        beatLabel.text = "\(song?.bpm ?? 122) bpm"
         genreLabel.text = song?.genre
-        songImage.image = UIImage(named: song?.image ?? "Counting Stars")
+        songImage.image = UIImage(named: song?.imageName ?? "Im Yours")
+        
+        if song?.playedC == true {
+            CStar.tintColor = ChordFitColors.init().yellow
+        }
+        
+        if song?.playedF == true {
+            FStar.tintColor = ChordFitColors.init().yellow
+        }
+        
+        if song?.playedG == true {
+            GStar.tintColor = ChordFitColors.init().yellow
+        }
+        
     }
     
 }
+
+
