@@ -88,3 +88,16 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+chordfit/.DS_Store
+chordfit/Assets.xcassets/.DS_Store
+chordfit/Assets.xcassets/ChordFitAlbumImage/.DS_Store
+chordfit/Assets.xcassets/ChordFitColor/.DS_Store
+chordfit/Assets.xcassets/ChordFitIcon/.DS_Store
+chordfit/Feature/.DS_Store
+chordfit/Feature/GameScene/.DS_Store
+chordfit/Feature/Home/.DS_Store
+chordfit/Feature/SongSelection/.DS_Store
+chordfit/Themes/.DS_Store
+chordfit/Utilities/.DS_Store
+chordfit/Utilities/AVFoundation/.DS_Store
+chordfit/Utilities/ChordClassifierAI/.DS_Store
