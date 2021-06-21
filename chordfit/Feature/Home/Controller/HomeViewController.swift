@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var hardCollectionView: UICollectionView!
     
+    
     //managed object context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -37,6 +38,7 @@ class HomeViewController: UIViewController {
 //            ChordProgression(chordProgressiontitle: "I - V - vi - iii - IV -I - IV -V", songTitle: "Beautiful in White", chordBar: 0),
 //    ]
     
+   
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -69,10 +71,17 @@ class HomeViewController: UIViewController {
         artistDC.text = chords[0].artist
     }
     
+    @IBAction func playSong( _sender : UIButton) {
+        performSegue(withIdentifier: "goToSongSelection", sender: self)
+    }
+    
+    
     func playButton(){
         playBtn.layer.cornerRadius = playBtn.frame.height/2
         playBtn.layer.borderWidth = 1.5
         playBtn.layer.borderColor = UIColor.white.cgColor
+        
+        
     }
     
     func fetchData(){
