@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
         hardCollectionView.setCollectionViewLayout(layout, animated: true)
         
         fetchData()
-        
+        updateProgress()
         songTitleDC.text = chords[0].title
         artistDC.text = chords[0].artist
     }
@@ -93,14 +93,12 @@ class HomeViewController: UIViewController {
             for dt in self.chords {
                 
                 if dt.category == SongProgressionCategory.Normal.rawValue {
-                    let valueA = itungPoin(dataLagu: dt)
-                    progressBarA += valueA
+                    
                     chordsNormal.append(dt)
                     
                     
                 } else if dt.category == SongProgressionCategory.Hard.rawValue {
-                    let valueB = itungPoin(dataLagu: dt)
-                    progressBarB += valueB
+                   
                     chordsHard.append(dt)
                 }
             }
@@ -115,23 +113,44 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func itungPoin(dataLagu: Songs) -> Float{
-        var data:Float = 0.0
+    func itungPoin(dataLagu: Songs, category: String) -> Float{
+        var data:Int = 0
+        
         
         if (dataLagu.playedC) {
-            data += 0.2
+            data += 1
         }
         
         if (dataLagu.playedF) {
-            data += 0.2
+            data += 1
         }
         
         if (dataLagu.playedG) {
-            data += 0.2
+            data += 1
         }
-        
-        return data
-        
+        return Float(data)
+    }
+  
+    
+    func updateProgress() {
+        var result: Float = 0.0
+        for dt in self.chords {
+            
+            if dt.category == SongProgressionCategory.Normal.rawValue {
+                
+                let valueA = itungPoin(dataLagu: dt, category: SongProgressionCategory.Normal.rawValue)
+                result = valueA/Float((chordsNormal.count*3))
+                progressBarA += result
+                
+                
+            } else if dt.category == SongProgressionCategory.Hard.rawValue {
+               
+                let valueB = itungPoin(dataLagu: dt, category: SongProgressionCategory.Hard.rawValue)
+                result = valueB/Float((chordsHard.count*3))
+                progressBarB += result
+            }
+        }
+ 
     }
 }
 
@@ -182,6 +201,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                     SongSelection_TutorialViewController, let index =
                     normalCollectionView.indexPathsForSelectedItems?.first {
                 destination.chordProgression = chordsNormal[index.row].progression
+                print("ini dari prepare home song select")
+                print(chordsNormal[index.row])
             }
 
         }
@@ -190,40 +211,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                     SongSelection_TutorialViewController, let index =
                     hardCollectionView.indexPathsForSelectedItems?.first {
                 destination.chordProgression = chordsHard[index.row].progression
+                print("ini dari prepare home song select")
+                print(chordsHard[index.row])
             }
         }
     }
     
         
-//        print(self.chords[indexPath.row].title)
-//        var cellA: ChordProgressionCollectionViewCellA?
-//
-//        var cellB: ChordProgressionCollectionViewCellB?
-//
-//        if (chords[indexPath.row].category == SongProgressionCategory.Normal.rawValue) {
-//            cellA = normalCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionNormal", for: indexPath) as! ChordProgressionCollectionViewCellA
-//
-//            cellA!.chordPLabel.text = self.chords![indexPath.row].progression
-//            cellA!.songTLabel.text = self.chords![indexPath.row].title
-//            cellA!.chordBar.progress = progressBarA
-//            setupCollectionViewCellLayout(cell: cellA!)
-//
-//            return cellA!
-//
-//        }else if (chords[indexPath.row].category == SongProgressionCategory.Hard.rawValue){
-//            cellB = hardCollectionView.dequeueReusableCell(withReuseIdentifier: "ChordProgressionHard", for: indexPath) as! ChordProgressionCollectionViewCellB
-//
-//            cellB!.chordPLabelB.text = self.chords![indexPath.row].progression
-//            cellB!.songTLabelB.text = self.chords![indexPath.row].title
-//            cellB!.chordBarB.progress = progressBarB
-//        }
-//
-//
-//        setupCollectionViewCellLayout(cell: cellB!)
-//
-//        return cellB!
-        
-//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 170, height: 170)
@@ -249,21 +243,4 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 
 }
-//extension HomeViewController{
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        //addFoodBtnStyling.layer.cornerRadius = 15
-//        self.navigationController?.isNavigationBarHidden = false
-//        self.tabBarController?.tabBar.isHidden = true
-//        
-//        navigationController?.navigationBar.barTintColor = UIColor(named: "Primary")
-//        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//    }
-//   
-//    override func viewWillDisappear(_ animated: Bool) {
-//    super.viewWillDisappear(animated)
-//    self.navigationController?.isNavigationBarHidden = true
-//    self.tabBarController?.tabBar.isHidden = false
-//    }
-//}
+
