@@ -344,6 +344,7 @@ class GameScene: SKScene {
         lastprogressBar.fillColor = #colorLiteral(red: 1, green: 0.7857890725, blue: 0, alpha: 1)
         lastprogressBar.position = CGPoint(x: -175, y:0)
         lastprogressBar.zPosition = 14
+        lastprogressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 350, height: 35), cornerRadius: 50).cgPath
         lastprogressBarBg = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 500, height: 35))
         lastprogressBarBg.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         lastprogressBarBg.position = CGPoint(x: -175, y:0)
@@ -799,7 +800,6 @@ extension GameScene : SKPhysicsContactDelegate{
                 
                 addProgress(progressLevel: 42 + newProgress)
                 self.lastscore = 42 + newProgress
-                lastprogressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.lastscore, height: 35), cornerRadius: 50).cgPath
                 print(self.lastscore)
                 newProgress += 42
                 
