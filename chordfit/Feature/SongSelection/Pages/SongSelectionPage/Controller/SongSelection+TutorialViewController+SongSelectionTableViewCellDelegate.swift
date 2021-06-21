@@ -14,8 +14,12 @@ extension SongSelection_TutorialViewController: SongSelectionTableViewCellDelega
 
 }
 
-//extension SongSelection_TutorialViewController: GameSceneDelegate{
-//    func returnData(){
-//
-//    }
-//}
+extension SongSelection_TutorialViewController: GameSceneDelegate{
+    func quitBtnTapped(text: String) {
+        
+    }
+    
+    func returnData(text: String){
+        print(text)
+    }
+}

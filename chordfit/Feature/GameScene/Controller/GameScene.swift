@@ -40,11 +40,17 @@ class GameScene: SKScene {
     func setText(text : String){
         print(text)
     }
+    
     func setDelegate(delegate : GameSceneDelegate){
         gameSceneDelegate = delegate
     }
     
+    func setSongSelectionDelegate(delegate: GameSceneDelegate?) {
+        songSelectionDelegate = delegate
+    }
+    
     var gameSceneDelegate : GameSceneDelegate?
+    var songSelectionDelegate: GameSceneDelegate?
     var viewController: UIViewController?
     let pauseLayer = SKNode()
     let worldNode = SKNode()
@@ -696,6 +702,18 @@ class GameScene: SKScene {
         
     }
     
+    func startAudioEngine() {
+        self.chordClassifierViewController.startAudioEngine()
+    }
+    
+    func stopAudioEngine() {
+        self.chordClassifierViewController.stopAudioEngine()
+    }
+    
+    func prepareForStart() {
+        self.chordClassifierViewController.startAudioEngine()
+    }
+    
     func pauseGame() {
         self.isPaused = true
         self.audioPlayerController.player?.pause()
@@ -706,21 +724,12 @@ class GameScene: SKScene {
         self.audioPlayerController.player?.play()
     }
     
-    func gameFinish(){
-        
+    func gameFinish() {
         self.audioPlayerController.player?.stop()
-        
-//        let storyboard = UIStoryboard(name: "SongSelection+Tutorial", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "SongSelectionStoryboard")
-//        vc.view.frame = (self.view?.frame)!
-//        UIView.transition(with: self.view!, duration: 0.1, options: .curveEaseOut, animations:
-//            {
-//                self.view?.window?.rootViewController = vc
-//            }, completion: { completed in })
-
-//        self.view?.window?.rootViewController?.performSegue(withIdentifier: "backtoSelectionPage", sender: self)
-        
+        stopAudioEngine()
     }
+    
+    
     
 }
 
@@ -745,7 +754,7 @@ extension GameScene : SKPhysicsContactDelegate{
             self.chordClassifierViewController.currentChord = currentChord
 
             // Start Audio Engine and Recording
-            self.chordClassifierViewController.startAudioEngine()
+            prepareForStart()
             
         }
         
@@ -851,6 +860,9 @@ extension GameScene : SKPhysicsContactDelegate{
                 self.removeAllChildren()
                 self.removeAllActions()
                 self.scene?.removeFromParent()
+                
+                songSelectionDelegate?.returnData(text: "CCCCCC")
+                
                 gameFinish()
                 gameSceneDelegate?.quitBtnTapped(text: "Hore")
             }

@@ -12,9 +12,9 @@ import SoundAnalysis
 class ChordClassifierViewController: UIViewController {
 
     private let audioEngine = AVAudioEngine()
-    private var cChordClassifier = Base_Key_C()
-    private var fChordClassifier = Base_Key_F()
-    private var gChordClassifier = Base_Key_G()
+    private var cChordClassifier = Base_Key_C_v2()
+    private var fChordClassifier = Base_Key_F_v2()
+    private var gChordClassifier = Base_Key_G_v2()
     
     var inputFormat: AVAudioFormat!
     var analyzer: SNAudioStreamAnalyzer!

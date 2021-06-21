@@ -23,6 +23,8 @@ class ChooseBaseKeyPopupViewController: UIViewController {
     
     var baseKey: String = "C"
     var songToPlay: Songs?
+    
+    var gameSceneDelegate: GameSceneDelegate?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +109,7 @@ class ChooseBaseKeyPopupViewController: UIViewController {
             if let viewController = segue.destination as? GameSceneViewController {
 //                viewController.songToPlay = songToPlay
                 viewController.gsDelegate = self
+                viewController.songSelectionDelegate = gameSceneDelegate
                 print("\(viewController.gsDelegate) , INI DARI PREPARE")
                 viewController.baseKey = baseKey
 //                print(viewController.songToPlay)

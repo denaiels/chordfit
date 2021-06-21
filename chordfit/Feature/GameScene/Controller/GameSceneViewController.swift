@@ -11,6 +11,7 @@ import GameplayKit
 
 protocol GameSceneDelegate {
     func quitBtnTapped(text: String)
+    func returnData(text: String)
 }
 
 protocol GSViewControllerDelegate {
@@ -22,6 +23,8 @@ class GameSceneViewController: UIViewController {
     var baseKey: String = "C"
     var songToPlay: Song?
     var gsDelegate: GSViewControllerDelegate?
+    var songSelectionDelegate: GameSceneDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,8 @@ class GameSceneViewController: UIViewController {
                 if let gameScene = scene as? GameScene{
                     gameScene.setText(text: baseKey)
                     gameScene.setDelegate(delegate: self)
+                    gameScene.setSongSelectionDelegate(delegate: songSelectionDelegate)
+                    
                     scene.scaleMode = .aspectFill
                    
                         // Present the scene
@@ -67,6 +72,10 @@ class GameSceneViewController: UIViewController {
 }
 
 extension GameSceneViewController : GameSceneDelegate{
+    func returnData(text: String) {
+        
+    }
+    
     func quitBtnTapped(text: String) {
         print(text)
 //        performSegue(withIdentifier: "goToSongSelection", sender: self)

@@ -46,6 +46,7 @@ extension SongSelection_TutorialViewController: UITableViewDelegate {
         if segue.identifier == "chooseBasekeyPopupSegue" {
             if let viewController = segue.destination as? ChooseBaseKeyPopupViewController {
                 viewController.songToPlay = song
+                viewController.gameSceneDelegate = self
                 print(song?.title)
             }
         }
