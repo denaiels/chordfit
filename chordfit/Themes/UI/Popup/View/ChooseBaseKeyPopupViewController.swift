@@ -55,6 +55,9 @@ class ChooseBaseKeyPopupViewController: UIViewController {
         
 //
 //        popupContentView.isUserInteractionEnabled = false
+        
+        basekeySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ChordFitColors.init().black ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)], for: UIControl.State.normal)
+        basekeySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ChordFitColors.init().black ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)], for: UIControl.State.selected)
 
         outerView.layer.cornerRadius = 50
         popupContentView.layer.borderWidth = 3

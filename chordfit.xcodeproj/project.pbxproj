@@ -38,6 +38,10 @@
 		5F6B3B5B267E500000EB5E23 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B52267E500000EB5E23 /* ChordProgression.swift */; };
 		5F6B3B5C267E500000EB5E23 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B3B54267E500000EB5E23 /* HomeViewController.swift */; };
 		5F6B3B5E267E516F00EB5E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6B3B5D267E516F00EB5E23 /* Main.storyboard */; };
+		5FE0A6152680D57100EF1D76 /* Imagine Dragons - Demons F Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0A6122680D57100EF1D76 /* Imagine Dragons - Demons F Audio.mp3 */; };
+		5FE0A6162680D57100EF1D76 /* Imagine Dragons - Demons G Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0A6132680D57100EF1D76 /* Imagine Dragons - Demons G Audio.mp3 */; };
+		5FE0A6172680D57100EF1D76 /* Imagine Dragons - Demons C Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0A6142680D57100EF1D76 /* Imagine Dragons - Demons C Audio.mp3 */; };
+		5FE0A61B2680D5BD00EF1D76 /* Maroon 5 - Memories C Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0A61A2680D5BD00EF1D76 /* Maroon 5 - Memories C Audio.mp3 */; };
 		5FE22E042680BAB200F2A430 /* Base Key C v2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FE22E012680BAB100F2A430 /* Base Key C v2.mlmodel */; };
 		5FE22E052680BAB200F2A430 /* Base Key F v2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FE22E022680BAB100F2A430 /* Base Key F v2.mlmodel */; };
 		5FE22E062680BAB200F2A430 /* Base Key G v2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FE22E032680BAB200F2A430 /* Base Key G v2.mlmodel */; };
@@ -51,7 +55,6 @@
 		FC142447267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */; };
 		FC89F0FE267F39C600F68DFC /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
 		FC920D9C267FD7820020916D /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC920D99267FD7820020916D /* AudioPlayerController.swift */; };
-		FC920D9D267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC920D9B267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,10 @@
 		5F6B3B52267E500000EB5E23 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
 		5F6B3B54267E500000EB5E23 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5F6B3B5D267E516F00EB5E23 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5FE0A6122680D57100EF1D76 /* Imagine Dragons - Demons F Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons F Audio.mp3"; sourceTree = "<group>"; };
+		5FE0A6132680D57100EF1D76 /* Imagine Dragons - Demons G Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons G Audio.mp3"; sourceTree = "<group>"; };
+		5FE0A6142680D57100EF1D76 /* Imagine Dragons - Demons C Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons C Audio.mp3"; sourceTree = "<group>"; };
+		5FE0A61A2680D5BD00EF1D76 /* Maroon 5 - Memories C Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Maroon 5 - Memories C Audio.mp3"; sourceTree = "<group>"; };
 		5FE22E012680BAB100F2A430 /* Base Key C v2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key C v2.mlmodel"; sourceTree = "<group>"; };
 		5FE22E022680BAB100F2A430 /* Base Key F v2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key F v2.mlmodel"; sourceTree = "<group>"; };
 		5FE22E032680BAB200F2A430 /* Base Key G v2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key G v2.mlmodel"; sourceTree = "<group>"; };
@@ -101,7 +108,6 @@
 		FC124E7B267F4745004279B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCellB.swift; sourceTree = "<group>"; };
 		FC920D99267FD7820020916D /* AudioPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
-		FC920D9B267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons Audio.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +374,56 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		5FE0A60B2680D51700EF1D76 /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				5FE0A60E2680D53500EF1D76 /* I - V - vi - IV */,
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		5FE0A60C2680D52200EF1D76 /* Hard */ = {
+			isa = PBXGroup;
+			children = (
+				5FE0A60F2680D53D00EF1D76 /* I - V - vi - iii - IV - I - IV - V */,
+			);
+			path = Hard;
+			sourceTree = "<group>";
+		};
+		5FE0A60E2680D53500EF1D76 /* I - V - vi - IV */ = {
+			isa = PBXGroup;
+			children = (
+				5FE0A6102680D55900EF1D76 /* Imagine Dragons - Demons */,
+			);
+			path = "I - V - vi - IV";
+			sourceTree = "<group>";
+		};
+		5FE0A60F2680D53D00EF1D76 /* I - V - vi - iii - IV - I - IV - V */ = {
+			isa = PBXGroup;
+			children = (
+				5FE0A6112680D56500EF1D76 /* Maroon 5 - Memories */,
+			);
+			path = "I - V - vi - iii - IV - I - IV - V";
+			sourceTree = "<group>";
+		};
+		5FE0A6102680D55900EF1D76 /* Imagine Dragons - Demons */ = {
+			isa = PBXGroup;
+			children = (
+				5FE0A6142680D57100EF1D76 /* Imagine Dragons - Demons C Audio.mp3 */,
+				5FE0A6122680D57100EF1D76 /* Imagine Dragons - Demons F Audio.mp3 */,
+				5FE0A6132680D57100EF1D76 /* Imagine Dragons - Demons G Audio.mp3 */,
+			);
+			path = "Imagine Dragons - Demons";
+			sourceTree = "<group>";
+		};
+		5FE0A6112680D56500EF1D76 /* Maroon 5 - Memories */ = {
+			isa = PBXGroup;
+			children = (
+				5FE0A61A2680D5BD00EF1D76 /* Maroon 5 - Memories C Audio.mp3 */,
+			);
+			path = "Maroon 5 - Memories";
+			sourceTree = "<group>";
+		};
 		5FFD95562671FADA005207C3 = {
 			isa = PBXGroup;
 			children = (
@@ -447,7 +503,8 @@
 		FC920D9A267FD7820020916D /* Audio Assets */ = {
 			isa = PBXGroup;
 			children = (
-				FC920D9B267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 */,
+				5FE0A60B2680D51700EF1D76 /* Normal */,
+				5FE0A60C2680D52200EF1D76 /* Hard */,
 			);
 			path = "Audio Assets";
 			sourceTree = "<group>";
@@ -521,15 +578,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC920D9D267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 in Resources */,
 				5F6B3B56267E500000EB5E23 /* HomeStoryboard.storyboard in Resources */,
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
+				5FE0A6162680D57100EF1D76 /* Imagine Dragons - Demons G Audio.mp3 in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
+				5FE0A61B2680D5BD00EF1D76 /* Maroon 5 - Memories C Audio.mp3 in Resources */,
 				5F6B3B5E267E516F00EB5E23 /* Main.storyboard in Resources */,
 				5F6B3B32267E4DFA00EB5E23 /* GamePausedPopupView.xib in Resources */,
 				5F6B3B3C267E4DFA00EB5E23 /* SongSelection+Tutorial.storyboard in Resources */,
+				5FE0A6152680D57100EF1D76 /* Imagine Dragons - Demons F Audio.mp3 in Resources */,
 				5F6B3B31267E4DFA00EB5E23 /* ChooseBaseKeyPopup.storyboard in Resources */,
+				5FE0A6172680D57100EF1D76 /* Imagine Dragons - Demons C Audio.mp3 in Resources */,
 				5F6B3B3D267E4DFA00EB5E23 /* SongSelectionTableViewCell.xib in Resources */,
 				5FFD956F2671FADB005207C3 /* Assets.xcassets in Resources */,
 			);
