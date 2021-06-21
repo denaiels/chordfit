@@ -43,6 +43,9 @@
                                 <state key="normal" title="play">
                                     <color key="titleColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="playSongWith_sender:" destination="N3C-l0-Lvi" eventType="touchUpInside" id="bMW-V9-aiP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday Morning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C90-Jx-sbT">
                                 <rect key="frame" x="20" y="138" width="229" height="36"/>
@@ -281,11 +284,22 @@
                         <outlet property="normalCollectionView" destination="J31-AY-S7P" id="QEX-9D-xP5"/>
                         <outlet property="playBtn" destination="IJp-vA-K2B" id="BU9-sg-i3o"/>
                         <outlet property="songTitleDC" destination="C90-Jx-sbT" id="ChJ-2J-QJK"/>
+                        <segue destination="cVX-oU-MW8" kind="presentation" identifier="goToSongSelection" modalPresentationStyle="fullScreen" id="hZX-OH-I2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfd-vK-eQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5349.2307692307686" y="-538.15165876777246"/>
+        </scene>
+        <!--SongSelection+Tutorial-->
+        <scene sceneID="f6e-8j-eK3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SongSelection+Tutorial" id="cVX-oU-MW8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xmZ-KR-Ac5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5nZ-IV-rkY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4655" y="-698"/>
         </scene>
     </scenes>
     <resources>
