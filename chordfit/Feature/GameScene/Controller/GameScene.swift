@@ -37,6 +37,9 @@ let chordSet = [
 
 class GameScene: SKScene {
     
+    // CORE DATA
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var gameSceneDelegate : GameSceneDelegate?
     var songSelectionDelegate: GameSceneDelegate?
     var viewController: UIViewController?
@@ -76,44 +79,11 @@ class GameScene: SKScene {
     var minutes: Int = 0
     
     var chords: [movingCP] = []
-    let songChords: [[String]] = [
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"]
-    ]
+    var songRomawi: [String] = []
     
     // SONG DETAIL
+    var allSongsCoreData: [Songs]!
+    var songPlayedCoreData: Songs?
     var songChosen: Song?
     var baseKeyChosen: String = ""
     
@@ -128,6 +98,7 @@ class GameScene: SKScene {
     var audioFileName: String = ""
     
     // SCORE
+    var chordCount: Int = 0
     var score: Int = 0
     var lastscore: Int = 0
     var userGetStar: Bool = false
@@ -174,8 +145,11 @@ class GameScene: SKScene {
         let chords = song.chords
         
         for chord in chords {
-            makeChords(romawi: chord[0] as! String, chord: chordSet[baseKeyChosen]?[chord[0] as! String] ?? "X", time: TimeInterval(chord[1] as! Int) )
+            makeChords(romawi: chord[0] as! String, chord: chordSet[baseKeyChosen]?[chord[0] as! String] ?? "X", time: TimeInterval(chord[1] as! Int))
+            songRomawi.append(chord[0] as! String)
         }
+        
+        chordCount = chords.count
     }
     
     // Timer Counter
@@ -222,8 +196,7 @@ class GameScene: SKScene {
                 pauseGame()
                 congratsLayer.isHidden = false
                 
-                gameFinish()
-                gameSceneDelegate?.sendGameResultToSongSelection(songTitle: songChosen?.title ?? "Demons", key: baseKeyChosen, userGetStar: userGetStar)
+                gameFinishedAfterTImeEnds()
             }
         }
     }
@@ -492,9 +465,38 @@ class GameScene: SKScene {
         self.audioPlayerController.player?.play()
     }
     
-    func gameFinish() {
+    func gameFinished() {
         self.audioPlayerController.player?.stop()
         stopAudioEngine()
+    }
+    
+    func gameFinishedAfterTImeEnds() {
+        self.audioPlayerController.player?.stop()
+        stopAudioEngine()
+        
+        updateCoreData()
+    }
+    
+    func updateCoreData() {
+        
+        let newSong = Songs(context: self.context)
+        
+        if userGetStar == true {
+            if baseKeyChosen == "C" {
+                newSong.playedC = true
+            } else if baseKeyChosen == "F" {
+                newSong.playedF = true
+            } else if baseKeyChosen == "G" {
+                newSong.playedG = true
+            }
+        }
+        
+        do {
+            try self.context.save()
+        } catch {
+            print("Error: (error)")
+        }
+        
     }
     
     // MARK: - didMove
@@ -782,7 +784,7 @@ extension GameScene : SKPhysicsContactDelegate{
             print("Bar: \(currentBar)")
 
             // Update Current Chord
-            currentRomawi = songChords[currentBar-1][0]
+            currentRomawi = songRomawi[currentBar-1]
             currentChord = chordSet[baseKeyChosen]?[currentRomawi] ?? "X"
             print("Chord:\(currentChord)")
             self.chordClassifierViewController.currentChord = currentChord
@@ -894,9 +896,7 @@ extension GameScene : SKPhysicsContactDelegate{
                 self.removeAllActions()
                 self.scene?.removeFromParent()
                 
-                songSelectionDelegate?.returnData(text: "CCCCCC")
-                
-                
+                gameFinished()
             }
         }
     }

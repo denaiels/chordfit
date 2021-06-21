@@ -29,6 +29,7 @@ class GameSceneViewController: UIViewController {
     var songs = SongRepository.shared.getSongs()
     
     var songTitle: String?
+    var songCoreData: Songs?
     var songToPlay: Song?
     var baseKey: String?
     
@@ -46,6 +47,7 @@ class GameSceneViewController: UIViewController {
                 if let gameScene = scene as? GameScene{
                     
                     // Set Base Key in GameScene SKScene
+                    gameScene.songPlayedCoreData = songCoreData
                     gameScene.setSongDetail(song: songToPlay!, key: baseKey ?? "C")
                     
                     // Set Delegate to send back progress to SongSelection page
