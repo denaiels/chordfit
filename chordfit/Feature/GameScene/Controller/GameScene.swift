@@ -103,6 +103,9 @@ class GameScene: SKScene {
     var lastscore: Int = 0
     var userGetStar: Bool = false
     
+    // PROGRESS BAR
+    var progressBarPerChord: Int = 0
+    
     var counter = 0
     var countertime = Timer()
     var counterstartValue = 3
@@ -150,6 +153,7 @@ class GameScene: SKScene {
         }
         
         chordCount = chords.count
+        progressBarPerChord = 420 / chordCount
     }
     
     // Timer Counter
@@ -196,7 +200,7 @@ class GameScene: SKScene {
                 pauseGame()
                 congratsLayer.isHidden = false
                 
-                gameFinishedAfterTImeEnds()
+                gameFinishedAfterTimeEnds()
             }
         }
     }
@@ -246,7 +250,6 @@ class GameScene: SKScene {
         songKey.fontColor = SKColor.black
         songKey.position = CGPoint(x: frame.minX + 140, y: frame.maxY - 250)
         addChild(songKey)
-
     }
     
     func addProgress(progressLevel : Int){
@@ -320,17 +323,18 @@ class GameScene: SKScene {
         
     }
     
-    func createNot4Bit(speed : Double, chorddetail : String , progressiondetail : String){
+    func createNot4Bit(chorddetail : String , progressiondetail : String, xPos: CGFloat) -> SKNode {
         
-        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 300, y: frame.midY - 195), duration: speed)
+//        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 300, y: frame.midY - 195), duration: durationUntilDisappear)
+        
         let gambar = SKSpriteNode(imageNamed: "chordlong1x")
-        gambar.position = CGPoint(x:frame.maxX + 280, y: frame.midY - 195)
+        gambar.position = CGPoint(x:frame.maxX + 280 + xPos, y: 0)
         gambar.zPosition = 2
         gambar.size = CGSize(width: gambar.size.width/1.35  , height: gambar.size.height/1.35)
         gambar.physicsBody = SKPhysicsBody (circleOfRadius: gambar.size.width / 6)
         gambar.physicsBody?.collisionBitMask = .zero
         gambar.name = "Not"
-        gambar.run(moveBottomLeft, withKey: "gerakKiri")
+//        gambar.run(moveBottomLeft, withKey: "gerakKiri")
         gambar.physicsBody?.collisionBitMask = .zero
         gambar.physicsBody?.affectedByGravity = false
         
@@ -347,7 +351,7 @@ class GameScene: SKScene {
         
         let endLine = SKSpriteNode(imageNamed: "chordline")
         setupLine(line: endLine,
-                  x: gambar.size.width / 2, y: -5.5, z: -4,
+                  x: gambar.size.width / 2, y: -5.5, z: -10,
                   width: endLine.size.width, height: frame.size.height/5.6,
                   circleOfRadius: progressionLine.size.width / 2,
                   name: "endLine",
@@ -357,7 +361,7 @@ class GameScene: SKScene {
         // Garis setiap kali detect chord
         let chordLine1 = SKSpriteNode(imageNamed: "chordline")
         setupLine(line: chordLine1,
-                  x: -(gambar.size.width - 125) / 4, y: 0, z: -4,
+                  x: -(gambar.size.width - 125) / 4, y: 0, z: -10,
                   width: endLine.size.width, height: frame.size.height/5.6,
                   circleOfRadius: 30,
                   name: "chordLine1",
@@ -366,7 +370,7 @@ class GameScene: SKScene {
         
         let chordLine2 = SKSpriteNode(imageNamed: "chordline")
         setupLine(line: chordLine2,
-                  x: 0, y: 0, z: -4,
+                  x: 0, y: 0, z: -10,
                   width: endLine.size.width, height: frame.size.height/5.6,
                   circleOfRadius: 30,
                   name: "chordLine2",
@@ -375,7 +379,7 @@ class GameScene: SKScene {
         
         let chordLine3 = SKSpriteNode(imageNamed: "chordline")
         setupLine(line: chordLine3,
-                  x: (gambar.size.width - 125) / 4, y: 0, z: -4,
+                  x: (gambar.size.width - 125) / 4, y: 0, z: -10,
                   width: endLine.size.width, height: frame.size.height/5.6,
                   circleOfRadius: 30,
                   name: "chordLine3",
@@ -409,7 +413,9 @@ class GameScene: SKScene {
         gambar.addChild(chordLine3)
         movingProg.addChild(progressionDetail)
         movingProg.addChild(progressionLine)
-        addChild(gambar)
+//        addChild(gambar)
+        
+        return gambar
     }
     
     func setupLine(line: SKSpriteNode, x: CGFloat, y: CGFloat, z: CGFloat, width: CGFloat, height: CGFloat, circleOfRadius: CGFloat, name: String, categoryBitMask: UInt32, contactTestBitMask: UInt32) {
@@ -468,10 +474,12 @@ class GameScene: SKScene {
     func gameFinished() {
         self.audioPlayerController.player?.stop()
         stopAudioEngine()
+        
+        gameSceneDelegate?.dismissChooseBaseKeyPopup(text: "Berhasil Keluar")
     }
     
-    func gameFinishedAfterTImeEnds() {
-        self.audioPlayerController.player?.stop()
+    func gameFinishedAfterTimeEnds() {
+        self.audioPlayerController.player?.pause()
         stopAudioEngine()
         
         updateCoreData()
@@ -513,6 +521,7 @@ class GameScene: SKScene {
         
         // Set Song
         readSong(song: songChosen!)
+        audioFileName = "\(songChosen?.title ?? "Demons") \(baseKeyChosen)"
         songTime = getAudioDuration()
         
         congratsLayer.isHidden = false
@@ -536,19 +545,35 @@ class GameScene: SKScene {
         countdownLabel.zPosition = 0
         countdownLabel.text = "\(counter)"
         countdownLabel.fontColor = SKColor.white
-        countdownLabel.position = CGPoint(x: frame.midX  , y: frame.midY - 50)
+        countdownLabel.position = CGPoint(x: frame.midX, y: frame.midY - 50)
         addChild(countdownLabel)
-        var arrayofChords : [SKAction] = []
+        
+        // Pergerakan Chord
+        var xPosition: Float = 0
+//        var moveDuration = Double(60.0 / Double((songChosen?.bpm)!) * 4.0)
+        
+        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 650 - (675 * CGFloat(chordCount)), y: frame.midY - 195), duration: TimeInterval(songTime))
+        let mangkokChord = SKSpriteNode(imageNamed: "mangkok")
+        mangkokChord.position = CGPoint(x: frame.midX, y: frame.midY - 195)
+        mangkokChord.zPosition = 2
+        addChild(mangkokChord)
+        
         for n in 0...chords.count - 1  {
-            let a1 = SKAction.run {
-                self.createNot4Bit(speed: 5, chorddetail: self.chords[n].chordDetail, progressiondetail: self.chords[n].romawiDetail)
-            }
-            let a2 = SKAction.wait(forDuration: self.chords[n].chordLong)
-            arrayofChords.append(a1)
-            arrayofChords.append(a2)
+//            let a1 = SKAction.run {
+//
+//            }
+//            let a2 = SKAction.wait(forDuration: self.chords[n].chordLong)
+//            arrayofChords.append(a1)
+//            arrayofChords.append(a2)
+            
+            mangkokChord.addChild(self.createNot4Bit(chorddetail: self.chords[n].chordDetail, progressiondetail: self.chords[n].romawiDetail, xPos: CGFloat(xPosition)))
+            
+            
+            xPosition += 630
         }
-        let a3 = SKAction.sequence(arrayofChords)
-        run(a3)
+        mangkokChord.run(moveBottomLeft, withKey: "gerakKiri")
+//        let a3 = SKAction.sequence(arrayofChords)
+//        run(a3)
                 
         // Access Chord Classifier
         self.chordClassifierViewController.viewDidLoad()
@@ -705,7 +730,7 @@ class GameScene: SKScene {
         scoreNode = SKLabelNode(fontNamed: "Arial")
         scoreNode.fontSize = 25
         scoreNode.zPosition = 0
-        scoreNode.text = "0 / 10"
+        scoreNode.text = "0 / \(chordCount)"
         scoreNode.fontColor = SKColor.white
         scoreNode.position = CGPoint(x: frame.midX + 255, y: frame.maxY - 595)
         addChild(scoreNode)
@@ -766,15 +791,15 @@ extension GameScene : SKPhysicsContactDelegate{
         
         if collision == notCategory | pagarCategory{
             
-            // Coba Score
-            score += 1
-            scoreNode.text = "\(score) / 10"
-            lastprogressNode.text = "\(score)/ 10"
-            
-            addProgress(progressLevel: 42 + newProgress)
-            self.lastscore = 42 + newProgress
-            print(self.lastscore)
-            newProgress += 42
+//            // Coba Score
+//            score += 1
+//            scoreNode.text = "\(score) / \(chordCount)"
+//            lastprogressNode.text = "\(score)/ \(chordCount)"
+//
+//            addProgress(progressLevel: progressBarPerChord + newProgress)
+//            self.lastscore = progressBarPerChord + newProgress
+//            print(self.lastscore)
+//            newProgress += progressBarPerChord
             
             self.correctChord.isHidden = true
             print("Collision Occured")
@@ -829,18 +854,20 @@ extension GameScene : SKPhysicsContactDelegate{
             
             if self.chordClassifierViewController.isCorrectChord == true {
                 
-//                score += 1
-//                scoreNode.text = "\(score) / 10"
-//                lastprogressNode.text = "\(score)/ 10"
-//
-//                addProgress(progressLevel: 42 + newProgress)
-//                self.lastscore = 42 + newProgress
-//                print(self.lastscore)
-//                newProgress += 42
+                score += 1
+                scoreNode.text = "\(score) / 10"
+                lastprogressNode.text = "\(score)/ 10"
+
+                addProgress(progressLevel: progressBarPerChord + newProgress)
+                self.lastscore = progressBarPerChord + newProgress
+                print(self.lastscore)
+                newProgress += progressBarPerChord
                 
             } else {
                 self.correctChord.isHidden = true
             }
+            
+            
         }
         
     }
