@@ -124,9 +124,7 @@
                                                             <color key="titleColor" name="white"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="playSong:" destination="Y6W-OH-hqX" eventType="touchDragInside" id="ilN-mT-f6C"/>
-                                                            <action selector="playSong:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yRD-p0-rNv"/>
-                                                            <segue destination="T8C-9c-sJ0" kind="presentation" identifier="chooseBaseKeyPopupToGamePlaySegue" modalPresentationStyle="fullScreen" id="HBb-2t-B2n"/>
+                                                            <action selector="playGameScene:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="N9u-5Z-xob"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -195,12 +193,13 @@
                         <outlet property="popupContentView" destination="bnf-uN-Wy9" id="Ytm-iX-C3x"/>
                         <outlet property="titleLabel" destination="4eW-2G-LJe" id="j32-Ow-7Fn"/>
                         <segue destination="Hz4-Bx-bpD" kind="unwind" identifier="unwindToSongSelection" unwindAction="unwind:" id="cog-gL-gjp"/>
+                        <segue destination="T8C-9c-sJ0" kind="presentation" identifier="gotoGameScene" modalPresentationStyle="fullScreen" id="8cw-lD-nte"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Hz4-Bx-bpD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="11.594202898550726" y="83.705357142857139"/>
+            <point key="canvasLocation" x="48" y="75"/>
         </scene>
         <!--Main-->
         <scene sceneID="GgJ-2M-oVX">

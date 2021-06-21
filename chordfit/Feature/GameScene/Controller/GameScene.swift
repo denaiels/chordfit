@@ -37,6 +37,14 @@ let chordSet = [
 
 class GameScene: SKScene {
     
+    func setText(text : String){
+        print(text)
+    }
+    func setDelegate(delegate : GameSceneDelegate){
+        gameSceneDelegate = delegate
+    }
+    
+    var gameSceneDelegate : GameSceneDelegate?
     var viewController: UIViewController?
     let pauseLayer = SKNode()
     let worldNode = SKNode()
@@ -401,7 +409,7 @@ class GameScene: SKScene {
         microphone.zPosition = 0
         worldNode.addChild(microphone)
         
-        createSongsDetail(songname: "Demons ", artistname: "Imagine Dragons", detailsong: "Pop - 148 bpm", songkey:"C")
+        createSongsDetail(songname: "Demons ", artistname: "Imagine Dragons", detailsong: "Rock - 90 bpm", songkey:"C")
         score = 0
         scoreNode = SKLabelNode(fontNamed: "Arial")
         scoreNode.fontSize = 25
@@ -467,14 +475,14 @@ class GameScene: SKScene {
         songName.zPosition = 2
         songName.fontColor = SKColor.black
         songName.position = CGPoint(x: 150, y: 50)
-        songName.position = CGPoint(x: frame.minX + 180, y: frame.maxY - 120)
+        songName.position = CGPoint(x: frame.minX + 175, y: frame.maxY - 120)
         addChild(songName)
         
         artistName = SKLabelNode(fontNamed: "Arial")
         artistName.fontSize = 30
         artistName.zPosition = 2
         artistName.text = "\(artistname)"
-        artistName.position = CGPoint(x: frame.minX  + 170 , y: frame.maxY - 160)
+        artistName.position = CGPoint(x: frame.minX  + 215 , y: frame.maxY - 160)
         artistName.fontColor = SKColor.black
         addChild(artistName)
         detailSong = SKLabelNode(fontNamed: "Arial")
@@ -489,7 +497,7 @@ class GameScene: SKScene {
         songKey.zPosition = 2
         songKey.text = "Key : \(songkey)"
         songKey.fontColor = SKColor.black
-        songKey.position = CGPoint(x: frame.minX + 135, y: frame.maxY - 250)
+        songKey.position = CGPoint(x: frame.minX + 140, y: frame.maxY - 250)
         addChild(songKey)
 
     }
@@ -702,13 +710,13 @@ class GameScene: SKScene {
         
         self.audioPlayerController.player?.stop()
         
-        let storyboard = UIStoryboard(name: "SongSelection+Tutorial", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SongSelectionStoryboard")
-        vc.view.frame = (self.view?.frame)!
-        UIView.transition(with: self.view!, duration: 0.1, options: .curveEaseOut, animations:
-            {
-                self.view?.window?.rootViewController = vc
-            }, completion: { completed in })
+//        let storyboard = UIStoryboard(name: "SongSelection+Tutorial", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "SongSelectionStoryboard")
+//        vc.view.frame = (self.view?.frame)!
+//        UIView.transition(with: self.view!, duration: 0.1, options: .curveEaseOut, animations:
+//            {
+//                self.view?.window?.rootViewController = vc
+//            }, completion: { completed in })
 
 //        self.view?.window?.rootViewController?.performSegue(withIdentifier: "backtoSelectionPage", sender: self)
         
@@ -844,6 +852,7 @@ extension GameScene : SKPhysicsContactDelegate{
                 self.removeAllActions()
                 self.scene?.removeFromParent()
                 gameFinish()
+                gameSceneDelegate?.quitBtnTapped(text: "Hore")
             }
         }
     }

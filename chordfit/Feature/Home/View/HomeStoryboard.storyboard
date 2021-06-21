@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VY9-K3-QkX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VY9-K3-QkX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -136,7 +136,6 @@
                                             <outlet property="chordPLabel" destination="jlo-J9-PKu" id="sxt-ES-kEU"/>
                                             <outlet property="songTLabel" destination="CDg-L5-gJy" id="H53-a4-BNw"/>
                                             <outlet property="songTLabel2" destination="osE-hE-mtm" id="pC2-Pp-CqX"/>
-                                            <segue destination="onf-4m-W1T" kind="presentation" identifier="normalToSongSelectionSegue" modalPresentationStyle="fullScreen" id="jua-on-yKV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -288,6 +287,7 @@
                         <outlet property="playBtn" destination="IJp-vA-K2B" id="BU9-sg-i3o"/>
                         <outlet property="songTitleDC" destination="C90-Jx-sbT" id="ChJ-2J-QJK"/>
                         <segue destination="cVX-oU-MW8" kind="presentation" identifier="goToSongSelection" modalPresentationStyle="fullScreen" id="hZX-OH-I2M"/>
+                        <segue destination="onf-4m-W1T" kind="presentation" identifier="normalToSongSelectionSegue" modalPresentationStyle="fullScreen" id="ak4-tB-O8W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfd-vK-eQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

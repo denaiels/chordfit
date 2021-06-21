@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true
         playButton()
         
         self.navigationController?.isNavigationBarHidden = true
@@ -193,6 +193,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             }
         }
     }
+    
         
 //        print(self.chords[indexPath.row].title)
 //        var cellA: ChordProgressionCollectionViewCellA?
@@ -248,3 +249,21 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 
 }
+//extension HomeViewController{
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        //addFoodBtnStyling.layer.cornerRadius = 15
+//        self.navigationController?.isNavigationBarHidden = false
+//        self.tabBarController?.tabBar.isHidden = true
+//        
+//        navigationController?.navigationBar.barTintColor = UIColor(named: "Primary")
+//        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//    }
+//   
+//    override func viewWillDisappear(_ animated: Bool) {
+//    super.viewWillDisappear(animated)
+//    self.navigationController?.isNavigationBarHidden = true
+//    self.tabBarController?.tabBar.isHidden = false
+//    }
+//}

@@ -18,10 +18,21 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="p6i-8Z-3F6" kind="presentation" identifier="goToSongSelection" modalPresentationStyle="fullScreen" id="W4S-a4-plY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="216" y="123"/>
+        </scene>
+        <!--SongSelection+Tutorial-->
+        <scene sceneID="Dwq-qu-FgO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SongSelection+Tutorial" id="p6i-8Z-3F6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvm-IU-tg2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-624" y="100"/>
         </scene>
     </scenes>
     <resources>

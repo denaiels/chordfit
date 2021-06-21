@@ -9,10 +9,19 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+protocol GameSceneDelegate {
+    func quitBtnTapped(text: String)
+}
+
+protocol GSViewControllerDelegate {
+    func dismissChooseBaseKey()
+}
+
 class GameSceneViewController: UIViewController {
     
     var baseKey: String = "C"
     var songToPlay: Song?
+    var gsDelegate: GSViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +29,20 @@ class GameSceneViewController: UIViewController {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene"){
                 // Set the scale mode to scale to fit the window
-            scene.scaleMode = .aspectFill
-           
-                // Present the scene
-            view.presentScene(scene)
-            
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
+                if let gameScene = scene as? GameScene{
+                    gameScene.setText(text: baseKey)
+                    gameScene.setDelegate(delegate: self)
+                    scene.scaleMode = .aspectFill
+                   
+                        // Present the scene
+                    view.presentScene(scene)
+                    
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
             
         }
         }
@@ -52,3 +65,14 @@ class GameSceneViewController: UIViewController {
 //        skview.presentScene(scene)
     }
 }
+
+extension GameSceneViewController : GameSceneDelegate{
+    func quitBtnTapped(text: String) {
+        print(text)
+//        performSegue(withIdentifier: "goToSongSelection", sender: self)
+        print("\(gsDelegate), INI DARI GAMESCENE" )
+        gsDelegate?.dismissChooseBaseKey()
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+

@@ -74,10 +74,10 @@ class ChooseBaseKeyPopupViewController: UIViewController {
     
     
   
-    @IBAction func playSong(_ sender: UIButton) {
-        //perform segue ke halaman adit
-        performSegue(withIdentifier: "chooseBaseKeyPopupToGamePlaySegue", sender: self)
-        print("hehe")
+
+
+    @IBAction func playGameScene(_ sender: UIButton) {
+        performSegue(withIdentifier: "gotoGameScene", sender: self)
     }
     
         
@@ -103,15 +103,29 @@ class ChooseBaseKeyPopupViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //prepare ke adit
-        if segue.identifier == "chooseBaseKeyPopupToGamePlaySegue" {
+        if segue.identifier == "gotoGameScene" {
             if let viewController = segue.destination as? GameSceneViewController {
 //                viewController.songToPlay = songToPlay
+                viewController.gsDelegate = self
+                print("\(viewController.gsDelegate) , INI DARI PREPARE")
                 viewController.baseKey = baseKey
-                print(viewController.songToPlay)
+//                print(viewController.songToPlay)
             }
         }
     }
     
 
 
+}
+
+extension ChooseBaseKeyPopupViewController : GSViewControllerDelegate {
+    func dismissChooseBaseKey() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            print("Berhasil")
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        print("Berhasil dismiss")
+    }
 }

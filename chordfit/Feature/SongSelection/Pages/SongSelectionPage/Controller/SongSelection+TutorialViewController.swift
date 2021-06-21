@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 
+
+
 class SongSelection_TutorialViewController: UIViewController {
 
     @IBOutlet weak var songSelection_TutorialView: SongSelection_TutorialView!
@@ -65,5 +67,9 @@ class SongSelection_TutorialViewController: UIViewController {
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
         
+    }
+    @IBAction func backToHomeBtn( _sender : UIButton) {
+//        performSegue(withIdentifier: "backToHomeStoryboard", sender: self)
+        self.dismiss(animated: true, completion: nil)
     }
 }
