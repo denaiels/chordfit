@@ -50,6 +50,8 @@
 		5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD95702671FADB005207C3 /* LaunchScreen.storyboard */; };
 		FC142447267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */; };
 		FC89F0FE267F39C600F68DFC /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
+		FC920D9C267FD7820020916D /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC920D99267FD7820020916D /* AudioPlayerController.swift */; };
+		FC920D9D267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC920D9B267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,8 @@
 		5FFD95712671FADB005207C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC124E7B267F4745004279B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC142446267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordProgressionCollectionViewCellB.swift; sourceTree = "<group>"; };
+		FC920D99267FD7820020916D /* AudioPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
+		FC920D9B267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Imagine Dragons - Demons Audio.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +274,7 @@
 		5F6B3B21267E4DFA00EB5E23 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FC920D97267FD7820020916D /* AVFoundation */,
 				5F6B3B22267E4DFA00EB5E23 /* ChordClassifierAI */,
 				5F6B3B2B267E4DFA00EB5E23 /* CoreData */,
 			);
@@ -422,6 +427,31 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		FC920D97267FD7820020916D /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				FC920D98267FD7820020916D /* Controller */,
+				FC920D9A267FD7820020916D /* Audio Assets */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		FC920D98267FD7820020916D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC920D99267FD7820020916D /* AudioPlayerController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FC920D9A267FD7820020916D /* Audio Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FC920D9B267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 */,
+			);
+			path = "Audio Assets";
+			sourceTree = "<group>";
+		};
 		FCFC4CEE2672C39600E248B8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC920D9D267FD7820020916D /* Imagine Dragons - Demons Audio.mp3 in Resources */,
 				5F6B3B56267E500000EB5E23 /* HomeStoryboard.storyboard in Resources */,
 				0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */,
 				5FFD95722671FADB005207C3 /* LaunchScreen.storyboard in Resources */,
@@ -540,6 +571,7 @@
 				5F6B3B30267E4DFA00EB5E23 /* GamePausedPopupView.swift in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
 				5F6B3B43267E4DFA00EB5E23 /* ChordClassifierDelegate.swift in Sources */,
+				FC920D9C267FD7820020916D /* AudioPlayerController.swift in Sources */,
 				5F6B3B42267E4DFA00EB5E23 /* GameScene.swift in Sources */,
 				5F6B3B55267E500000EB5E23 /* DataHelper.swift in Sources */,
 				FC142447267E928D00E38E15 /* ChordProgressionCollectionViewCellB.swift in Sources */,
