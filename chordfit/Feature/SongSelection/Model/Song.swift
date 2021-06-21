@@ -19,14 +19,16 @@ class Song {
     var artist: String?
     var image: String?
     var beat: Int?
-    var chords: [Any]
+    var chords: [[Any]]
+    var bpm: Int?
     
-    init(title: String?, genre: String?, artist: String?, image: String?, beat: Int?, chords: [Any]) {
+    init(title: String?, genre: String?, artist: String?, image: String?, beat: Int?, chords: [[Any]], bpm: Int?) {
         self.title = title
         self.genre = genre
         self.artist = artist
         self.image = image
         self.beat = beat
         self.chords = chords
+        self.bpm = bpm
     }
 }

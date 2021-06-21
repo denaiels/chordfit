@@ -26,6 +26,8 @@ class ChordClassifierViewController: UIViewController {
     var currentChord: String = ""
     var isCorrectChord: Bool = false
     
+    var baseKey: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,8 +44,16 @@ class ChordClassifierViewController: UIViewController {
     func prepareAudioEngine() {
         
         do {
-            let requestC = try SNClassifySoundRequest(mlModel: cChordClassifier.model)
-            try analyzer.add(requestC, withObserver: resultsObserver)
+            if baseKey == "C" {
+                let request = try SNClassifySoundRequest(mlModel: cChordClassifier.model)
+                try analyzer.add(request, withObserver: resultsObserver)
+            } else if baseKey == "F" {
+                let request = try SNClassifySoundRequest(mlModel: fChordClassifier.model)
+                try analyzer.add(request, withObserver: resultsObserver)
+            } else if baseKey == "G" {
+                let request = try SNClassifySoundRequest(mlModel: gChordClassifier.model)
+                try analyzer.add(request, withObserver: resultsObserver)
+            }
         } catch {
             print("Unable to prepare request: \(error.localizedDescription)")
             return
@@ -56,6 +66,7 @@ class ChordClassifierViewController: UIViewController {
         }
         
         print("Prepared Audio Engine. Ready to Launch in 3..2..1..")
+        
     }
     
     func startAudioEngine() {
@@ -73,17 +84,7 @@ class ChordClassifierViewController: UIViewController {
         audioEngine.stop()
         print("---Stop Listening---")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
 
 class ResultsObserver: NSObject, SNResultsObserving {

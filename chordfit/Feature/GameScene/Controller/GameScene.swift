@@ -37,18 +37,6 @@ let chordSet = [
 
 class GameScene: SKScene {
     
-    func setText(text : String){
-        print(text)
-    }
-    
-    func setDelegate(delegate : GameSceneDelegate){
-        gameSceneDelegate = delegate
-    }
-    
-    func setSongSelectionDelegate(delegate: GameSceneDelegate?) {
-        songSelectionDelegate = delegate
-    }
-    
     var gameSceneDelegate : GameSceneDelegate?
     var songSelectionDelegate: GameSceneDelegate?
     var viewController: UIViewController?
@@ -66,8 +54,7 @@ class GameScene: SKScene {
     let chordLine3Category: UInt32 = 0x1 << 5
     var flagpause : Bool = false
     var flagconfirm : Bool = false
-    var score = 0 as Int
-    var lastscore = 0 as Int
+    
     var scoreNode: SKLabelNode!
     var songName : SKLabelNode!
     var artistName : SKLabelNode!
@@ -88,9 +75,7 @@ class GameScene: SKScene {
     var seconds: Int = 0
     var minutes: Int = 0
     
-    var baseKey: String = ""
     var chords: [movingCP] = []
-    var song: Song?
     let songChords: [[String]] = [
         ["I", "2.6"],
         ["V", "2.6"],
@@ -128,6 +113,10 @@ class GameScene: SKScene {
         ["IV", "2.6"]
     ]
     
+    // SONG DETAIL
+    var songChosen: Song?
+    var baseKeyChosen: String = ""
+    
     // PUNYA AI CHORD CLASSIFIER
     var chordClassifierViewController = ChordClassifierViewController()
     var currentBar: Int = 0
@@ -136,7 +125,12 @@ class GameScene: SKScene {
     
     // PUNYA AUDIO PLAYER
     var audioPlayerController = AudioPlayerController()
-    var audioFileName: String = "Imagine Dragons - Demons C Audio"
+    var audioFileName: String = ""
+    
+    // SCORE
+    var score: Int = 0
+    var lastscore: Int = 0
+    var userGetStar: Bool = false
     
     var counter = 0
     var countertime = Timer()
@@ -150,16 +144,41 @@ class GameScene: SKScene {
     var countdownSong : SKLabelNode = SKLabelNode()
     var songTime : Int = 0
     
+    
+    // MARK: - HELPER FUNCTIONS
+    
+    // Song Detail
+    func setSongDetail(song: Song, key : String){
+        songChosen = song
+        baseKeyChosen = key
+        
+        self.chordClassifierViewController.baseKey = key
+    }
+    
+    // Delegate
+    func setDelegate(delegate : GameSceneDelegate){
+        gameSceneDelegate = delegate
+    }
+    
+    func setSongSelectionDelegate(delegate: GameSceneDelegate?) {
+        songSelectionDelegate = delegate
+    }
+    
+    
+    // Filling Chords
     func makeChords(romawi : String, chord : String, time: TimeInterval){
         chords.append(movingCP(romawiDetail: romawi, chordDetail: chord, chordLong: time))
     }
     
-    func readSong(songChords: [[String]]){
-        for songChord in songChords {
-            makeChords(romawi: songChord[0], chord: chordSet[baseKey]?[songChord[0]] ?? "X", time: TimeInterval(songChord[1]) ?? 3)
+    func readSong(song: Song){
+        let chords = song.chords
+        
+        for chord in chords {
+            makeChords(romawi: chord[0] as! String, chord: chordSet[baseKeyChosen]?[chord[0] as! String] ?? "X", time: TimeInterval(chord[1] as! Int) )
         }
     }
     
+    // Timer Counter
     func startCounter(){
         counterTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementCounter), userInfo: nil, repeats: true)
     }
@@ -202,8 +221,15 @@ class GameScene: SKScene {
             if songTime <= 0 {
                 pauseGame()
                 congratsLayer.isHidden = false
+                
+                gameFinish()
+                gameSceneDelegate?.sendGameResultToSongSelection(songTitle: songChosen?.title ?? "Demons", key: baseKeyChosen, userGetStar: userGetStar)
             }
         }
+    }
+    
+    func sendResult() {
+        
     }
     
     func gameNotBegin() {
@@ -214,271 +240,12 @@ class GameScene: SKScene {
         
     }
     
-    // MARK: - didMove
-    
-    override func didMove(to view: SKView) {
-        
-        let bground = SKShapeNode(rect: CGRect(x: 0, y: 0, width: frame.size.width/2, height: 50))
-        bground.fillColor = .white
-        bground.position = CGPoint(x: frame.midX - frame.size.width/3.6 , y: frame.maxY - 400)
-        bground.zPosition = -3
-        bground.path = UIBezierPath(roundedRect: CGRect(x: 0, y: -200, width: frame.size.width/1.8, height: 35), cornerRadius: 50).cgPath
-        addChild(bground)
-        print(bground.frame.width)
-        
-        // Set Song
-        baseKey = "C"
-        readSong(songChords: songChords)
-        songTime = getAudioDuration()
-        
-        congratsLayer.isHidden = false
-        addChild(congratsLayer)
-        countdownLabel.zPosition = 100
-        counter = counterstartValue
-        screenOverlay.position = CGPoint(x: frame.midX, y: frame.midY)
-        screenOverlay.zPosition = -1
-        screenOverlay.isHidden = false
-        addChild(screenOverlay)
-        if isNotBegin == true {
-            pauseGame()
-            startCounter()
-            startCounterSong()
-        }
-                
-        addChild(confirmationquitLayer)
-        
-        countdownLabel = SKLabelNode(fontNamed: "Arial")
-        countdownLabel.fontSize = 150
-        countdownLabel.zPosition = 0
-        countdownLabel.text = "\(counter)"
-        countdownLabel.fontColor = SKColor.white
-        countdownLabel.position = CGPoint(x: frame.midX  , y: frame.midY - 50)
-        addChild(countdownLabel)
-        var arrayofChords : [SKAction] = []
-        for n in 0...chords.count - 1  {
-            let a1 = SKAction.run {
-                self.createNot4Bit(speed: 5, chorddetail: self.chords[n].chordDetail, progressiondetail: self.chords[n].romawiDetail)
-            }
-            let a2 = SKAction.wait(forDuration: self.chords[n].chordLong)
-            arrayofChords.append(a1)
-            arrayofChords.append(a2)
-        }
-        let a3 = SKAction.sequence(arrayofChords)
-        run(a3)
-                
-        // Access Chord Classifier
-        self.chordClassifierViewController.viewDidLoad()
-        
-        createBG()
-        
-        addChild(worldNode)
-        addChild(pauseLayer)
-                
-        physicsWorld.contactDelegate = self
-                
-        let quitLabel = SKLabelNode(fontNamed: "Arial")
-        quitLabel.fontSize = 40
-        quitLabel.zPosition = 21
-        quitLabel.text = "Are you sure?"
-        quitLabel.fontColor = SKColor.white
-        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY + 70)
-        confirmationquitLayer.addChild(quitLabel)
-        let quitMenu = SKSpriteNode(imageNamed: "confirmation")
-        quitMenu.size = CGSize(width: frame.size.width - 180, height: frame.size.height/2.5)
-        quitMenu.position = CGPoint(x:frame.midX, y: frame.midY - 50)
-        quitMenu.zPosition = 20
-        confirmationquitLayer.addChild(quitMenu)
-        let yesquitBtn = SKSpriteNode(imageNamed: "confirmquit")
-        yesquitBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
-        yesquitBtn.position = CGPoint(x:frame.midX, y: frame.midY + -50)
-        yesquitBtn.zPosition = 21
-        yesquitBtn.name = "yesBtn"
-        confirmationquitLayer.addChild(yesquitBtn)
-        let cancelquitBtn = SKSpriteNode(imageNamed: "cancelquit")
-        cancelquitBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
-        cancelquitBtn.position = CGPoint(x:frame.midX, y: frame.midY + -150)
-        cancelquitBtn.zPosition = 21
-        cancelquitBtn.name = "cancelBtn"
-        confirmationquitLayer.addChild(cancelquitBtn)
-        confirmationquitLayer.isHidden = true
-                
-        let pauseLabel = SKLabelNode(fontNamed: "Arial")
-        pauseLabel.fontSize = 40
-        pauseLabel.zPosition = 11
-        pauseLabel.text = "Game Paused"
-        pauseLabel.fontColor = SKColor.white
-        pauseLabel.position = CGPoint(x: frame.midX, y: frame.midY + 125)
-        pauseLayer.addChild(pauseLabel)
-        let pauseMenu = SKSpriteNode(imageNamed: "pauseMenu")
-        pauseMenu.size = CGSize(width: frame.size.width - 200, height: frame.size.height/2)
-        pauseMenu.position = CGPoint(x:frame.midX, y: frame.midY - 50)
-        pauseMenu.zPosition = 10
-        pauseLayer.addChild(pauseMenu)
-        let resumeBtn = SKSpriteNode(imageNamed: "resumeBtn2")
-        resumeBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
-        resumeBtn.position = CGPoint(x:frame.midX, y: frame.midY + 25)
-        resumeBtn.zPosition = 11
-        resumeBtn.name = "resumeBtn"
-        pauseLayer.addChild(resumeBtn)
-        let restartBtn = SKSpriteNode(imageNamed: "restartBtn2")
-        restartBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
-        restartBtn.position = CGPoint(x:frame.midX, y: frame.midY - 75)
-        restartBtn.zPosition = 11
-        restartBtn.name = "restartBtn"
-        pauseLayer.addChild(restartBtn)
-        let quitBtn = SKSpriteNode(imageNamed: "quitBtn2")
-        quitBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
-        quitBtn.position = CGPoint(x:frame.midX, y: frame.midY - 175)
-        quitBtn.zPosition = 11
-        quitBtn.name = "quitBtn"
-        pauseLayer.addChild(quitBtn)
-        pauseLayer.isHidden = true
-        
-        let congratsMenu = SKSpriteNode(imageNamed: "Group81x")
-        congratsMenu.size = CGSize(width: frame.size.width - 200, height: frame.size.height/2)
-        congratsMenu.position = CGPoint(x:frame.midX, y: frame.midY - 50)
-        congratsMenu.zPosition = 10
-        congratsLayer.addChild(congratsMenu)
-        congratsLayer.isHidden = true
-        lastprogressBar = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 500, height: 35))
-        lastprogressBar.fillColor = #colorLiteral(red: 1, green: 0.7857890725, blue: 0, alpha: 1)
-        lastprogressBar.position = CGPoint(x: -175, y:0)
-        lastprogressBar.zPosition = 14
-        lastprogressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 350, height: 35), cornerRadius: 50).cgPath
-        lastprogressBarBg = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 500, height: 35))
-        lastprogressBarBg.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        lastprogressBarBg.position = CGPoint(x: -175, y:0)
-        lastprogressBarBg.zPosition = 13
-        lastprogressBarBg.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 350, height: 35), cornerRadius: 50).cgPath
-        lastprogressNode = SKLabelNode(fontNamed: "Arial")
-        lastprogressNode.fontSize = 25
-        lastprogressNode.zPosition = 12
-        lastprogressNode.text = "0/10"
-        lastprogressNode.fontColor = SKColor.white
-        lastprogressNode.position = CGPoint(x: frame.midX + 210, y: frame.midY + 10)
-        congratsMenu.addChild(lastprogressBarBg)
-        congratsMenu.addChild(lastprogressNode)
-        congratsMenu.addChild(lastprogressBar)
-        
-        let goodProgressLabel = SKLabelNode(fontNamed: "Arial")
-        goodProgressLabel.fontSize = 50
-        goodProgressLabel.zPosition = 11
-        goodProgressLabel.text = "Good Progress!"
-        goodProgressLabel.fontColor = SKColor.white
-        goodProgressLabel.position = CGPoint(x: frame.midX, y: frame.midY + 125)
-        congratsMenu.addChild(goodProgressLabel)
-        let starC = SKSpriteNode(imageNamed: "starC")
-        starC.size = CGSize(width: starC.size.width/1.2, height: starC.size.height/1.2)
-        starC.position = CGPoint(x: -150, y: 300)
-        starC.zPosition = 10
-        congratsMenu.addChild(starC)
-        let starF = SKSpriteNode(imageNamed: "starF")
-        starF.size = CGSize(width: starF.size.width/1.2, height: starF.size.height/1.2)
-        starF.position = CGPoint(x: 0, y: 335)
-        starF.zPosition = 10
-        congratsMenu.addChild(starF)
-        let starG = SKSpriteNode(imageNamed: "starG")
-        starG.size = CGSize(width: starG.size.width/1.2, height: starG.size.height/1.2)
-        starG.position = CGPoint(x: 150, y: 300)
-        starG.zPosition = 10
-        congratsMenu.addChild(starG)
-        let goodrestartBtn = SKSpriteNode(imageNamed: "goodrestart")
-        goodrestartBtn.size = CGSize(width: frame.size.width/2, height: frame.size.height/16)
-        goodrestartBtn.position = CGPoint(x: 0, y: -100)
-        goodrestartBtn.zPosition = 11
-        goodrestartBtn.name = "restartBtn"
-        congratsMenu.addChild(goodrestartBtn)
-        let goodplayBtn = SKSpriteNode(imageNamed: "goodplay")
-        goodplayBtn.size = CGSize(width: frame.size.width/2, height: frame.size.height/16)
-        goodplayBtn.position = CGPoint(x: 0, y: -200)
-        goodplayBtn.zPosition = 11
-        goodplayBtn.name = "yesBtn"
-        congratsMenu.addChild(goodplayBtn)
-        congratsLayer.isHidden = true
-        
-        pauseLayer.isHidden = true
-                
-        let conveyor = SKSpriteNode(imageNamed: "conveyor")
-        conveyor.position = CGPoint(x:frame.midX - 25, y: frame.midY - 200)
-        conveyor.size = CGSize(width: frame.size.width , height: frame.size.height/5.3)
-        conveyor.zPosition = -1
-        addChild(conveyor)
-                
-        correctChord = SKSpriteNode(imageNamed: "correctChord")
-        correctChord.position = CGPoint(x:frame.midX - 25, y: frame.midY - 200)
-        correctChord.size = CGSize(width: frame.size.width , height: frame.size.height/5.3)
-        correctChord.zPosition = 1
-        correctChord.isHidden = true
-        worldNode.addChild(correctChord)
-        
-        let microphone = SKSpriteNode(imageNamed: "mic")
-        microphone.position = CGPoint(x:frame.midX, y: frame.midY - 400)
-        microphone.zPosition = 0
-        worldNode.addChild(microphone)
-        
-        createSongsDetail(songname: "Demons ", artistname: "Imagine Dragons", detailsong: "Rock - 90 bpm", songkey:"C")
-        score = 0
-        scoreNode = SKLabelNode(fontNamed: "Arial")
-        scoreNode.fontSize = 25
-        scoreNode.zPosition = 0
-        scoreNode.text = "0 / 10"
-        scoreNode.fontColor = SKColor.white
-        scoreNode.position = CGPoint(x: frame.midX + 255, y: frame.maxY - 595)
-        addChild(scoreNode)
-        
-        let progressionNode = SKLabelNode(fontNamed: "Arial")
-        progressionNode.fontSize = 25
-        progressionNode.zPosition = 0
-        progressionNode.text = "I"
-        progressionNode.fontColor = SKColor.white
-        progressionNode.position = CGPoint(x: frame.midX - 245, y: frame.maxY - 592)
-        addChild(progressionNode)
-                
-        songTimer = SKLabelNode(fontNamed: "Arial")
-        songTimer.fontSize = 30
-        songTimer.zPosition = -1
-        songTimer.text = "00:00"
-        songTimer.fontColor = SKColor.white
-        songTimer.position = CGPoint(x: frame.midX - 225 , y: frame.midY - 50)
-        addChild(songTimer)
-                
-        feedbackLabel = SKLabelNode(fontNamed: "Arial")
-        feedbackLabel.fontSize = 30
-        feedbackLabel.zPosition = -1
-        feedbackLabel.text = "CORRECT!"
-        feedbackLabel.fontColor = SKColor.white
-        feedbackLabel.position = CGPoint(x: frame.midX, y: frame.midY - 50)
-        feedbackLabel.isHidden = true
-        addChild(feedbackLabel)
-                
-        let garis = SKSpriteNode(imageNamed: "linefit")
-        garis.position = CGPoint(x:frame.minX + 150 , y: frame.midY - 200   )
-        garis.zPosition = 2
-        garis.physicsBody = SKPhysicsBody(circleOfRadius: garis.size.width / 2.0)
-        garis.size = CGSize(width: garis.size.width, height: frame.size.width/3.2)
-        garis.physicsBody?.affectedByGravity = false
-        garis.physicsBody?.isDynamic = false
-        garis.physicsBody?.categoryBitMask = pagarCategory
-        addChild(garis)
-                
-        let pauseButton = SKSpriteNode(imageNamed: "paused")
-        pauseButton.position = CGPoint(x:frame.maxX - 150 , y: frame.maxY - 150  )
-        pauseButton.name = "pauseBtn"
-        pauseButton.zPosition = 10
-        addChild(pauseButton)
-        
-    }
-        
-    override func update(_ currentTime: TimeInterval) {
-        
-    }
-    
-    func createSongsDetail(songname:String, artistname :String, detailsong:String, songkey:String){
+    func createSongDetail(song: Song, key: String){
 
         songName = SKLabelNode(fontNamed: "Arial")
         songName.fontSize = 40
         songName.zPosition = 2
-        songName.text = "\(songname)"
+        songName.text = "\(song.title ?? "Demons")"
         songName.zPosition = 2
         songName.fontColor = SKColor.black
         songName.position = CGPoint(x: 150, y: 50)
@@ -488,21 +255,21 @@ class GameScene: SKScene {
         artistName = SKLabelNode(fontNamed: "Arial")
         artistName.fontSize = 30
         artistName.zPosition = 2
-        artistName.text = "\(artistname)"
+        artistName.text = "\(song.artist ?? "Imagine Dragons")"
         artistName.position = CGPoint(x: frame.minX  + 215 , y: frame.maxY - 160)
         artistName.fontColor = SKColor.black
         addChild(artistName)
         detailSong = SKLabelNode(fontNamed: "Arial")
         detailSong.fontSize = 25
         detailSong.zPosition = 2
-        detailSong.text = "\(detailsong)"
+        detailSong.text = "\(song.genre ?? "Pop") - \(song.bpm) bpm"
         detailSong.fontColor = SKColor.black
         detailSong.position = CGPoint(x: frame.minX + 180, y: frame.maxY - 210)
         addChild(detailSong)
         songKey = SKLabelNode(fontNamed: "Arial")
         songKey.fontSize = 25
         songKey.zPosition = 2
-        songKey.text = "Key : \(songkey)"
+        songKey.text = "Key : \(key)"
         songKey.fontColor = SKColor.black
         songKey.position = CGPoint(x: frame.minX + 140, y: frame.maxY - 250)
         addChild(songKey)
@@ -730,7 +497,263 @@ class GameScene: SKScene {
         stopAudioEngine()
     }
     
+    // MARK: - didMove
     
+    override func didMove(to view: SKView) {
+        
+        let bground = SKShapeNode(rect: CGRect(x: 0, y: 0, width: frame.size.width/2, height: 50))
+        bground.fillColor = .white
+        bground.position = CGPoint(x: frame.midX - frame.size.width/3.6 , y: frame.maxY - 400)
+        bground.zPosition = -3
+        bground.path = UIBezierPath(roundedRect: CGRect(x: 0, y: -200, width: frame.size.width/1.8, height: 35), cornerRadius: 50).cgPath
+        addChild(bground)
+        print(bground.frame.width)
+        
+        // Set Song
+        readSong(song: songChosen!)
+        songTime = getAudioDuration()
+        
+        congratsLayer.isHidden = false
+        addChild(congratsLayer)
+        countdownLabel.zPosition = 100
+        counter = counterstartValue
+        screenOverlay.position = CGPoint(x: frame.midX, y: frame.midY)
+        screenOverlay.zPosition = -1
+        screenOverlay.isHidden = false
+        addChild(screenOverlay)
+        if isNotBegin == true {
+            pauseGame()
+            startCounter()
+            startCounterSong()
+        }
+                
+        addChild(confirmationquitLayer)
+        
+        countdownLabel = SKLabelNode(fontNamed: "Arial")
+        countdownLabel.fontSize = 150
+        countdownLabel.zPosition = 0
+        countdownLabel.text = "\(counter)"
+        countdownLabel.fontColor = SKColor.white
+        countdownLabel.position = CGPoint(x: frame.midX  , y: frame.midY - 50)
+        addChild(countdownLabel)
+        var arrayofChords : [SKAction] = []
+        for n in 0...chords.count - 1  {
+            let a1 = SKAction.run {
+                self.createNot4Bit(speed: 5, chorddetail: self.chords[n].chordDetail, progressiondetail: self.chords[n].romawiDetail)
+            }
+            let a2 = SKAction.wait(forDuration: self.chords[n].chordLong)
+            arrayofChords.append(a1)
+            arrayofChords.append(a2)
+        }
+        let a3 = SKAction.sequence(arrayofChords)
+        run(a3)
+                
+        // Access Chord Classifier
+        self.chordClassifierViewController.viewDidLoad()
+        
+        createBG()
+        
+        addChild(worldNode)
+        addChild(pauseLayer)
+                
+        physicsWorld.contactDelegate = self
+                
+        let quitLabel = SKLabelNode(fontNamed: "Arial")
+        quitLabel.fontSize = 40
+        quitLabel.zPosition = 21
+        quitLabel.text = "Are you sure?"
+        quitLabel.fontColor = SKColor.white
+        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY + 70)
+        confirmationquitLayer.addChild(quitLabel)
+        let quitMenu = SKSpriteNode(imageNamed: "confirmation")
+        quitMenu.size = CGSize(width: frame.size.width - 180, height: frame.size.height/2.5)
+        quitMenu.position = CGPoint(x:frame.midX, y: frame.midY - 50)
+        quitMenu.zPosition = 20
+        confirmationquitLayer.addChild(quitMenu)
+        let yesquitBtn = SKSpriteNode(imageNamed: "confirmquit")
+        yesquitBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
+        yesquitBtn.position = CGPoint(x:frame.midX, y: frame.midY + -50)
+        yesquitBtn.zPosition = 21
+        yesquitBtn.name = "yesBtn"
+        confirmationquitLayer.addChild(yesquitBtn)
+        let cancelquitBtn = SKSpriteNode(imageNamed: "cancelquit")
+        cancelquitBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
+        cancelquitBtn.position = CGPoint(x:frame.midX, y: frame.midY + -150)
+        cancelquitBtn.zPosition = 21
+        cancelquitBtn.name = "cancelBtn"
+        confirmationquitLayer.addChild(cancelquitBtn)
+        confirmationquitLayer.isHidden = true
+                
+        let pauseLabel = SKLabelNode(fontNamed: "Arial")
+        pauseLabel.fontSize = 40
+        pauseLabel.zPosition = 11
+        pauseLabel.text = "Game Paused"
+        pauseLabel.fontColor = SKColor.white
+        pauseLabel.position = CGPoint(x: frame.midX, y: frame.midY + 125)
+        pauseLayer.addChild(pauseLabel)
+        let pauseMenu = SKSpriteNode(imageNamed: "pauseMenu")
+        pauseMenu.size = CGSize(width: frame.size.width - 200, height: frame.size.height/2)
+        pauseMenu.position = CGPoint(x:frame.midX, y: frame.midY - 50)
+        pauseMenu.zPosition = 10
+        pauseLayer.addChild(pauseMenu)
+        let resumeBtn = SKSpriteNode(imageNamed: "resumeBtn2")
+        resumeBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
+        resumeBtn.position = CGPoint(x:frame.midX, y: frame.midY + 25)
+        resumeBtn.zPosition = 11
+        resumeBtn.name = "resumeBtn"
+        pauseLayer.addChild(resumeBtn)
+        let restartBtn = SKSpriteNode(imageNamed: "restartBtn2")
+        restartBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
+        restartBtn.position = CGPoint(x:frame.midX, y: frame.midY - 75)
+        restartBtn.zPosition = 11
+        restartBtn.name = "restartBtn"
+        pauseLayer.addChild(restartBtn)
+        let quitBtn = SKSpriteNode(imageNamed: "quitBtn2")
+        quitBtn.size = CGSize(width: frame.size.width/2.5, height: frame.size.height/16)
+        quitBtn.position = CGPoint(x:frame.midX, y: frame.midY - 175)
+        quitBtn.zPosition = 11
+        quitBtn.name = "quitBtn"
+        pauseLayer.addChild(quitBtn)
+        pauseLayer.isHidden = true
+        
+        let congratsMenu = SKSpriteNode(imageNamed: "Group81x")
+        congratsMenu.size = CGSize(width: frame.size.width - 200, height: frame.size.height/2)
+        congratsMenu.position = CGPoint(x:frame.midX, y: frame.midY - 50)
+        congratsMenu.zPosition = 10
+        congratsLayer.addChild(congratsMenu)
+        congratsLayer.isHidden = true
+        lastprogressBar = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 500, height: 35))
+        lastprogressBar.fillColor = #colorLiteral(red: 1, green: 0.7857890725, blue: 0, alpha: 1)
+        lastprogressBar.position = CGPoint(x: -175, y:0)
+        lastprogressBar.zPosition = 14
+        lastprogressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 350, height: 35), cornerRadius: 50).cgPath
+        lastprogressBarBg = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 500, height: 35))
+        lastprogressBarBg.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        lastprogressBarBg.position = CGPoint(x: -175, y:0)
+        lastprogressBarBg.zPosition = 13
+        lastprogressBarBg.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 350, height: 35), cornerRadius: 50).cgPath
+        lastprogressNode = SKLabelNode(fontNamed: "Arial")
+        lastprogressNode.fontSize = 25
+        lastprogressNode.zPosition = 12
+        lastprogressNode.text = "0/10"
+        lastprogressNode.fontColor = SKColor.white
+        lastprogressNode.position = CGPoint(x: frame.midX + 210, y: frame.midY + 10)
+        congratsMenu.addChild(lastprogressBarBg)
+        congratsMenu.addChild(lastprogressNode)
+        congratsMenu.addChild(lastprogressBar)
+        
+        let goodProgressLabel = SKLabelNode(fontNamed: "Arial")
+        goodProgressLabel.fontSize = 50
+        goodProgressLabel.zPosition = 11
+        goodProgressLabel.text = "Good Progress!"
+        goodProgressLabel.fontColor = SKColor.white
+        goodProgressLabel.position = CGPoint(x: frame.midX, y: frame.midY + 125)
+        congratsMenu.addChild(goodProgressLabel)
+        let starC = SKSpriteNode(imageNamed: "starC")
+        starC.size = CGSize(width: starC.size.width/1.2, height: starC.size.height/1.2)
+        starC.position = CGPoint(x: -150, y: 300)
+        starC.zPosition = 10
+        congratsMenu.addChild(starC)
+        let starF = SKSpriteNode(imageNamed: "starF")
+        starF.size = CGSize(width: starF.size.width/1.2, height: starF.size.height/1.2)
+        starF.position = CGPoint(x: 0, y: 335)
+        starF.zPosition = 10
+        congratsMenu.addChild(starF)
+        let starG = SKSpriteNode(imageNamed: "starG")
+        starG.size = CGSize(width: starG.size.width/1.2, height: starG.size.height/1.2)
+        starG.position = CGPoint(x: 150, y: 300)
+        starG.zPosition = 10
+        congratsMenu.addChild(starG)
+        let goodrestartBtn = SKSpriteNode(imageNamed: "goodrestart")
+        goodrestartBtn.size = CGSize(width: frame.size.width/2, height: frame.size.height/16)
+        goodrestartBtn.position = CGPoint(x: 0, y: -100)
+        goodrestartBtn.zPosition = 11
+        goodrestartBtn.name = "restartBtn"
+        congratsMenu.addChild(goodrestartBtn)
+        let goodplayBtn = SKSpriteNode(imageNamed: "goodplay")
+        goodplayBtn.size = CGSize(width: frame.size.width/2, height: frame.size.height/16)
+        goodplayBtn.position = CGPoint(x: 0, y: -200)
+        goodplayBtn.zPosition = 11
+        goodplayBtn.name = "yesBtn"
+        congratsMenu.addChild(goodplayBtn)
+        congratsLayer.isHidden = true
+        
+        pauseLayer.isHidden = true
+                
+        let conveyor = SKSpriteNode(imageNamed: "conveyor")
+        conveyor.position = CGPoint(x:frame.midX - 25, y: frame.midY - 200)
+        conveyor.size = CGSize(width: frame.size.width , height: frame.size.height/5.3)
+        conveyor.zPosition = -1
+        addChild(conveyor)
+                
+        correctChord = SKSpriteNode(imageNamed: "correctChord")
+        correctChord.position = CGPoint(x:frame.midX - 25, y: frame.midY - 200)
+        correctChord.size = CGSize(width: frame.size.width , height: frame.size.height/5.3)
+        correctChord.zPosition = 1
+        correctChord.isHidden = true
+        worldNode.addChild(correctChord)
+        
+        let microphone = SKSpriteNode(imageNamed: "mic")
+        microphone.position = CGPoint(x:frame.midX, y: frame.midY - 400)
+        microphone.zPosition = 0
+        worldNode.addChild(microphone)
+        
+        createSongDetail(song: songChosen!, key: baseKeyChosen)
+        score = 0
+        scoreNode = SKLabelNode(fontNamed: "Arial")
+        scoreNode.fontSize = 25
+        scoreNode.zPosition = 0
+        scoreNode.text = "0 / 10"
+        scoreNode.fontColor = SKColor.white
+        scoreNode.position = CGPoint(x: frame.midX + 255, y: frame.maxY - 595)
+        addChild(scoreNode)
+        
+        let progressionNode = SKLabelNode(fontNamed: "Arial")
+        progressionNode.fontSize = 25
+        progressionNode.zPosition = 0
+        progressionNode.text = "I"
+        progressionNode.fontColor = SKColor.white
+        progressionNode.position = CGPoint(x: frame.midX - 245, y: frame.maxY - 592)
+        addChild(progressionNode)
+                
+        songTimer = SKLabelNode(fontNamed: "Arial")
+        songTimer.fontSize = 30
+        songTimer.zPosition = -1
+        songTimer.text = "00:00"
+        songTimer.fontColor = SKColor.white
+        songTimer.position = CGPoint(x: frame.midX - 225 , y: frame.midY - 50)
+        addChild(songTimer)
+                
+        feedbackLabel = SKLabelNode(fontNamed: "Arial")
+        feedbackLabel.fontSize = 30
+        feedbackLabel.zPosition = -1
+        feedbackLabel.text = "CORRECT!"
+        feedbackLabel.fontColor = SKColor.white
+        feedbackLabel.position = CGPoint(x: frame.midX, y: frame.midY - 50)
+        feedbackLabel.isHidden = true
+        addChild(feedbackLabel)
+                
+        let garis = SKSpriteNode(imageNamed: "linefit")
+        garis.position = CGPoint(x:frame.minX + 150 , y: frame.midY - 200   )
+        garis.zPosition = 2
+        garis.physicsBody = SKPhysicsBody(circleOfRadius: garis.size.width / 2.0)
+        garis.size = CGSize(width: garis.size.width, height: frame.size.width/3.2)
+        garis.physicsBody?.affectedByGravity = false
+        garis.physicsBody?.isDynamic = false
+        garis.physicsBody?.categoryBitMask = pagarCategory
+        addChild(garis)
+                
+        let pauseButton = SKSpriteNode(imageNamed: "paused")
+        pauseButton.position = CGPoint(x:frame.maxX - 150 , y: frame.maxY - 150  )
+        pauseButton.name = "pauseBtn"
+        pauseButton.zPosition = 10
+        addChild(pauseButton)
+        
+    }
+        
+    override func update(_ currentTime: TimeInterval) {
+        
+    }
     
 }
 
@@ -741,6 +764,16 @@ extension GameScene : SKPhysicsContactDelegate{
         
         if collision == notCategory | pagarCategory{
             
+            // Coba Score
+            score += 1
+            scoreNode.text = "\(score) / 10"
+            lastprogressNode.text = "\(score)/ 10"
+            
+            addProgress(progressLevel: 42 + newProgress)
+            self.lastscore = 42 + newProgress
+            print(self.lastscore)
+            newProgress += 42
+            
             self.correctChord.isHidden = true
             print("Collision Occured")
 
@@ -750,7 +783,7 @@ extension GameScene : SKPhysicsContactDelegate{
 
             // Update Current Chord
             currentRomawi = songChords[currentBar-1][0]
-            currentChord = chordSet[baseKey]?[currentRomawi] ?? "X"
+            currentChord = chordSet[baseKeyChosen]?[currentRomawi] ?? "X"
             print("Chord:\(currentChord)")
             self.chordClassifierViewController.currentChord = currentChord
 
@@ -794,14 +827,14 @@ extension GameScene : SKPhysicsContactDelegate{
             
             if self.chordClassifierViewController.isCorrectChord == true {
                 
-                score += 1
-                scoreNode.text = "\(score) / 10"
-                lastprogressNode.text = "\(score)/ 10"
-                
-                addProgress(progressLevel: 42 + newProgress)
-                self.lastscore = 42 + newProgress
-                print(self.lastscore)
-                newProgress += 42
+//                score += 1
+//                scoreNode.text = "\(score) / 10"
+//                lastprogressNode.text = "\(score)/ 10"
+//
+//                addProgress(progressLevel: 42 + newProgress)
+//                self.lastscore = 42 + newProgress
+//                print(self.lastscore)
+//                newProgress += 42
                 
             } else {
                 self.correctChord.isHidden = true
@@ -863,8 +896,7 @@ extension GameScene : SKPhysicsContactDelegate{
                 
                 songSelectionDelegate?.returnData(text: "CCCCCC")
                 
-                gameFinish()
-                gameSceneDelegate?.quitBtnTapped(text: "Hore")
+                
             }
         }
     }

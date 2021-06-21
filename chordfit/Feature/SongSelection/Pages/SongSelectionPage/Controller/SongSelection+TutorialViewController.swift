@@ -20,6 +20,10 @@ class SongSelection_TutorialViewController: UIViewController {
     var songs: [Songs]!
     var allSongs: [Songs]!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    // From Gameplay
+    var getStar: Bool?
+    var baseKeyFromGameplay: String?
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +67,14 @@ class SongSelection_TutorialViewController: UIViewController {
         return songsToShow
     }
     
-    
+    func checkForResultFromGameplay() {
+        if getStar == true {
+            getStar = false
+        }
+        
+        // Update CoreData
+        
+    }
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
         

@@ -114,7 +114,11 @@ class ChooseBaseKeyPopupViewController: UIViewController {
                 viewController.gsDelegate = self
                 viewController.songSelectionDelegate = gameSceneDelegate
                 print("\(viewController.gsDelegate) , INI DARI PREPARE")
-                viewController.baseKey = baseKey
+                
+                // Set Song Details in GameSceneViewController
+                
+                viewController.setSongAndBaseKey(titleOfSong: songToPlay?.title ?? "Demons", key: baseKey)
+                
 //                print(viewController.songToPlay)
             }
         }

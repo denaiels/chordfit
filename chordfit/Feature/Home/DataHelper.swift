@@ -13,14 +13,23 @@ public class DataHelper {
 	}
 	
 	fileprivate func seedSongs() {
+        
+        let imYoursChords = [["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4]]
+        
+        let demonsChords = [["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4]]
+        
+        let beautifulInWhiteChords = [["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["IV", 2], ["I", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["IV", 2], ["I", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["IV", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 4]]
+        
+        let memoriesChord = [["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2]]
+        
 		let songsNormal = [
-            (title: "Demons", artist: "Imagine Dragons", bpm: 90, category: "Normal", imageName: "Demons" , playedC: false, playedF: false, playedG: false, progression: "I - V- vi - IV", poin: 0, genre: "Alternative Rock"),
-            (title: "I'm Yours", artist: "Jason Mraz", bpm: 74, category: "Normal", imageName: "Im Yours" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - IV", poin: 0, genre: "Pop")
+            (title: "Demons", artist: "Imagine Dragons", bpm: 90, category: "Normal", imageName: "Demons" , playedC: false, playedF: false, playedG: false, progression: "I - V- vi - IV", poin: 0, genre: "Alternative Rock", chords: demonsChords),
+            (title: "I'm Yours", artist: "Jason Mraz", bpm: 74, category: "Normal", imageName: "Im Yours" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - IV", poin: 0, genre: "Pop", chords: imYoursChords)
         ]
         
         let songsHard = [
-            (title: "Beautiful in White", artist: "Westlife", bpm: 76, category: "Hard", imageName: "Beautiful in White" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0, genre: "Pop"),
-            (title: "Memories", artist: "Maroon 5", bpm: 90, category: "Hard", imageName: "Memories" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0, genre: "Pop")
+            (title: "Beautiful in White", artist: "Westlife", bpm: 76, category: "Hard", imageName: "Beautiful in White" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0, genre: "Pop", chords: beautifulInWhiteChords),
+            (title: "Memories", artist: "Maroon 5", bpm: 90, category: "Hard", imageName: "Memories" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - iii - IV -I - IV -V", poin: 0, genre: "Pop", chords: memoriesChord)
         ]
 		
 		for song in songsNormal {

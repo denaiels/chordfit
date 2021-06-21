@@ -10,8 +10,9 @@ import SpriteKit
 import GameplayKit
 
 protocol GameSceneDelegate {
-    func quitBtnTapped(text: String)
+    func dismissChooseBaseKeyPopup(text: String)
     func returnData(text: String)
+    func sendGameResultToSongSelection(songTitle: String, key: String, userGetStar: Bool)
 }
 
 protocol GSViewControllerDelegate {
@@ -20,67 +21,76 @@ protocol GSViewControllerDelegate {
 
 class GameSceneViewController: UIViewController {
     
-    var baseKey: String = "C"
-    var songToPlay: Song?
+    // Delegate
     var gsDelegate: GSViewControllerDelegate?
     var songSelectionDelegate: GameSceneDelegate?
     
+    // Song Detail
+    var songs = SongRepository.shared.getSongs()
+    
+    var songTitle: String?
+    var songToPlay: Song?
+    var baseKey: String?
+    
+    // Aftermath
+    var score: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let view = self.view as! SKView? {
+            
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene"){
+                
                 // Set the scale mode to scale to fit the window
                 if let gameScene = scene as? GameScene{
-                    gameScene.setText(text: baseKey)
+                    
+                    // Set Base Key in GameScene SKScene
+                    gameScene.setSongDetail(song: songToPlay!, key: baseKey ?? "C")
+                    
+                    // Set Delegate to send back progress to SongSelection page
                     gameScene.setDelegate(delegate: self)
                     gameScene.setSongSelectionDelegate(delegate: songSelectionDelegate)
                     
                     scene.scaleMode = .aspectFill
-                   
-                        // Present the scene
                     view.presentScene(scene)
-                    
-                    
                     view.ignoresSiblingOrder = true
-                    
                     view.showsFPS = true
                     view.showsNodeCount = true
                 }
-            
+            }
         }
+    }
+    
+    func setSongAndBaseKey(titleOfSong: String, key: String) {
+        songTitle = titleOfSong
+        
+        for song in songs {
+            if song.title == songTitle {
+                songToPlay = song
+            }
         }
-//        if let view = self.view as! SKView? {
-//            // Load the SKScene from 'GameScene.sks'
-//            let scene = GameScene(size: view.bounds.size)
-//                // Set the scale mode to scale to fit the window
-//                scene.scaleMode = .aspectFill
-//
-//                // Present the scene
-//                view.presentScene(scene)
-//
-//
-//            view.ignoresSiblingOrder = true
-//
-//            view.showsFPS = true
-//            view.showsNodeCount = true
-//        }
-//        let scene : GameScene = GameScene(size: skview.frame.size)
-//        skview.presentScene(scene)
+        
+        baseKey = key
     }
 }
 
 extension GameSceneViewController : GameSceneDelegate{
+    func sendGameResultToSongSelection(songTitle: String, key: String, userGetStar: Bool) {
+        
+    }
+    
     func returnData(text: String) {
         
     }
     
-    func quitBtnTapped(text: String) {
-        print(text)
-//        performSegue(withIdentifier: "goToSongSelection", sender: self)
-        print("\(gsDelegate), INI DARI GAMESCENE" )
+    func dismissChooseBaseKeyPopup(text: String) {
+        print("\(gsDelegate), INI DARI GAMESCENE")
+        
+        // Dismiss Choose Base Key Popup
         gsDelegate?.dismissChooseBaseKey()
+        
+        //
         self.dismiss(animated: true, completion: nil)
     }
 }

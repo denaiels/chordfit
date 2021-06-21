@@ -2,7 +2,7 @@
 //  Songs+CoreDataClass.swift
 //  chordfit
 //
-//  Created by Yafonia Hutabarat on 21/06/21.
+//  Created by Daniel Santoso on 21/06/21.
 //
 //
 
