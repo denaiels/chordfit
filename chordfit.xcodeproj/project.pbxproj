@@ -11,8 +11,6 @@
 		0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */; };
 		0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5B692679DE1D000B01F1 /* movingCP.swift */; };
 		0F2E5BC0267CA8C2000B01F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */; };
-		0F2E5BEE267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5BEC267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
-		0F2E5BEF267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E5BED267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */; };
 		5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935E267B44BC0010887B /* Base Key C.mlmodel */; };
 		5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C935F267B44BC0010887B /* Base Key F.mlmodel */; };
 		5F0C9363267B44BD0010887B /* Base Key G.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C9360267B44BD0010887B /* Base Key G.mlmodel */; };
@@ -35,6 +33,9 @@
 		5FB884BC267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB884BA267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift */; };
 		5FB884BD267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB884BB267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard */; };
 		5FB884C1267F830800ECB401 /* SongSelection+Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB884C0267F830800ECB401 /* SongSelection+Tutorial.storyboard */; };
+		5FDEB21D268068E2007924A6 /* SongSelection+TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDEB21A268068E2007924A6 /* SongSelection+TutorialViewController.swift */; };
+		5FDEB22126806919007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDEB21F26806918007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */; };
+		5FDEB22226806919007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDEB22026806919007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */; };
 		5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95622671FADA005207C3 /* AppDelegate.swift */; };
 		5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD95642671FADA005207C3 /* SceneDelegate.swift */; };
 		5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD956B2671FADA005207C3 /* chordfit.xcdatamodeld */; };
@@ -49,7 +50,6 @@
 		BF7EC71C267396FE004E4849 /* SongSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7EC71A267396FE004E4849 /* SongSelectionTableViewCell.xib */; };
 		BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72326745D0A004E4849 /* UINib+Loader.swift */; };
 		BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */; };
-		BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */; };
 		BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +58,6 @@
 		0F2E5B652679DD54000B01F1 /* GameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
 		0F2E5B692679DE1D000B01F1 /* movingCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movingCP.swift; sourceTree = "<group>"; };
 		0F2E5BBF267CA8C2000B01F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		0F2E5BEC267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift"; path = "../../../../../../../../SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
-		0F2E5BED267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; path = "../../../../../../../../SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; sourceTree = "<group>"; };
 		5F0C935E267B44BC0010887B /* Base Key C.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key C.mlmodel"; sourceTree = "<group>"; };
 		5F0C935F267B44BC0010887B /* Base Key F.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key F.mlmodel"; sourceTree = "<group>"; };
 		5F0C9360267B44BD0010887B /* Base Key G.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Base Key G.mlmodel"; sourceTree = "<group>"; };
@@ -83,6 +81,9 @@
 		5FB884BB267F6FC900ECB401 /* ChooseBaseKeyPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseBaseKeyPopup.storyboard; sourceTree = "<group>"; };
 		5FB884BE267F829B00ECB401 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		5FB884C0267F830800ECB401 /* SongSelection+Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "SongSelection+Tutorial.storyboard"; sourceTree = "<group>"; };
+		5FDEB21A268068E2007924A6 /* SongSelection+TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController.swift"; sourceTree = "<group>"; };
+		5FDEB21F26806918007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift"; sourceTree = "<group>"; };
+		5FDEB22026806919007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift"; sourceTree = "<group>"; };
 		5FFD955F2671FADA005207C3 /* chordfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chordfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD95622671FADA005207C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFD95642671FADA005207C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		BF7EC71A267396FE004E4849 /* SongSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		BF7EC72326745D0A004E4849 /* UINib+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Loader.swift"; sourceTree = "<group>"; };
 		BF7EC72A26746577004E4849 /* SongSelection+TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialView.swift"; sourceTree = "<group>"; };
-		BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongSelection+TutorialViewController.swift"; sourceTree = "<group>"; };
 		BF7EC7362674840B004E4849 /* SongSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -431,9 +431,9 @@
 		BF7EC71F267459B0004E4849 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BF7EC72E26746A90004E4849 /* SongSelection+TutorialViewController.swift */,
-				0F2E5BEC267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */,
-				0F2E5BED267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */,
+				5FDEB21A268068E2007924A6 /* SongSelection+TutorialViewController.swift */,
+				5FDEB21F26806918007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift */,
+				5FDEB22026806919007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -537,6 +537,7 @@
 				0F2E5B622679DD11000B01F1 /* GameScene.swift in Sources */,
 				0F2E5B662679DD54000B01F1 /* GameSceneViewController.swift in Sources */,
 				0F2E5B6A2679DE1D000B01F1 /* movingCP.swift in Sources */,
+				5FDEB22126806919007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
 				5FFD956D2671FADA005207C3 /* chordfit.xcdatamodeld in Sources */,
 				5F7B920D267FB8390063EEA0 /* HeaderCollectionView.swift in Sources */,
 				BF7EC72B26746577004E4849 /* SongSelection+TutorialView.swift in Sources */,
@@ -544,15 +545,15 @@
 				5F7B920E267FB8390063EEA0 /* Songs+CoreDataProperties.swift in Sources */,
 				5FB884B7267F6C4C00ECB401 /* ViewController.swift in Sources */,
 				BF7EC712267388C5004E4849 /* SongStaticDataStore.swift in Sources */,
-				0F2E5BEF267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
 				BF7EC72426745D0A004E4849 /* UINib+Loader.swift in Sources */,
 				5F0C9362267B44BD0010887B /* Base Key F.mlmodel in Sources */,
+				5FDEB22226806919007924A6 /* SongSelection+TutorialViewController+SongSelectionTableViewDataSource+SongSelectionTableViewDelegate.swift in Sources */,
 				5FB884BC267F6FC900ECB401 /* ChooseBaseKeyPopupViewController.swift in Sources */,
 				BF7EC7372674840B004E4849 /* SongSelectionTableViewCellDelegate.swift in Sources */,
 				BF7EC71B267396FE004E4849 /* SongSelectionTableViewCell.swift in Sources */,
 				5F0C9361267B44BD0010887B /* Base Key C.mlmodel in Sources */,
+				5FDEB21D268068E2007924A6 /* SongSelection+TutorialViewController.swift in Sources */,
 				5FFD95632671FADA005207C3 /* AppDelegate.swift in Sources */,
-				BF7EC72F26746A90004E4849 /* SongSelection+TutorialViewController.swift in Sources */,
 				5FAA4730267F48C200AA8994 /* AudioPlayerController.swift in Sources */,
 				5F7B9208267FB8390063EEA0 /* HomeViewController.swift in Sources */,
 				5F7B920F267FB8390063EEA0 /* Songs+CoreDataClass.swift in Sources */,
@@ -562,7 +563,6 @@
 				5F7B920A267FB8390063EEA0 /* ChordProgression.swift in Sources */,
 				BF7EC71726739487004E4849 /* ChordFitColors.swift in Sources */,
 				5FFD95652671FADA005207C3 /* SceneDelegate.swift in Sources */,
-				0F2E5BEE267F9BDC000B01F1 /* SongSelection+TutorialViewController+SongSelectionTableViewCellDelegate.swift in Sources */,
 				BF7EC70D267383D6004E4849 /* Song.swift in Sources */,
 				5F7B9209267FB8390063EEA0 /* ChordProgressionRepository.swift in Sources */,
 				5F0C9369267B96EC0010887B /* ChordClassifierDelegate.swift in Sources */,
