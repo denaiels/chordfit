@@ -239,7 +239,9 @@ class GameScene: SKScene {
         detailSong = SKLabelNode(fontNamed: "Arial")
         detailSong.fontSize = 25
         detailSong.zPosition = 2
-        detailSong.text = "\(song.genre ?? "Pop") - \(song.bpm) bpm"
+        
+        let bpm: Int = song.bpm ?? 90
+        detailSong.text = "\(song.genre ?? "Pop") - \(String(bpm)) bpm"
         detailSong.fontColor = SKColor.black
         detailSong.position = CGPoint(x: frame.minX + 180, y: frame.maxY - 210)
         addChild(detailSong)

@@ -13,7 +13,35 @@ import CoreData
 class SongSelection_TutorialViewController: UIViewController {
 
     @IBOutlet weak var songSelection_TutorialView: SongSelection_TutorialView!
-
+    @IBOutlet weak var ExampleChordPickerView: UIPickerView!
+    @IBOutlet weak var ExampleChordScrollView: UIScrollView!
+    @IBOutlet weak var exampleStackView: UIStackView!
+    @IBOutlet weak var viewChord1: UIView!
+    @IBOutlet weak var progChordLabel1: UILabel!
+    @IBOutlet weak var chordImageView1: UIImageView!
+    @IBOutlet weak var chordNameLabel1: UILabel!
+    @IBOutlet weak var viewChord2: UIView!
+    @IBOutlet weak var progChordLabel2: UILabel!
+    @IBOutlet weak var chordImageView2: UIImageView!
+    @IBOutlet weak var chordNameLabel2: UILabel!
+    @IBOutlet weak var viewChord3: UIView!
+    @IBOutlet weak var progChordLabel3: UILabel!
+    @IBOutlet weak var chordImageView3: UIImageView!
+    @IBOutlet weak var chordNameLabel3: UILabel!
+    @IBOutlet weak var viewChord4: UIView!
+    @IBOutlet weak var progChordLabel4: UILabel!
+    @IBOutlet weak var chordImageView4: UIImageView!
+    @IBOutlet weak var chordNameLabel4: UILabel!
+    @IBOutlet weak var viewChord5: UIView!
+    @IBOutlet weak var progChordLabel5: UILabel!
+    @IBOutlet weak var chordImageView5: UIImageView!
+    @IBOutlet weak var chordNameLabel5: UILabel!
+    @IBOutlet weak var viewChord6: UIView!
+    @IBOutlet weak var progChordLabel6: UILabel!
+    @IBOutlet weak var chordImageView6: UIImageView!
+    @IBOutlet weak var chordNameLabel6: UILabel!
+    
+    @IBOutlet weak var chordProgressionLabel: UILabel!
     
     var song: Songs?
     var chordProgression: String?
@@ -30,6 +58,8 @@ class SongSelection_TutorialViewController: UIViewController {
         self.navigationController?.title = chordProgression
         self.navigationController?.isNavigationBarHidden = false
         self.songs = fetchData()
+        
+        chordProgressionLabel.text = chordProgression
         print(chordProgression)
         self.ExampleChordPickerView.selectRow(3, inComponent: 0, animated: true)
         
@@ -91,33 +121,7 @@ class SongSelection_TutorialViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var ExampleChordPickerView: UIPickerView!
-    @IBOutlet weak var ExampleChordScrollView: UIScrollView!
-    @IBOutlet weak var exampleStackView: UIStackView!
-    @IBOutlet weak var viewChord1: UIView!
-    @IBOutlet weak var progChordLabel1: UILabel!
-    @IBOutlet weak var chordImageView1: UIImageView!
-    @IBOutlet weak var chordNameLabel1: UILabel!
-    @IBOutlet weak var viewChord2: UIView!
-    @IBOutlet weak var progChordLabel2: UILabel!
-    @IBOutlet weak var chordImageView2: UIImageView!
-    @IBOutlet weak var chordNameLabel2: UILabel!
-    @IBOutlet weak var viewChord3: UIView!
-    @IBOutlet weak var progChordLabel3: UILabel!
-    @IBOutlet weak var chordImageView3: UIImageView!
-    @IBOutlet weak var chordNameLabel3: UILabel!
-    @IBOutlet weak var viewChord4: UIView!
-    @IBOutlet weak var progChordLabel4: UILabel!
-    @IBOutlet weak var chordImageView4: UIImageView!
-    @IBOutlet weak var chordNameLabel4: UILabel!
-    @IBOutlet weak var viewChord5: UIView!
-    @IBOutlet weak var progChordLabel5: UILabel!
-    @IBOutlet weak var chordImageView5: UIImageView!
-    @IBOutlet weak var chordNameLabel5: UILabel!
-    @IBOutlet weak var viewChord6: UIView!
-    @IBOutlet weak var progChordLabel6: UILabel!
-    @IBOutlet weak var chordImageView6: UIImageView!
-    @IBOutlet weak var chordNameLabel6: UILabel!
+    
     
     let chordDict: [String: [String:String]] = [
         "C":["I":"C",
@@ -213,6 +217,13 @@ extension SongSelection_TutorialViewController: UIPickerViewDelegate, UIPickerVi
   
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        chordNameLabel1.text = chooseGroup["I"]
+        chordNameLabel2.text = chooseGroup["IV"]
+        chordNameLabel3.text = chooseGroup["V"]
+        chordNameLabel4.text = chooseGroup["IV"]
+        chordNameLabel5.text = chooseGroup["V"]
+        chordNameLabel6.text = chooseGroup["vi"]
         
         chordImageView1.image = UIImage(named: chooseGroup["I"] ?? "I")
         chordImageView2.image = UIImage(named: chooseGroup["ii"] ?? "ii")
