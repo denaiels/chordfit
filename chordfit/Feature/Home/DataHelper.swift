@@ -23,8 +23,8 @@ public class DataHelper {
         let memoriesChord = [["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2]]
         
 		let songsNormal = [
-            (title: "Demons", artist: "Imagine Dragons", bpm: 90, category: "Normal", imageName: "Demons" , playedC: false, playedF: false, playedG: false, progression: "I - V- vi - IV", poin: 0, genre: "Alternative Rock", chords: demonsChords),
-            (title: "I'm Yours", artist: "Jason Mraz", bpm: 74, category: "Normal", imageName: "Im Yours" , playedC: false, playedF: false, playedG: false, progression: "I - V - vi - IV", poin: 0, genre: "Pop", chords: imYoursChords)
+            (title: "Demons", artist: "Imagine Dragons", bpm: 90, category: "Normal", imageName: "Demons" , playedC: false, playedF: true, playedG: true, progression: "I - V - vi - IV", poin: 0, genre: "Alternative Rock", chords: demonsChords),
+            (title: "I'm Yours", artist: "Jason Mraz", bpm: 74, category: "Normal", imageName: "Im Yours" , playedC: false, playedF: false, playedG: true, progression: "I - V - vi - IV", poin: 0, genre: "Pop", chords: imYoursChords)
         ]
         
         let songsHard = [

@@ -162,15 +162,21 @@ class SongSelection_TutorialViewController: UIViewController {
         progChordLabel3.text = "V"
         progChordLabel4.text = "vi"
         progChordLabel5.text = ""
+        progChordLabel6.text = ""
         chordImageView5.isHidden = true
         chordNameLabel5.isHidden = true
+        chordImageView6.isHidden = true
+        chordNameLabel6.isHidden = true
+        chordNameLabel1.text = chooseGroup["I"]
+        chordNameLabel2.text = chooseGroup["IV"]
+        chordNameLabel3.text = chooseGroup["V"]
+        chordNameLabel4.text = chooseGroup["vi"]
         
         
         chordImageView2.image = UIImage(named: chooseGroup["IV"] ?? "ii")
         chordImageView3.image = UIImage(named: chooseGroup["V"] ?? "iii")
         chordImageView4.image = UIImage(named: chooseGroup["vi"] ?? "IV")
         
-        viewChord6.isHidden = true
     }
     
     func chooseChordExampleView(options: Int){
