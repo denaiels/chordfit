@@ -9,7 +9,6 @@ import UIKit
 
 extension SongSelection_TutorialViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(songs?.count)
         return songs?.count ?? 0
     }
     
@@ -46,7 +45,6 @@ extension SongSelection_TutorialViewController: UITableViewDelegate {
         if segue.identifier == "chooseBasekeyPopupSegue" {
             if let viewController = segue.destination as? ChooseBaseKeyPopupViewController {
                 viewController.songToPlay = song
-                viewController.gameSceneDelegate = self
                 print(song?.title)
             }
         }
