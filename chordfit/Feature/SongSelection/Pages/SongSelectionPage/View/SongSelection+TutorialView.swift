@@ -12,7 +12,7 @@ class SongSelection_TutorialView: UIView {
 //    ini nanti tempat buat gabungin song selection + tutorial untuk ngatur custom viewnya
     
     @IBOutlet weak var songSelectionTableView: UITableView!
-
+    
     
     var songs: [Song]? {
         didSet {
@@ -24,4 +24,5 @@ class SongSelection_TutorialView: UIView {
     func setup() {
         songSelectionTableView.registerCell(type: SongSelectionTableViewCell.self, identifier: "songSelectionCell")
     }
+
 }

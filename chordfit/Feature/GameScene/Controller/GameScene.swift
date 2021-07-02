@@ -37,6 +37,11 @@ let chordSet = [
 
 class GameScene: SKScene {
     
+    // CORE DATA
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var gameSceneDelegate : GameSceneDelegate?
+    var songSelectionDelegate: GameSceneDelegate?
     var viewController: UIViewController?
     let pauseLayer = SKNode()
     let worldNode = SKNode()
@@ -52,8 +57,7 @@ class GameScene: SKScene {
     let chordLine3Category: UInt32 = 0x1 << 5
     var flagpause : Bool = false
     var flagconfirm : Bool = false
-    var score = 0 as Int
-    var lastscore = 0 as Int
+    
     var scoreNode: SKLabelNode!
     var songName : SKLabelNode!
     var artistName : SKLabelNode!
@@ -74,45 +78,14 @@ class GameScene: SKScene {
     var seconds: Int = 0
     var minutes: Int = 0
     
-    var baseKey: String = ""
     var chords: [movingCP] = []
-    var song: Song?
-    let songChords: [[String]] = [
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"],
-
-        ["I", "2.6"],
-        ["V", "2.6"],
-        ["vi", "2.6"],
-        ["IV", "2.6"]
-    ]
+    var songRomawi: [String] = []
+    
+    // SONG DETAIL
+    var allSongsCoreData: [Songs]!
+    var songPlayedCoreData: Songs?
+    var songChosen: Song?
+    var baseKeyChosen: String = ""
     
     // PUNYA AI CHORD CLASSIFIER
     var chordClassifierViewController = ChordClassifierViewController()
@@ -122,7 +95,16 @@ class GameScene: SKScene {
     
     // PUNYA AUDIO PLAYER
     var audioPlayerController = AudioPlayerController()
-    var audioFileName: String = "Imagine Dragons - Demons Audio"
+    var audioFileName: String = ""
+    
+    // SCORE
+    var chordCount: Int = 0
+    var score: Int = 0
+    var lastscore: Int = 0
+    var userGetStar: Bool = false
+    
+    // PROGRESS BAR
+    var progressBarPerChord: Int = 0
     
     var counter = 0
     var countertime = Timer()
@@ -136,16 +118,45 @@ class GameScene: SKScene {
     var countdownSong : SKLabelNode = SKLabelNode()
     var songTime : Int = 0
     
+    
+    // MARK: - HELPER FUNCTIONS
+    
+    // Song Detail
+    func setSongDetail(song: Song, key : String){
+        songChosen = song
+        baseKeyChosen = key
+        
+        self.chordClassifierViewController.baseKey = key
+    }
+    
+    // Delegate
+    func setDelegate(delegate : GameSceneDelegate){
+        gameSceneDelegate = delegate
+    }
+    
+    func setSongSelectionDelegate(delegate: GameSceneDelegate?) {
+        songSelectionDelegate = delegate
+    }
+    
+    
+    // Filling Chords
     func makeChords(romawi : String, chord : String, time: TimeInterval){
         chords.append(movingCP(romawiDetail: romawi, chordDetail: chord, chordLong: time))
     }
     
-    func readSong(songChords: [[String]]){
-        for songChord in songChords {
-            makeChords(romawi: songChord[0], chord: chordSet[baseKey]?[songChord[0]] ?? "X", time: TimeInterval(songChord[1]) ?? 3)
+    func readSong(song: Song){
+        let chords = song.chords
+        
+        for chord in chords {
+            makeChords(romawi: chord[0] as! String, chord: chordSet[baseKeyChosen]?[chord[0] as! String] ?? "X", time: TimeInterval(chord[1] as! Int))
+            songRomawi.append(chord[0] as! String)
         }
+        
+        chordCount = chords.count
+        progressBarPerChord = 420 / chordCount
     }
     
+    // Timer Counter
     func startCounter(){
         counterTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementCounter), userInfo: nil, repeats: true)
     }
@@ -188,8 +199,14 @@ class GameScene: SKScene {
             if songTime <= 0 {
                 pauseGame()
                 congratsLayer.isHidden = false
+                
+                gameFinishedAfterTimeEnds()
             }
         }
+    }
+    
+    func sendResult() {
+        
     }
     
     func gameNotBegin() {
@@ -197,6 +214,298 @@ class GameScene: SKScene {
     }
     
     func setupGame() {
+        
+    }
+    
+    func createSongDetail(song: Song, key: String){
+
+        songName = SKLabelNode(fontNamed: "Arial")
+        songName.fontSize = 40
+        songName.zPosition = 2
+        songName.text = "\(song.title ?? "Demons")"
+        songName.zPosition = 2
+        songName.fontColor = SKColor.black
+        songName.position = CGPoint(x: 150, y: 50)
+        songName.position = CGPoint(x: frame.minX + 175, y: frame.maxY - 120)
+        addChild(songName)
+        
+        artistName = SKLabelNode(fontNamed: "Arial")
+        artistName.fontSize = 30
+        artistName.zPosition = 2
+        artistName.text = "\(song.artist ?? "Imagine Dragons")"
+        artistName.position = CGPoint(x: frame.minX  + 215 , y: frame.maxY - 160)
+        artistName.fontColor = SKColor.black
+        addChild(artistName)
+        detailSong = SKLabelNode(fontNamed: "Arial")
+        detailSong.fontSize = 25
+        detailSong.zPosition = 2
+        
+        let bpm: Int = song.bpm ?? 90
+        detailSong.text = "\(song.genre ?? "Pop") - \(String(bpm)) bpm"
+        detailSong.fontColor = SKColor.black
+        detailSong.position = CGPoint(x: frame.minX + 180, y: frame.maxY - 210)
+        addChild(detailSong)
+        songKey = SKLabelNode(fontNamed: "Arial")
+        songKey.fontSize = 25
+        songKey.zPosition = 2
+        songKey.text = "Key : \(key)"
+        songKey.fontColor = SKColor.black
+        songKey.position = CGPoint(x: frame.minX + 140, y: frame.maxY - 250)
+        addChild(songKey)
+    }
+    
+    func addProgress(progressLevel : Int){
+        
+        let round = SKShapeNode(rect: CGRect(x: 0, y: -150, width: 500, height: 35))
+        round.fillColor = #colorLiteral(red: 1, green: 0.7857890725, blue: 0, alpha: 1)
+        round.position = CGPoint(x: frame.midX - frame.size.width/3.6 , y: frame.maxY - 400)
+        round.zPosition = -2
+        addChild(round)
+        round.path = UIBezierPath(roundedRect: CGRect(x: 0, y: -200, width: progressLevel, height: 35), cornerRadius: 50).cgPath
+        
+    }
+    
+    func createNot2Bit(speed : Double, chorddetail : String , progressiondetail : String){
+        
+        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 100, y: frame.midY - 195), duration: speed)
+        let gambar = SKSpriteNode(imageNamed: "movingCP")
+        gambar.position = CGPoint(x:frame.maxX + 80, y: frame.midY - 195)
+        gambar.zPosition = 2
+        gambar.size = CGSize(width: frame.size.width/2.4, height: frame.size.width/6)
+        gambar.physicsBody = SKPhysicsBody (circleOfRadius: gambar.size.width / 6)
+        gambar.physicsBody?.collisionBitMask = .zero
+        gambar.name = "Not"
+        gambar.run(moveBottomLeft, withKey: "gerakKiri")
+        gambar.physicsBody?.affectedByGravity = false
+        
+        // Begin and End Line
+        let progressionLine = SKSpriteNode(imageNamed: "chordline")
+        setupLine(line: progressionLine,
+                  x: 0, y: -5.5, z: -1,
+                  width: progressionLine.size.width, height: frame.size.height/5.6,
+                  circleOfRadius: progressionLine.size.width / 2,
+                  name: "progressionLine",
+                  categoryBitMask: notCategory,
+                  contactTestBitMask: pagarCategory)
+        
+        let endLine = SKSpriteNode(imageNamed: "chordline")
+        setupLine(line: endLine,
+                  x: gambar.size.width / 2, y: -5.5, z: -4,
+                  width: endLine.size.width, height: frame.size.height/5.6,
+                  circleOfRadius: progressionLine.size.width / 2,
+                  name: "endLine",
+                  categoryBitMask: endCategory,
+                  contactTestBitMask: pagarCategory)
+        
+        let progressionDetail = SKLabelNode(fontNamed: "arial")
+        progressionDetail.fontSize = 60
+        progressionDetail.zPosition = 2
+        progressionDetail.text = progressiondetail
+        progressionDetail.fontColor = SKColor.white
+        progressionDetail.position = CGPoint(x: -90 , y: -20)
+        let chordDetail = SKLabelNode(fontNamed: "arial")
+        chordDetail.fontSize = 60
+        chordDetail.zPosition = 2
+        chordDetail.text = chorddetail
+        chordDetail.fontColor = SKColor.white
+        chordDetail.position = CGPoint(x: 90 , y: -20)
+        let movingProg = SKSpriteNode(imageNamed: "movingProg")
+        let movingProgWidth = movingProg.texture?.size().width
+        let movingProgHeight = movingProg.texture?.size().height
+        movingProg.zPosition = 3
+        movingProg.position = CGPoint(x: -90, y: 0)
+        movingProg.size = CGSize(width: (movingProgWidth ?? 0 ) * 1.6, height: (movingProgHeight ?? 0)*1.6)
+        progressionDetail.position = CGPoint(x: -2 , y: -22)
+        gambar.addChild(movingProg)
+        gambar.addChild(chordDetail)
+        gambar.addChild(endLine)
+        movingProg.addChild(progressionDetail)
+        movingProg.addChild(progressionLine)
+        addChild(gambar)
+        
+    }
+    
+    func createNot4Bit(chorddetail : String , progressiondetail : String, xPos: CGFloat) -> SKNode {
+        
+//        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 300, y: frame.midY - 195), duration: durationUntilDisappear)
+        
+        let gambar = SKSpriteNode(imageNamed: "chordlong1x")
+        gambar.position = CGPoint(x:frame.maxX + 280 + xPos, y: 0)
+        gambar.zPosition = 2
+        gambar.size = CGSize(width: gambar.size.width/1.35  , height: gambar.size.height/1.35)
+        gambar.physicsBody = SKPhysicsBody (circleOfRadius: gambar.size.width / 6)
+        gambar.physicsBody?.collisionBitMask = .zero
+        gambar.name = "Not"
+//        gambar.run(moveBottomLeft, withKey: "gerakKiri")
+        gambar.physicsBody?.collisionBitMask = .zero
+        gambar.physicsBody?.affectedByGravity = false
+        
+        
+        // Begin and End Line
+        let progressionLine = SKSpriteNode(imageNamed: "chordline")
+        setupLine(line: progressionLine,
+                  x: 0, y: -5.5, z: -1,
+                  width: progressionLine.size.width, height: frame.size.height/5.6,
+                  circleOfRadius: progressionLine.size.width / 2,
+                  name: "progressionLine",
+                  categoryBitMask: notCategory,
+                  contactTestBitMask: pagarCategory)
+        
+        let endLine = SKSpriteNode(imageNamed: "chordline")
+        setupLine(line: endLine,
+                  x: gambar.size.width / 2, y: -5.5, z: -10,
+                  width: endLine.size.width, height: frame.size.height/5.6,
+                  circleOfRadius: progressionLine.size.width / 2,
+                  name: "endLine",
+                  categoryBitMask: endCategory,
+                  contactTestBitMask: pagarCategory)
+        
+        // Garis setiap kali detect chord
+        let chordLine1 = SKSpriteNode(imageNamed: "chordline")
+        setupLine(line: chordLine1,
+                  x: -(gambar.size.width - 125) / 4, y: 0, z: -10,
+                  width: endLine.size.width, height: frame.size.height/5.6,
+                  circleOfRadius: 30,
+                  name: "chordLine1",
+                  categoryBitMask: chordLine1Category,
+                  contactTestBitMask: pagarCategory)
+        
+        let chordLine2 = SKSpriteNode(imageNamed: "chordline")
+        setupLine(line: chordLine2,
+                  x: 0, y: 0, z: -10,
+                  width: endLine.size.width, height: frame.size.height/5.6,
+                  circleOfRadius: 30,
+                  name: "chordLine2",
+                  categoryBitMask: chordLine2Category,
+                  contactTestBitMask: pagarCategory)
+        
+        let chordLine3 = SKSpriteNode(imageNamed: "chordline")
+        setupLine(line: chordLine3,
+                  x: (gambar.size.width - 125) / 4, y: 0, z: -10,
+                  width: endLine.size.width, height: frame.size.height/5.6,
+                  circleOfRadius: 30,
+                  name: "chordLine3",
+                  categoryBitMask: chordLine3Category,
+                  contactTestBitMask: pagarCategory)
+        
+        let progressionDetail = SKLabelNode(fontNamed: "arial")
+        progressionDetail.fontSize = 60
+        progressionDetail.zPosition = 2
+        progressionDetail.text = progressiondetail
+        progressionDetail.fontColor = SKColor.white
+        progressionDetail.position = CGPoint(x: -300 , y: -20)
+        let chordDetail = SKLabelNode(fontNamed: "arial")
+        chordDetail.fontSize = 60
+        chordDetail.zPosition = 2
+        chordDetail.text = chorddetail
+        chordDetail.fontColor = SKColor.white
+        chordDetail.position = CGPoint(x: 250 , y: -20)
+        let movingProg = SKSpriteNode(imageNamed: "movingProg")
+        let movingProgWidth = movingProg.texture?.size().width
+        let movingProgHeight = movingProg.texture?.size().height
+        movingProg.zPosition = 3
+        movingProg.position = CGPoint(x: -260, y: 0)
+        movingProg.size = CGSize(width: (movingProgWidth ?? 0 ) * 1.6, height: (movingProgHeight ?? 0)*1.6)
+        progressionDetail.position = CGPoint(x: -2 , y: -22)
+        gambar.addChild(movingProg)
+        gambar.addChild(chordDetail)
+        gambar.addChild(endLine)
+        gambar.addChild(chordLine1)
+        gambar.addChild(chordLine2)
+        gambar.addChild(chordLine3)
+        movingProg.addChild(progressionDetail)
+        movingProg.addChild(progressionLine)
+//        addChild(gambar)
+        
+        return gambar
+    }
+    
+    func setupLine(line: SKSpriteNode, x: CGFloat, y: CGFloat, z: CGFloat, width: CGFloat, height: CGFloat, circleOfRadius: CGFloat, name: String, categoryBitMask: UInt32, contactTestBitMask: UInt32) {
+        
+        line.position = CGPoint(x: x, y: y)
+        line.zPosition = z
+        line.size = CGSize(width: width, height: height)
+        line.physicsBody = SKPhysicsBody (circleOfRadius: circleOfRadius)
+        line.name = name
+        line.physicsBody?.categoryBitMask = categoryBitMask
+        line.physicsBody?.contactTestBitMask = contactTestBitMask
+        line.physicsBody?.collisionBitMask = .zero
+        line.physicsBody?.affectedByGravity = false
+        
+    }
+    
+    func createBG() {
+        
+        let bg = SKSpriteNode()
+        bg.texture = SKTexture (imageNamed: "rect")
+        bg.size = CGSize(width: frame.size.width, height: frame.size.height)
+        bg.position = CGPoint(x: frame.midX, y: frame.midY)
+        bg.zPosition = -4
+        addChild(bg)
+        let whitebg = SKSpriteNode()
+        whitebg.texture = SKTexture (imageNamed: "whiteback")
+        whitebg.size = CGSize(width: frame.size.width/1.1  , height: frame.size.height/2.5)
+        whitebg.position = CGPoint(x: frame.midX, y: frame.maxY-120)
+        whitebg.zPosition = -3
+        addChild(whitebg)
+        
+    }
+    
+    func startAudioEngine() {
+        self.chordClassifierViewController.startAudioEngine()
+    }
+    
+    func stopAudioEngine() {
+        self.chordClassifierViewController.stopAudioEngine()
+    }
+    
+    func prepareForStart() {
+        self.chordClassifierViewController.startAudioEngine()
+    }
+    
+    func pauseGame() {
+        self.isPaused = true
+        self.audioPlayerController.player?.pause()
+    }
+    
+    func resumeGame() {
+        self.isPaused = false
+        self.audioPlayerController.player?.play()
+    }
+    
+    func gameFinished() {
+        self.audioPlayerController.player?.stop()
+        stopAudioEngine()
+        
+        gameSceneDelegate?.dismissChooseBaseKeyPopup(text: "Berhasil Keluar")
+    }
+    
+    func gameFinishedAfterTimeEnds() {
+        self.audioPlayerController.player?.pause()
+        stopAudioEngine()
+        
+        updateCoreData()
+    }
+    
+    func updateCoreData() {
+        
+        let newSong = Songs(context: self.context)
+        
+        if userGetStar == true {
+            if baseKeyChosen == "C" {
+                newSong.playedC = true
+            } else if baseKeyChosen == "F" {
+                newSong.playedF = true
+            } else if baseKeyChosen == "G" {
+                newSong.playedG = true
+            }
+        }
+        
+        do {
+            try self.context.save()
+        } catch {
+            print("Error: (error)")
+        }
         
     }
     
@@ -213,8 +522,8 @@ class GameScene: SKScene {
         print(bground.frame.width)
         
         // Set Song
-        baseKey = "C"
-        readSong(songChords: songChords)
+        readSong(song: songChosen!)
+        audioFileName = "\(songChosen?.title ?? "Demons") \(baseKeyChosen)"
         songTime = getAudioDuration()
         
         congratsLayer.isHidden = false
@@ -238,19 +547,35 @@ class GameScene: SKScene {
         countdownLabel.zPosition = 0
         countdownLabel.text = "\(counter)"
         countdownLabel.fontColor = SKColor.white
-        countdownLabel.position = CGPoint(x: frame.midX  , y: frame.midY - 50)
+        countdownLabel.position = CGPoint(x: frame.midX, y: frame.midY - 50)
         addChild(countdownLabel)
-        var arrayofChords : [SKAction] = []
+        
+        // Pergerakan Chord
+        var xPosition: Float = 0
+//        var moveDuration = Double(60.0 / Double((songChosen?.bpm)!) * 4.0)
+        
+        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 650 - (675 * CGFloat(chordCount)), y: frame.midY - 195), duration: TimeInterval(songTime))
+        let mangkokChord = SKSpriteNode(imageNamed: "mangkok")
+        mangkokChord.position = CGPoint(x: frame.midX, y: frame.midY - 195)
+        mangkokChord.zPosition = 2
+        addChild(mangkokChord)
+        
         for n in 0...chords.count - 1  {
-            let a1 = SKAction.run {
-                self.createNot4Bit(speed: 5, chorddetail: self.chords[n].chordDetail, progressiondetail: self.chords[n].romawiDetail)
-            }
-            let a2 = SKAction.wait(forDuration: self.chords[n].chordLong)
-            arrayofChords.append(a1)
-            arrayofChords.append(a2)
+//            let a1 = SKAction.run {
+//
+//            }
+//            let a2 = SKAction.wait(forDuration: self.chords[n].chordLong)
+//            arrayofChords.append(a1)
+//            arrayofChords.append(a2)
+            
+            mangkokChord.addChild(self.createNot4Bit(chorddetail: self.chords[n].chordDetail, progressiondetail: self.chords[n].romawiDetail, xPos: CGFloat(xPosition)))
+            
+            
+            xPosition += 630
         }
-        let a3 = SKAction.sequence(arrayofChords)
-        run(a3)
+        mangkokChord.run(moveBottomLeft, withKey: "gerakKiri")
+//        let a3 = SKAction.sequence(arrayofChords)
+//        run(a3)
                 
         // Access Chord Classifier
         self.chordClassifierViewController.viewDidLoad()
@@ -330,6 +655,7 @@ class GameScene: SKScene {
         lastprogressBar.fillColor = #colorLiteral(red: 1, green: 0.7857890725, blue: 0, alpha: 1)
         lastprogressBar.position = CGPoint(x: -175, y:0)
         lastprogressBar.zPosition = 14
+        lastprogressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 350, height: 35), cornerRadius: 50).cgPath
         lastprogressBarBg = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 500, height: 35))
         lastprogressBarBg.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         lastprogressBarBg.position = CGPoint(x: -175, y:0)
@@ -401,12 +727,12 @@ class GameScene: SKScene {
         microphone.zPosition = 0
         worldNode.addChild(microphone)
         
-        createSongsDetail(songname: "Demons ", artistname: "Imagine Dragons", detailsong: "Pop - 148 bpm", songkey:"C")
+        createSongDetail(song: songChosen!, key: baseKeyChosen)
         score = 0
         scoreNode = SKLabelNode(fontNamed: "Arial")
         scoreNode.fontSize = 25
         scoreNode.zPosition = 0
-        scoreNode.text = "0 / 10"
+        scoreNode.text = "0 / \(chordCount)"
         scoreNode.fontColor = SKColor.white
         scoreNode.position = CGPoint(x: frame.midX + 255, y: frame.maxY - 595)
         addChild(scoreNode)
@@ -458,262 +784,6 @@ class GameScene: SKScene {
         
     }
     
-    func createSongsDetail(songname:String, artistname :String, detailsong:String, songkey:String){
-
-        songName = SKLabelNode(fontNamed: "Arial")
-        songName.fontSize = 40
-        songName.zPosition = 2
-        songName.text = "\(songname)"
-        songName.zPosition = 2
-        songName.fontColor = SKColor.black
-        songName.position = CGPoint(x: 150, y: 50)
-        songName.position = CGPoint(x: frame.minX + 180, y: frame.maxY - 120)
-        addChild(songName)
-        
-        artistName = SKLabelNode(fontNamed: "Arial")
-        artistName.fontSize = 30
-        artistName.zPosition = 2
-        artistName.text = "\(artistname)"
-        artistName.position = CGPoint(x: frame.minX  + 170 , y: frame.maxY - 160)
-        artistName.fontColor = SKColor.black
-        addChild(artistName)
-        detailSong = SKLabelNode(fontNamed: "Arial")
-        detailSong.fontSize = 25
-        detailSong.zPosition = 2
-        detailSong.text = "\(detailsong)"
-        detailSong.fontColor = SKColor.black
-        detailSong.position = CGPoint(x: frame.minX + 180, y: frame.maxY - 210)
-        addChild(detailSong)
-        songKey = SKLabelNode(fontNamed: "Arial")
-        songKey.fontSize = 25
-        songKey.zPosition = 2
-        songKey.text = "Key : \(songkey)"
-        songKey.fontColor = SKColor.black
-        songKey.position = CGPoint(x: frame.minX + 135, y: frame.maxY - 250)
-        addChild(songKey)
-
-    }
-    
-    func addProgress(progressLevel : Int){
-        
-        let round = SKShapeNode(rect: CGRect(x: 0, y: -150, width: 500, height: 35))
-        round.fillColor = #colorLiteral(red: 1, green: 0.7857890725, blue: 0, alpha: 1)
-        round.position = CGPoint(x: frame.midX - frame.size.width/3.6 , y: frame.maxY - 400)
-        round.zPosition = -2
-        addChild(round)
-        round.path = UIBezierPath(roundedRect: CGRect(x: 0, y: -200, width: progressLevel, height: 35), cornerRadius: 50).cgPath
-        
-    }
-    
-    func createNot2Bit(speed : Double, chorddetail : String , progressiondetail : String){
-        
-        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 100, y: frame.midY - 195), duration: speed)
-        let gambar = SKSpriteNode(imageNamed: "movingCP")
-        gambar.position = CGPoint(x:frame.maxX + 80, y: frame.midY - 195)
-        gambar.zPosition = 2
-        gambar.size = CGSize(width: frame.size.width/2.4, height: frame.size.width/6)
-        gambar.physicsBody = SKPhysicsBody (circleOfRadius: gambar.size.width / 6)
-        gambar.physicsBody?.collisionBitMask = .zero
-        gambar.name = "Not"
-        gambar.run(moveBottomLeft, withKey: "gerakKiri")
-        gambar.physicsBody?.affectedByGravity = false
-        
-        // Begin and End Line
-        let progressionLine = SKSpriteNode(imageNamed: "chordline")
-        setupLine(line: progressionLine,
-                  x: 0, y: -5.5, z: -1,
-                  width: progressionLine.size.width, height: frame.size.height/5.6,
-                  circleOfRadius: progressionLine.size.width / 2,
-                  name: "progressionLine",
-                  categoryBitMask: notCategory,
-                  contactTestBitMask: pagarCategory)
-        
-        let endLine = SKSpriteNode(imageNamed: "chordline")
-        setupLine(line: endLine,
-                  x: gambar.size.width / 2, y: -5.5, z: -4,
-                  width: endLine.size.width, height: frame.size.height/5.6,
-                  circleOfRadius: progressionLine.size.width / 2,
-                  name: "endLine",
-                  categoryBitMask: endCategory,
-                  contactTestBitMask: pagarCategory)
-        
-        let progressionDetail = SKLabelNode(fontNamed: "arial")
-        progressionDetail.fontSize = 60
-        progressionDetail.zPosition = 2
-        progressionDetail.text = progressiondetail
-        progressionDetail.fontColor = SKColor.white
-        progressionDetail.position = CGPoint(x: -90 , y: -20)
-        let chordDetail = SKLabelNode(fontNamed: "arial")
-        chordDetail.fontSize = 60
-        chordDetail.zPosition = 2
-        chordDetail.text = chorddetail
-        chordDetail.fontColor = SKColor.white
-        chordDetail.position = CGPoint(x: 90 , y: -20)
-        let movingProg = SKSpriteNode(imageNamed: "movingProg")
-        let movingProgWidth = movingProg.texture?.size().width
-        let movingProgHeight = movingProg.texture?.size().height
-        movingProg.zPosition = 3
-        movingProg.position = CGPoint(x: -90, y: 0)
-        movingProg.size = CGSize(width: (movingProgWidth ?? 0 ) * 1.6, height: (movingProgHeight ?? 0)*1.6)
-        progressionDetail.position = CGPoint(x: -2 , y: -22)
-        gambar.addChild(movingProg)
-        gambar.addChild(chordDetail)
-        gambar.addChild(endLine)
-        movingProg.addChild(progressionDetail)
-        movingProg.addChild(progressionLine)
-        addChild(gambar)
-        
-    }
-    
-    func createNot4Bit(speed : Double, chorddetail : String , progressiondetail : String){
-        
-        let moveBottomLeft = SKAction.move(to: CGPoint(x: frame.minX - 300, y: frame.midY - 195), duration: speed)
-        let gambar = SKSpriteNode(imageNamed: "chordlong1x")
-        gambar.position = CGPoint(x:frame.maxX + 280, y: frame.midY - 195)
-        gambar.zPosition = 2
-        gambar.size = CGSize(width: gambar.size.width/1.35  , height: gambar.size.height/1.35)
-        gambar.physicsBody = SKPhysicsBody (circleOfRadius: gambar.size.width / 6)
-        gambar.physicsBody?.collisionBitMask = .zero
-        gambar.name = "Not"
-        gambar.run(moveBottomLeft, withKey: "gerakKiri")
-        gambar.physicsBody?.collisionBitMask = .zero
-        gambar.physicsBody?.affectedByGravity = false
-        
-        
-        // Begin and End Line
-        let progressionLine = SKSpriteNode(imageNamed: "chordline")
-        setupLine(line: progressionLine,
-                  x: 0, y: -5.5, z: -1,
-                  width: progressionLine.size.width, height: frame.size.height/5.6,
-                  circleOfRadius: progressionLine.size.width / 2,
-                  name: "progressionLine",
-                  categoryBitMask: notCategory,
-                  contactTestBitMask: pagarCategory)
-        
-        let endLine = SKSpriteNode(imageNamed: "chordline")
-        setupLine(line: endLine,
-                  x: gambar.size.width / 2, y: -5.5, z: -4,
-                  width: endLine.size.width, height: frame.size.height/5.6,
-                  circleOfRadius: progressionLine.size.width / 2,
-                  name: "endLine",
-                  categoryBitMask: endCategory,
-                  contactTestBitMask: pagarCategory)
-        
-        // Garis setiap kali detect chord
-        let chordLine1 = SKSpriteNode(imageNamed: "chordline")
-        setupLine(line: chordLine1,
-                  x: -(gambar.size.width - 125) / 4, y: 0, z: -4,
-                  width: endLine.size.width, height: frame.size.height/5.6,
-                  circleOfRadius: 30,
-                  name: "chordLine1",
-                  categoryBitMask: chordLine1Category,
-                  contactTestBitMask: pagarCategory)
-        
-        let chordLine2 = SKSpriteNode(imageNamed: "chordline")
-        setupLine(line: chordLine2,
-                  x: 0, y: 0, z: -4,
-                  width: endLine.size.width, height: frame.size.height/5.6,
-                  circleOfRadius: 30,
-                  name: "chordLine2",
-                  categoryBitMask: chordLine2Category,
-                  contactTestBitMask: pagarCategory)
-        
-        let chordLine3 = SKSpriteNode(imageNamed: "chordline")
-        setupLine(line: chordLine3,
-                  x: (gambar.size.width - 125) / 4, y: 0, z: -4,
-                  width: endLine.size.width, height: frame.size.height/5.6,
-                  circleOfRadius: 30,
-                  name: "chordLine3",
-                  categoryBitMask: chordLine3Category,
-                  contactTestBitMask: pagarCategory)
-        
-        let progressionDetail = SKLabelNode(fontNamed: "arial")
-        progressionDetail.fontSize = 60
-        progressionDetail.zPosition = 2
-        progressionDetail.text = progressiondetail
-        progressionDetail.fontColor = SKColor.white
-        progressionDetail.position = CGPoint(x: -300 , y: -20)
-        let chordDetail = SKLabelNode(fontNamed: "arial")
-        chordDetail.fontSize = 60
-        chordDetail.zPosition = 2
-        chordDetail.text = chorddetail
-        chordDetail.fontColor = SKColor.white
-        chordDetail.position = CGPoint(x: 250 , y: -20)
-        let movingProg = SKSpriteNode(imageNamed: "movingProg")
-        let movingProgWidth = movingProg.texture?.size().width
-        let movingProgHeight = movingProg.texture?.size().height
-        movingProg.zPosition = 3
-        movingProg.position = CGPoint(x: -260, y: 0)
-        movingProg.size = CGSize(width: (movingProgWidth ?? 0 ) * 1.6, height: (movingProgHeight ?? 0)*1.6)
-        progressionDetail.position = CGPoint(x: -2 , y: -22)
-        gambar.addChild(movingProg)
-        gambar.addChild(chordDetail)
-        gambar.addChild(endLine)
-        gambar.addChild(chordLine1)
-        gambar.addChild(chordLine2)
-        gambar.addChild(chordLine3)
-        movingProg.addChild(progressionDetail)
-        movingProg.addChild(progressionLine)
-        addChild(gambar)
-    }
-    
-    func setupLine(line: SKSpriteNode, x: CGFloat, y: CGFloat, z: CGFloat, width: CGFloat, height: CGFloat, circleOfRadius: CGFloat, name: String, categoryBitMask: UInt32, contactTestBitMask: UInt32) {
-        
-        line.position = CGPoint(x: x, y: y)
-        line.zPosition = z
-        line.size = CGSize(width: width, height: height)
-        line.physicsBody = SKPhysicsBody (circleOfRadius: circleOfRadius)
-        line.name = name
-        line.physicsBody?.categoryBitMask = categoryBitMask
-        line.physicsBody?.contactTestBitMask = contactTestBitMask
-        line.physicsBody?.collisionBitMask = .zero
-        line.physicsBody?.affectedByGravity = false
-        
-    }
-    
-    func createBG() {
-        
-        let bg = SKSpriteNode()
-        bg.texture = SKTexture (imageNamed: "rect")
-        bg.size = CGSize(width: frame.size.width, height: frame.size.height)
-        bg.position = CGPoint(x: frame.midX, y: frame.midY)
-        bg.zPosition = -4
-        addChild(bg)
-        let whitebg = SKSpriteNode()
-        whitebg.texture = SKTexture (imageNamed: "whiteback")
-        whitebg.size = CGSize(width: frame.size.width/1.1  , height: frame.size.height/2.5)
-        whitebg.position = CGPoint(x: frame.midX, y: frame.maxY-120)
-        whitebg.zPosition = -3
-        addChild(whitebg)
-        
-    }
-    
-    func pauseGame() {
-        self.isPaused = true
-        self.audioPlayerController.player?.pause()
-    }
-    
-    func resumeGame() {
-        self.isPaused = false
-        self.audioPlayerController.player?.play()
-    }
-    
-    func gameFinish(){
-        
-        self.audioPlayerController.player?.stop()
-        
-        let storyboard = UIStoryboard(name: "SongSelection+Tutorial", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SongSelectionStoryboard")
-        vc.view.frame = (self.view?.frame)!
-        UIView.transition(with: self.view!, duration: 0.1, options: .curveEaseOut, animations:
-            {
-                self.view?.window?.rootViewController = vc
-            }, completion: { completed in })
-
-//        self.view?.window?.rootViewController?.performSegue(withIdentifier: "backtoSelectionPage", sender: self)
-        
-    }
-    
 }
 
 extension GameScene : SKPhysicsContactDelegate{
@@ -723,6 +793,16 @@ extension GameScene : SKPhysicsContactDelegate{
         
         if collision == notCategory | pagarCategory{
             
+//            // Coba Score
+//            score += 1
+//            scoreNode.text = "\(score) / \(chordCount)"
+//            lastprogressNode.text = "\(score)/ \(chordCount)"
+//
+//            addProgress(progressLevel: progressBarPerChord + newProgress)
+//            self.lastscore = progressBarPerChord + newProgress
+//            print(self.lastscore)
+//            newProgress += progressBarPerChord
+            
             self.correctChord.isHidden = true
             print("Collision Occured")
 
@@ -731,13 +811,13 @@ extension GameScene : SKPhysicsContactDelegate{
             print("Bar: \(currentBar)")
 
             // Update Current Chord
-            currentRomawi = songChords[currentBar-1][0]
-            currentChord = chordSet[baseKey]?[currentRomawi] ?? "X"
+            currentRomawi = songRomawi[currentBar-1]
+            currentChord = chordSet[baseKeyChosen]?[currentRomawi] ?? "X"
             print("Chord:\(currentChord)")
             self.chordClassifierViewController.currentChord = currentChord
 
             // Start Audio Engine and Recording
-            self.chordClassifierViewController.startAudioEngine()
+            prepareForStart()
             
         }
         
@@ -779,16 +859,17 @@ extension GameScene : SKPhysicsContactDelegate{
                 score += 1
                 scoreNode.text = "\(score) / 10"
                 lastprogressNode.text = "\(score)/ 10"
-                
-                addProgress(progressLevel: 42 + newProgress)
-                self.lastscore = 42 + newProgress
-                lastprogressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.lastscore, height: 35), cornerRadius: 50).cgPath
+
+                addProgress(progressLevel: progressBarPerChord + newProgress)
+                self.lastscore = progressBarPerChord + newProgress
                 print(self.lastscore)
-                newProgress += 42
+                newProgress += progressBarPerChord
                 
             } else {
                 self.correctChord.isHidden = true
             }
+            
+            
         }
         
     }
@@ -843,7 +924,8 @@ extension GameScene : SKPhysicsContactDelegate{
                 self.removeAllChildren()
                 self.removeAllActions()
                 self.scene?.removeFromParent()
-                gameFinish()
+                
+                gameFinished()
             }
         }
     }

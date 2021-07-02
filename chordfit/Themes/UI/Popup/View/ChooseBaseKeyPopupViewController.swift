@@ -22,7 +22,9 @@ class ChooseBaseKeyPopupViewController: UIViewController {
     @IBOutlet weak var overlayView: UIView!
     
     var baseKey: String = "C"
-    var songToPlay: Song?
+    var songToPlay: Songs?
+    
+    var gameSceneDelegate: GameSceneDelegate?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,9 @@ class ChooseBaseKeyPopupViewController: UIViewController {
         
 //
 //        popupContentView.isUserInteractionEnabled = false
+        
+        basekeySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ChordFitColors.init().black ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)], for: UIControl.State.normal)
+        basekeySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: ChordFitColors.init().black ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)], for: UIControl.State.selected)
 
         outerView.layer.cornerRadius = 50
         popupContentView.layer.borderWidth = 3
@@ -68,16 +73,16 @@ class ChooseBaseKeyPopupViewController: UIViewController {
         titleLabel.text = songToPlay?.title
         artistLabel.text = songToPlay?.artist
         genreLabel.text = songToPlay?.genre
-        bpmLabel.text = "\(songToPlay?.beat ?? 122) bpm"
+        bpmLabel.text = "\(songToPlay?.bpm ?? 122) bpm"
     }
     
     
     
   
-    @IBAction func playSong(_ sender: UIButton) {
-        //perform segue ke halaman adit
-        performSegue(withIdentifier: "chooseBaseKeyPopupToGamePlaySegue", sender: self)
-        print("hehe")
+
+
+    @IBAction func playGameScene(_ sender: UIButton) {
+        performSegue(withIdentifier: "gotoGameScene", sender: self)
     }
     
         
@@ -103,15 +108,34 @@ class ChooseBaseKeyPopupViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //prepare ke adit
-        if segue.identifier == "chooseBaseKeyPopupToGamePlaySegue" {
+        if segue.identifier == "gotoGameScene" {
             if let viewController = segue.destination as? GameSceneViewController {
-                viewController.songToPlay = songToPlay
-                viewController.baseKey = baseKey
-                print(viewController.songToPlay)
+//                viewController.songToPlay = songToPlay
+                viewController.gsDelegate = self
+                viewController.songSelectionDelegate = gameSceneDelegate
+                print("\(viewController.gsDelegate) , INI DARI PREPARE")
+                
+                // Set Song Details in GameSceneViewController
+                viewController.songCoreData = songToPlay
+                viewController.setSongAndBaseKey(titleOfSong: songToPlay?.title ?? "Demons", key: baseKey)
+                
+//                print(viewController.songToPlay)
             }
         }
     }
     
 
 
+}
+
+extension ChooseBaseKeyPopupViewController : GSViewControllerDelegate {
+    func dismissChooseBaseKey() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            print("Berhasil")
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        print("Berhasil dismiss")
+    }
 }

@@ -16,17 +16,17 @@ struct SongStaticDataStore {
         var arrSongs = [Song]()
         
         let imYoursChords = [["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4]]
-        let imYours = Song(title: "I'm Yours", genre: "Pop", artist: "Jason Mraz", image: "Im Yours", beat: 151, chords: imYoursChords)
+        let imYours = Song(title: "I'm Yours", genre: "Pop", artist: "Jason Mraz", image: "Im Yours", beat: 151, chords: imYoursChords, bpm: 74)
         
         let demonsChords = [["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4]]
-        let demons = Song(title: "Demons", genre: "Alternative Rock", artist: "Imagine Dragons", image: "Demons", beat: 88, chords: demonsChords)
+        let demons = Song(title: "Demons", genre: "Alternative Rock", artist: "Imagine Dragons", image: "Demons", beat: 88, chords: demonsChords, bpm: 90)
         
         let beautifulInWhiteChords = [["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["IV", 2], ["I", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["IV", 2], ["I", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["IV", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["vi", 4], ["IV", 4], ["I", 4], ["V", 4], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["V", 4], ["I", 4]]
-        let beautifulInWhite = Song(title: "Beautiful in White", genre: "Pop", artist: "Shane Filan", image: "Beautiful in White", beat: 78, chords: beautifulInWhiteChords)
+        let beautifulInWhite = Song(title: "Beautiful in White", genre: "Pop", artist: "Shane Filan", image: "Beautiful in White", beat: 78, chords: beautifulInWhiteChords, bpm: 76)
         
         
         let memoriesChord = [["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2], ["V", 2], ["vi", 2], ["iii", 2], ["IV", 2], ["I", 2], ["IV", 2], ["V", 2], ["I", 2], ["V", 2], ["I", 2]]
-        let memories = Song(title: "Memories", genre: "Pop", artist: "Maroon 5", image: "Memories", beat: 91, chords: memoriesChord)
+        let memories = Song(title: "Memories", genre: "Pop", artist: "Maroon 5", image: "Memories", beat: 91, chords: memoriesChord, bpm: 90)
         
         arrSongs.append(imYours)
         arrSongs.append(demons)

@@ -8,12 +8,12 @@
 import UIKit
 
 class SongRepository {
-    
+
     var staticDataStore: SongStaticDataStore
-    
+
     var songProgression: [SongProgression]?
     var songs: [Song]?
-    
+
     func getSongs() -> [Song] {
         if songs == nil {
             self.songProgression = staticDataStore.songProgression
@@ -21,9 +21,9 @@ class SongRepository {
         }
         return songs ?? []
     }
-    
+
     static let shared = SongRepository(staticDataStore: SongStaticDataStore())
-    
+
     private init(staticDataStore: SongStaticDataStore) {
         self.staticDataStore = staticDataStore
     }

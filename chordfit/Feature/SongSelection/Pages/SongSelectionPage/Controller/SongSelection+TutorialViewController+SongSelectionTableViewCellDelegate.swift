@@ -11,5 +11,22 @@ extension SongSelection_TutorialViewController: SongSelectionTableViewCellDelega
     func songDidTap(song: Song) {
         print(song.title)
     }
+}
 
+extension SongSelection_TutorialViewController: GameSceneDelegate{
+    func sendGameResultToSongSelection(songTitle: String, key: String, userGetStar: Bool) {
+        getStar = userGetStar
+        baseKeyFromGameplay = key
+        
+        print("BOLEH DAPAT BINTANG: \(getStar)")
+        print("BaseKey: \(key)")
+    }
+    
+    func dismissChooseBaseKeyPopup(text: String) {
+        
+    }
+    
+    func returnData(text: String){
+        print(text)
+    }
 }
